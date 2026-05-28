@@ -1,0 +1,243 @@
+{
+  "table_name": "subscriber_profile",
+  "description": "Subscriber profile and behavioral attributes for prepaid telecom users",
+  "grain": "One row per subscriber",
+  "primary_key": [
+    "msisdn"
+  ],
+  "columns": [
+    {
+      "name": "msisdn",
+      "semantic_alias": "subscriber_id",
+      "type": "string",
+      "description": "Unique mobile subscriber identifier",
+      "business_meaning": "Primary subscriber identifier",
+      "category": "identifier",
+      "pii": true
+    },
+    {
+      "name": "offer_tag",
+      "semantic_alias": "offer_segment",
+      "type": "categorical",
+      "description": "Current recharge offer category",
+      "business_meaning": "Recharge plan or offer segment",
+      "category": "plan"
+    },
+    {
+      "name": "HS_AON",
+      "semantic_alias": "handset_age_days",
+      "type": "numeric",
+      "description": "Handset age on network",
+      "business_meaning": "Duration handset has been active on network",
+      "unit": "days",
+      "category": "device"
+    },
+    {
+      "name": "NW_AON",
+      "semantic_alias": "network_tenure_days",
+      "type": "numeric",
+      "description": "Subscriber age on network",
+      "business_meaning": "Customer tenure on telecom network",
+      "unit": "days",
+      "category": "customer_lifecycle"
+    },
+    {
+      "name": "HS_BRAND",
+      "semantic_alias": "handset_brand",
+      "type": "categorical",
+      "description": "Mobile handset brand",
+      "business_meaning": "Device manufacturer brand",
+      "category": "device"
+    },
+    {
+      "name": "HS_TYPE",
+      "semantic_alias": "handset_type",
+      "type": "categorical",
+      "description": "Handset is Smarthphone or featurephone",
+      "business_meaning": "Indicates device digital readiness",
+      "category": "device"
+    },
+    {
+      "name": "HS_BAND",
+      "semantic_alias": "handset_tech",
+      "type": "categorical",
+      "description": "Handset technology type",
+      "business_meaning": "Indicates device capability such as 4G or 5G",
+      "category": "device"
+    },
+    {
+      "name": "Price",
+      "semantic_alias": "Handset_value",
+      "type": "numeric",
+      "description": "Handset Value",
+      "business_meaning": "Value of handset used by subscriber",
+      "unit": "INR",
+      "category": "device"
+    },
+    {
+      "name": "data_80_limit_breach",
+      "semantic_alias": "data_usage_80pct_flag",
+      "type": "numeric",
+      "description": "80 percent data usage threshold indicator",
+      "business_meaning": "Indicates heavy data consumption behavior",
+      "category": "usage"
+    },
+    {
+      "name": "fup_limit_breach",
+      "semantic_alias": "fup_breach_flag",
+      "type": "categorical",
+      "description": "Fair usage policy limit breach indicator",
+      "business_meaning": "Identifies users crossing FUP limits",
+      "category": "usage"
+    },
+    {
+      "name": "data_usage_level",
+      "semantic_alias": "avg_data_usage_gb",
+      "type": "numeric",
+      "description": "Average mobile data consumption",
+      "business_meaning": "Internet usage level of subscriber",
+      "unit": "GB",
+      "category": "usage"
+    },
+    {
+      "name": "bundle_consistency",
+      "semantic_alias": "bundle_consumption_pct",
+      "type": "numeric",
+      "description": "Recharge bundle consumption percentage",
+      "business_meaning": "Extent of recharge benefit utilization",
+      "unit": "%",
+      "category": "usage"
+    },
+    {
+      "name": "vowifi_mous",
+      "semantic_alias": "vowifi_minutes_usage",
+      "type": "numeric",
+      "description": "Voice over WiFi minutes of usage",
+      "business_meaning": "VoWiFi calling engagement",
+      "unit": "minutes",
+      "category": "voice_usage"
+    },
+    {
+      "name": "customer_age",
+      "semantic_alias": "customer_age",
+      "type": "numeric",
+      "description": "Customer age",
+      "business_meaning": "Subscriber demographic age",
+      "unit": "years",
+      "category": "demographics"
+    },
+    {
+      "name": "cricket_cohort_tag",
+      "semantic_alias": "cricket_affinity_segment",
+      "type": "categorical",
+      "description": "Cricket affinity cohort",
+      "business_meaning": "Interest in cricket-related content",
+      "category": "content_affinity"
+    },
+    {
+      "name": "ir_roamer_tag",
+      "semantic_alias": "international_roamer_flag",
+      "type": "categorical",
+      "description": "International roaming segment",
+      "business_meaning": "Indicates international traveler segment",
+      "category": "mobility"
+    },
+    {
+      "name": "bb_tag",
+      "semantic_alias": "broadband_customer_flag",
+      "type": "categorical",
+      "description": "Broadband ownership tag",
+      "business_meaning": "Indicates broadband service ownership",
+      "category": "cross_sell"
+    },
+    {
+      "name": "dth_tag",
+      "semantic_alias": "dth_customer_flag",
+      "type": "categorical",
+      "description": "DTH subscriber indicator",
+      "business_meaning": "Indicates DTH service ownership",
+      "category": "cross_sell"
+    },
+    {
+      "name": "other_recharge",
+      "semantic_alias": "other_recharge_amount",
+      "type": "numeric",
+      "description": "Additional recharge spending",
+      "business_meaning": "Additional recharge behavior",
+      "unit": "INR",
+      "category": "revenue"
+    },
+    {
+      "name": "GENDER_L1",
+      "semantic_alias": "gender_segment",
+      "type": "categorical",
+      "description": "Predicted gender classification",
+      "business_meaning": "Subscriber gender segment",
+      "category": "demographics"
+    },
+    {
+      "name": "Category",
+      "semantic_alias": "customer_category",
+      "type": "categorical",
+      "description": "High-level customer segment",
+      "business_meaning": "Subscriber behavioral segment",
+      "category": "segmentation"
+    },
+    {
+      "name": "GEO_TAG",
+      "semantic_alias": "geo_segment",
+      "type": "categorical",
+      "description": "Geographical classification",
+      "business_meaning": "Urban, rural or metro classification",
+      "category": "location"
+    },
+    {
+      "name": "AGE_BUCKET",
+      "semantic_alias": "age_group",
+      "type": "categorical",
+      "description": "Age bucket classification",
+      "business_meaning": "Subscriber age group segment",
+      "category": "demographics"
+    },
+    {
+      "name": "AI_MASTER",
+      "semantic_alias": "ai_master_segment",
+      "type": "categorical",
+      "description": "AI-generated customer persona",
+      "business_meaning": "Behavioral customer segmentation",
+      "category": "segmentation"
+    },
+    {
+      "name": "NATIONAL_ROAMER",
+      "semantic_alias": "national_roaming_flag",
+      "type": "categorical",
+      "description": "National roaming indicator",
+      "business_meaning": "Indicates domestic travel behavior",
+      "category": "mobility"
+    },
+    {
+      "name": "CWE",
+      "semantic_alias": "chief_wage_earner_flag",
+      "type": "categorical",
+      "description": "Chief wage earner indicator",
+      "business_meaning": "Indicates primary household earning member",
+      "category": "affluence"
+    },
+    {
+      "name": "Digital_Savvy",
+      "semantic_alias": "digital_engagement_segment",
+      "type": "categorical",
+      "description": "Digital engagement segment",
+      "business_meaning": "Indicates digitally active users",
+      "category": "digital_behavior"
+    },
+    {
+      "name": "OTT_LOVER",
+      "semantic_alias": "ott_affinity_flag",
+      "type": "categorical",
+      "description": "OTT content affinity indicator",
+      "business_meaning": "Indicates streaming platform engagement",
+      "category": "content_affinity"
+    }
+  ]
+}

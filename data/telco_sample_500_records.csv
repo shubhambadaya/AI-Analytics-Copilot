@@ -1,0 +1,501 @@
+msisdn,offer_tag,HS_AON,NW_AON,HS_BRAND,HS_BAND,HS_TYPE,Price,data_80_limit_breach,fup_limit_breach,data_usage_level,bundle_consistency,vowifi_mous,customer_age,cricket_cohort_tag,ir_roamer_tag,bb_tag,dth_tag,other_recharge,GENDER_L1,Category,GEO_TAG,AGE_BUCKET,AI_MASTER,NATIONAL_ROAMER,CWE,Digital_Savvy,OTT_LOVER
+9858477938,979,52,77,OnePlus,5G,Smartphone,40895,4.7,2.35,Medium,Low,104,Young,0,0,1,0,1,Male,Homemaker,Urban,26-35,0,0,0,1,1
+9898685088,349,24,101,Realme,4G,Smartphone,8754,8.28,0.93,Very High,Low,123,Young,0,1,0,0,1,Female,Salaried,Rural,26-35,0,1,0,0,0
+9897891756,3999,60,97,Apple,4G,Feature Phone,137492,2.91,3.55,Low,Medium,79,Young,0,0,1,1,1,Female,Homemaker,Metro,18-25,0,1,1,0,0
+9851253867,399,55,86,Oppo,5G,Smartphone,33907,6.92,3.8,Low,Medium,422,Senior,1,1,0,0,1,Female,Student,Metro,36-45,0,0,1,1,0
+9837710679,349,57,46,Xiaomi,5G,Feature Phone,13315,6.38,3.97,Low,Low,74,Adult,0,0,1,0,0,Male,Salaried,Rural,60+,0,1,0,1,1
+9829899306,349,51,101,Vivo,5G,Feature Phone,18290,0.47,3.87,Medium,Medium,455,Young,1,1,0,1,0,Male,Salaried,Urban,18-25,1,0,1,0,1
+9889973930,349,32,101,Oppo,5G,Smartphone,11255,6.94,2.86,Low,Medium,270,Adult,0,0,0,0,0,Female,Salaried,Urban,18-25,0,1,0,1,0
+9876764742,979,30,73,Samsung,4G,Feature Phone,48066,3.9,1.06,Low,Low,37,Adult,1,0,0,0,1,Female,Homemaker,Metro,36-45,1,0,1,1,1
+9895645814,349,33,10,Vivo,4G,Smartphone,11462,9.18,0.32,Medium,Medium,227,Senior,1,1,1,1,0,Male,Business,Urban,36-45,0,0,1,0,0
+9813355351,349,24,82,Realme,5G,Smartphone,16453,2.11,4.6,High,Medium,170,Adult,1,0,0,0,0,Female,Homemaker,Rural,36-45,1,1,0,0,1
+9831867172,3999,46,30,Apple,4G,Smartphone,77780,2.62,3.47,Medium,Low,441,Young,1,0,0,0,0,Female,Salaried,Metro,36-45,0,0,1,1,1
+9824377540,349,29,114,Vivo,5G,Smartphone,12313,1.25,2.51,Very High,High,258,Young,1,0,1,1,0,Male,Business,Rural,60+,0,1,1,0,1
+9875314070,349,43,52,Realme,4G,Feature Phone,14374,6.12,1.7,Low,High,383,Adult,0,1,1,0,0,Female,Business,Rural,60+,1,0,0,0,0
+9857448368,349,28,15,Realme,4G,Smartphone,11317,3.26,3.82,High,High,437,Senior,0,0,0,0,1,Male,Business,Urban,60+,0,0,1,1,1
+9877370919,349,11,104,Xiaomi,4G,Feature Phone,11570,7.34,4.74,Low,Low,121,Adult,1,1,0,0,0,Female,Student,Urban,26-35,0,1,1,0,0
+9879311382,349,25,120,Vivo,4G,Feature Phone,15590,3.27,3.53,Medium,Medium,500,Adult,1,0,1,1,0,Male,Homemaker,Rural,60+,0,1,0,0,0
+9841382878,349,34,106,Vivo,5G,Smartphone,19149,7.82,0.69,High,Medium,174,Adult,1,1,1,0,0,Female,Salaried,Rural,18-25,1,0,0,1,1
+9868778807,3999,17,80,Samsung,4G,Smartphone,89921,7.33,1.48,Medium,Low,194,Senior,1,1,0,0,1,Female,Student,Metro,46-60,0,1,0,1,1
+9881300151,3999,27,9,Apple,5G,Feature Phone,109857,8.91,4.9,Very High,Medium,431,Adult,1,1,1,0,1,Male,Student,Metro,18-25,1,1,0,0,0
+9813212401,349,59,83,Xiaomi,5G,Feature Phone,12739,3.38,4.89,Medium,Medium,245,Senior,0,0,0,1,1,Female,Salaried,Rural,46-60,0,0,1,1,1
+9825932776,979,56,26,Samsung,4G,Smartphone,38973,1.54,4.57,Very High,Medium,465,Senior,0,1,1,1,1,Male,Student,Urban,18-25,0,1,1,0,0
+9882183558,349,23,15,Oppo,4G,Feature Phone,15179,6.02,4.43,Very High,Low,67,Young,0,1,0,0,1,Female,Salaried,Rural,46-60,1,0,1,0,1
+9810906019,979,17,97,OnePlus,5G,Smartphone,58624,9.92,2.18,Very High,Low,318,Adult,1,0,0,1,0,Female,Business,Metro,36-45,1,1,1,0,1
+9845823116,3999,11,114,Apple,5G,Smartphone,142777,0.04,2.23,Very High,Low,83,Senior,0,0,0,0,0,Male,Homemaker,Metro,18-25,0,0,0,1,1
+9853008317,979,50,6,OnePlus,4G,Feature Phone,53041,9.47,0.16,Very High,Low,498,Adult,1,1,0,1,1,Male,Homemaker,Urban,60+,1,1,0,0,1
+9813598323,399,12,90,OnePlus,4G,Smartphone,21815,0.12,3.32,Low,Medium,484,Senior,1,0,0,0,0,Male,Student,Metro,36-45,0,1,0,1,0
+9893514709,349,51,105,Vivo,5G,Feature Phone,19962,4.81,0.23,Low,High,350,Senior,1,1,0,0,1,Female,Homemaker,Rural,60+,0,0,1,1,1
+9810260201,399,26,25,Oppo,4G,Feature Phone,32961,5.16,4.49,Very High,High,94,Senior,0,0,1,1,1,Male,Homemaker,Metro,46-60,0,0,0,0,0
+9815377603,349,42,110,Xiaomi,4G,Feature Phone,14033,2.5,2.9,Low,Low,54,Senior,1,0,1,0,0,Male,Business,Urban,26-35,0,0,1,1,1
+9875025428,349,28,105,Xiaomi,5G,Feature Phone,10072,3.94,3.12,Medium,Medium,349,Adult,1,0,1,1,1,Female,Student,Urban,60+,1,1,1,1,0
+9869705711,3999,21,94,Apple,4G,Feature Phone,139387,5.23,0.71,Very High,Medium,161,Senior,1,1,1,0,1,Female,Salaried,Metro,18-25,0,0,1,1,0
+9821679887,349,6,39,Xiaomi,5G,Smartphone,17623,4.8,2.41,Medium,High,183,Young,0,1,1,0,0,Male,Homemaker,Urban,26-35,1,0,0,1,0
+9833934064,349,50,10,Realme,5G,Smartphone,9133,5.25,2.66,High,High,353,Adult,0,1,0,0,1,Male,Student,Urban,36-45,0,0,1,1,1
+9834787523,3999,9,7,Samsung,4G,Feature Phone,110736,7.96,4.51,High,Medium,163,Young,0,1,0,0,0,Female,Student,Metro,60+,0,1,0,0,0
+9867793127,3999,6,29,Samsung,4G,Feature Phone,105825,4.76,0.91,Low,Medium,146,Adult,0,1,1,1,1,Female,Homemaker,Metro,60+,1,1,0,0,1
+9857713656,3999,51,90,Samsung,4G,Smartphone,149866,7.94,4.0,Low,Low,229,Young,1,0,1,1,1,Female,Student,Metro,36-45,0,1,1,0,1
+9881058437,399,42,56,Vivo,4G,Feature Phone,27639,0.56,3.76,High,Medium,369,Young,0,1,0,1,1,Male,Salaried,Urban,36-45,1,0,1,1,0
+9834370060,349,59,108,Oppo,5G,Smartphone,21818,2.0,0.4,Very High,Medium,148,Young,1,0,0,0,0,Female,Student,Urban,18-25,0,0,1,0,0
+9818506649,399,10,44,Samsung,5G,Feature Phone,29744,5.49,2.88,Low,High,117,Senior,0,1,0,1,1,Male,Student,Urban,18-25,0,1,0,1,0
+9838485036,349,13,96,Xiaomi,5G,Smartphone,11453,3.9,1.06,Very High,Medium,386,Adult,0,1,1,1,1,Female,Student,Rural,46-60,1,1,0,0,0
+9880200038,979,33,119,Apple,5G,Smartphone,33935,9.9,0.72,Very High,Medium,151,Young,0,0,0,1,0,Female,Salaried,Metro,18-25,1,0,1,1,1
+9867891703,349,58,108,Vivo,4G,Smartphone,9053,9.97,3.94,Very High,High,74,Adult,1,1,1,1,0,Male,Student,Rural,36-45,0,1,0,0,0
+9831483875,979,25,95,Apple,4G,Feature Phone,32258,0.31,0.67,High,High,303,Senior,0,0,1,1,0,Male,Salaried,Urban,18-25,0,0,1,0,1
+9892706799,979,54,94,Apple,4G,Feature Phone,38944,9.51,1.78,High,Medium,166,Young,1,1,0,0,1,Male,Salaried,Urban,36-45,0,0,0,0,0
+9858351794,349,45,13,Oppo,4G,Feature Phone,9122,2.64,1.9,Low,Medium,106,Young,1,0,1,0,0,Male,Salaried,Rural,60+,0,1,0,0,1
+9843776492,3999,18,48,Samsung,4G,Smartphone,125977,7.86,3.35,Very High,Low,293,Senior,1,0,0,1,1,Female,Salaried,Metro,60+,0,0,0,0,0
+9835744207,1729,53,120,Samsung,5G,Feature Phone,64950,3.6,1.13,Low,Low,238,Adult,0,1,0,0,0,Female,Salaried,Metro,36-45,1,0,0,1,1
+9825322205,349,45,96,Vivo,5G,Smartphone,13105,6.52,4.86,Very High,Low,467,Senior,0,1,1,1,0,Male,Homemaker,Rural,46-60,1,1,0,0,1
+9843175543,349,12,19,Realme,4G,Smartphone,8142,2.91,2.5,Very High,Medium,326,Young,0,0,1,1,0,Male,Business,Rural,26-35,1,0,1,0,0
+9830881337,349,29,30,Realme,4G,Smartphone,11720,1.59,3.29,High,Low,337,Adult,1,1,0,0,0,Male,Salaried,Rural,18-25,1,1,1,1,1
+9821404220,399,16,96,Oppo,4G,Smartphone,27697,4.76,2.3,Very High,Medium,87,Young,1,1,1,1,0,Female,Business,Urban,46-60,0,1,0,0,0
+9866353428,979,57,44,Samsung,4G,Smartphone,51096,7.27,2.16,High,Medium,278,Young,0,1,0,1,0,Male,Business,Metro,18-25,0,1,1,0,0
+9848433788,979,31,79,Samsung,5G,Feature Phone,45591,5.03,3.36,Medium,Medium,114,Adult,1,1,1,1,1,Female,Business,Metro,60+,0,0,1,0,1
+9892092079,399,18,76,Samsung,5G,Feature Phone,34995,6.41,2.2,Medium,Medium,146,Senior,1,0,1,1,0,Female,Business,Metro,60+,0,1,1,1,0
+9828584040,349,59,66,Oppo,4G,Feature Phone,18642,0.72,3.28,Very High,Medium,244,Adult,1,0,1,1,1,Male,Salaried,Urban,26-35,1,1,0,1,0
+9884080429,399,39,14,Vivo,4G,Feature Phone,24568,9.77,0.55,High,Low,297,Adult,1,1,0,1,1,Female,Salaried,Metro,36-45,0,0,0,1,0
+9810468900,979,20,22,OnePlus,5G,Feature Phone,47185,9.76,1.33,High,Medium,327,Adult,1,1,0,0,1,Male,Salaried,Metro,26-35,0,0,1,1,0
+9854104403,349,22,51,Vivo,4G,Feature Phone,15907,3.27,3.12,Very High,High,300,Senior,0,0,0,0,1,Male,Business,Urban,36-45,0,0,0,0,0
+9813715262,349,31,103,Realme,5G,Feature Phone,11340,2.7,2.93,Medium,High,331,Adult,0,1,1,1,0,Male,Business,Rural,26-35,1,0,1,0,1
+9881435529,349,54,52,Oppo,5G,Feature Phone,12839,6.67,4.26,Very High,Low,192,Adult,0,0,1,1,0,Male,Student,Rural,26-35,1,0,0,0,0
+9867667622,349,45,42,Xiaomi,4G,Smartphone,18338,2.81,3.83,High,High,139,Young,0,1,1,1,1,Male,Business,Rural,18-25,0,1,0,1,1
+9840119768,349,38,67,Vivo,5G,Feature Phone,12593,9.38,1.6,High,Medium,439,Senior,0,0,0,1,0,Male,Salaried,Urban,18-25,1,0,0,1,0
+9811914380,349,18,103,Xiaomi,5G,Smartphone,16477,3.31,3.26,High,Medium,254,Senior,0,0,1,1,0,Male,Business,Urban,36-45,1,1,0,0,1
+9896096075,349,17,84,Oppo,4G,Feature Phone,12899,7.14,2.97,High,Medium,77,Adult,0,1,0,1,0,Male,Salaried,Rural,26-35,1,1,1,0,0
+9830399666,349,37,12,Vivo,5G,Feature Phone,19503,0.82,3.14,High,High,31,Young,1,1,1,0,1,Female,Homemaker,Rural,26-35,1,0,0,1,1
+9897307153,349,10,21,Vivo,4G,Smartphone,20959,3.05,3.0,High,High,63,Young,1,1,1,0,0,Male,Business,Urban,36-45,0,0,1,0,0
+9872862581,3999,14,91,Apple,4G,Smartphone,74742,4.66,0.93,Medium,High,17,Adult,1,1,0,1,0,Male,Homemaker,Metro,46-60,1,1,1,1,1
+9828611238,349,12,47,Oppo,5G,Feature Phone,19102,5.37,2.31,Medium,High,441,Adult,0,1,0,1,1,Male,Salaried,Urban,36-45,1,1,0,1,0
+9832513319,349,59,12,Xiaomi,5G,Smartphone,17179,0.67,3.72,High,Low,57,Young,1,0,0,1,1,Female,Salaried,Rural,60+,1,0,1,1,1
+9814211934,349,14,63,Vivo,5G,Smartphone,17701,9.13,0.98,Medium,Medium,204,Adult,1,1,0,0,0,Female,Salaried,Urban,36-45,1,1,1,1,0
+9839402353,979,23,118,OnePlus,4G,Smartphone,47834,5.42,3.73,Medium,Medium,200,Young,1,0,1,0,0,Female,Homemaker,Urban,46-60,0,0,0,1,0
+9828487305,979,17,95,OnePlus,4G,Smartphone,56646,2.54,4.27,Very High,Medium,41,Adult,1,0,1,1,0,Female,Student,Metro,60+,0,1,0,1,0
+9813616432,349,15,69,Xiaomi,4G,Smartphone,10545,4.75,2.66,Low,Medium,201,Senior,0,0,0,1,0,Male,Salaried,Rural,36-45,0,1,0,1,0
+9876066002,349,19,26,Oppo,5G,Feature Phone,17499,9.79,2.75,Low,Low,339,Young,1,0,0,0,1,Female,Student,Urban,26-35,0,0,1,0,1
+9846697835,1729,30,34,Samsung,5G,Smartphone,80788,5.42,4.73,High,High,204,Adult,0,0,0,1,1,Male,Homemaker,Urban,36-45,0,0,0,0,1
+9841188024,1729,54,11,Samsung,4G,Smartphone,67548,8.63,3.92,Medium,Low,439,Adult,1,0,1,1,0,Female,Homemaker,Metro,60+,1,1,1,1,1
+9859074214,349,59,65,Oppo,5G,Smartphone,13994,0.45,3.45,High,High,399,Senior,1,1,1,1,1,Female,Student,Rural,26-35,1,0,1,1,1
+9874801276,3999,7,102,Apple,4G,Smartphone,95210,2.63,1.37,Low,Medium,108,Adult,1,1,0,1,1,Female,Homemaker,Metro,36-45,0,0,0,1,0
+9832803653,349,10,85,Realme,5G,Smartphone,15998,8.23,1.55,Very High,Low,226,Adult,1,0,0,0,1,Male,Salaried,Urban,46-60,1,0,0,0,0
+9831274418,349,8,78,Vivo,5G,Feature Phone,9893,8.94,0.25,Medium,Low,124,Young,1,0,0,0,0,Male,Business,Urban,36-45,0,0,1,0,0
+9852489036,399,6,22,Samsung,5G,Feature Phone,20321,4.2,2.3,Low,Medium,197,Adult,1,0,1,1,0,Male,Homemaker,Urban,46-60,0,0,1,1,0
+9817423209,399,38,76,OnePlus,5G,Smartphone,27344,3.88,0.24,Very High,Low,272,Senior,0,0,0,1,1,Male,Student,Urban,36-45,0,1,1,1,0
+9861238330,349,34,108,Realme,5G,Feature Phone,11968,6.97,4.95,Very High,Medium,42,Senior,0,1,0,1,0,Male,Student,Urban,26-35,0,0,0,0,1
+9855334296,979,45,94,Apple,4G,Smartphone,44573,4.2,0.86,Medium,Medium,37,Adult,1,1,0,1,0,Male,Business,Metro,36-45,1,1,1,0,0
+9878343768,349,56,90,Oppo,5G,Feature Phone,17643,0.5,3.78,Very High,Medium,129,Young,0,0,1,0,1,Female,Student,Rural,18-25,1,1,1,0,0
+9836189634,979,46,76,Samsung,4G,Smartphone,31614,8.53,0.27,Medium,High,7,Adult,0,0,0,0,0,Female,Business,Metro,18-25,1,0,0,1,0
+9848142896,979,38,69,Samsung,4G,Feature Phone,41546,2.6,0.97,Low,Low,311,Adult,0,1,0,1,1,Female,Student,Metro,46-60,1,0,0,0,1
+9817157677,399,50,60,Vivo,5G,Smartphone,22327,2.21,4.4,Medium,Low,421,Adult,1,0,1,0,0,Female,Business,Metro,60+,1,1,1,0,1
+9883441862,349,8,44,Oppo,4G,Feature Phone,17086,3.55,1.14,Very High,Medium,19,Adult,0,1,1,0,1,Female,Business,Urban,26-35,1,0,0,1,0
+9848199795,349,52,90,Oppo,4G,Smartphone,17355,4.54,4.18,Low,Medium,480,Adult,1,0,1,1,0,Male,Business,Urban,36-45,1,1,0,0,0
+9878940910,3999,9,70,Samsung,4G,Smartphone,75315,1.28,4.99,Medium,Low,91,Young,1,0,1,0,0,Female,Salaried,Metro,36-45,1,1,1,1,1
+9840289215,349,31,31,Xiaomi,5G,Smartphone,19843,8.44,4.86,High,Low,355,Adult,0,0,0,0,1,Male,Salaried,Urban,26-35,1,1,0,1,1
+9882452333,3999,30,43,Samsung,4G,Feature Phone,100603,4.18,3.36,Very High,Low,57,Adult,1,0,0,0,1,Female,Business,Metro,18-25,0,1,1,0,1
+9834910961,349,11,118,Xiaomi,4G,Smartphone,18594,4.36,4.88,Low,Low,158,Young,1,0,1,1,0,Female,Business,Urban,18-25,1,0,1,0,1
+9832868242,979,56,44,Samsung,5G,Smartphone,56420,7.62,4.83,Very High,Low,340,Adult,0,0,1,1,1,Male,Salaried,Metro,60+,1,1,0,0,1
+9895573195,349,15,36,Vivo,4G,Feature Phone,19627,5.13,0.42,Low,Medium,86,Young,1,0,1,0,0,Male,Business,Rural,26-35,1,0,0,0,0
+9858191173,349,12,74,Xiaomi,4G,Feature Phone,8517,3.99,0.81,High,High,238,Senior,1,1,1,1,0,Female,Business,Rural,60+,0,1,1,0,1
+9895061545,349,57,98,Xiaomi,5G,Smartphone,15845,6.58,1.49,High,Medium,60,Senior,0,1,1,1,1,Male,Business,Urban,36-45,0,1,0,1,0
+9840952532,399,8,66,Oppo,4G,Smartphone,24588,8.01,3.3,High,Low,499,Adult,1,0,0,1,0,Male,Student,Metro,36-45,0,1,0,0,1
+9823999153,399,56,27,Vivo,5G,Feature Phone,25619,0.01,2.38,Very High,Medium,371,Young,1,0,1,0,0,Male,Business,Metro,36-45,0,0,0,0,0
+9847268625,349,8,120,Vivo,5G,Feature Phone,18406,2.19,1.21,Medium,Medium,35,Adult,0,1,1,0,0,Female,Student,Urban,60+,0,1,1,0,0
+9836388104,349,28,28,Vivo,4G,Smartphone,15758,8.31,1.91,Low,Medium,356,Senior,0,1,0,1,1,Female,Salaried,Rural,18-25,1,0,0,1,1
+9834755850,399,32,48,OnePlus,4G,Feature Phone,21140,2.85,3.07,Low,Medium,338,Senior,0,1,0,0,0,Male,Business,Metro,26-35,0,0,0,0,1
+9829843726,399,29,46,Samsung,4G,Smartphone,29379,4.82,0.02,Medium,High,446,Young,1,0,0,0,1,Male,Student,Metro,46-60,1,1,1,0,1
+9830806690,349,39,58,Xiaomi,4G,Smartphone,15833,1.93,0.46,Medium,High,315,Adult,0,1,0,0,1,Male,Business,Rural,60+,1,0,0,1,0
+9830142206,979,38,83,OnePlus,4G,Smartphone,45077,8.62,1.6,Very High,Medium,487,Senior,1,0,0,0,0,Male,Business,Urban,36-45,0,1,0,0,0
+9869288386,399,56,89,Samsung,4G,Smartphone,19393,7.33,3.48,Very High,Low,269,Young,0,1,0,0,0,Female,Business,Metro,18-25,0,1,1,1,1
+9879733453,979,29,31,Apple,5G,Feature Phone,54017,2.4,3.2,Medium,Medium,477,Young,1,1,1,0,0,Female,Salaried,Metro,26-35,0,1,0,1,1
+9840302309,349,41,73,Xiaomi,4G,Smartphone,13342,3.12,4.37,Very High,Medium,465,Adult,0,0,1,1,1,Male,Student,Rural,36-45,0,1,0,0,1
+9893342086,979,16,45,OnePlus,5G,Feature Phone,37808,7.85,1.06,Medium,Low,287,Adult,0,0,1,1,0,Female,Student,Metro,18-25,1,0,1,0,1
+9854149253,349,58,69,Xiaomi,5G,Feature Phone,14516,7.24,4.49,High,Medium,254,Senior,1,0,1,1,0,Male,Salaried,Urban,36-45,1,1,0,0,1
+9866225724,349,27,51,Xiaomi,4G,Feature Phone,16844,3.01,0.39,Medium,High,287,Senior,1,0,1,0,1,Female,Student,Urban,26-35,0,0,0,0,1
+9873034184,349,11,11,Oppo,4G,Feature Phone,11939,9.81,4.77,High,Medium,414,Adult,1,1,0,1,0,Female,Student,Urban,26-35,1,1,1,0,0
+9839783942,349,35,96,Xiaomi,5G,Smartphone,17698,2.01,1.78,Very High,Medium,29,Young,1,0,1,1,0,Male,Salaried,Urban,26-35,1,1,0,1,1
+9885428529,979,56,82,Apple,5G,Feature Phone,35122,2.82,2.88,High,High,286,Adult,0,1,0,0,0,Male,Business,Urban,18-25,0,0,1,1,0
+9819689753,349,7,44,Realme,4G,Smartphone,20200,6.95,3.78,Low,Medium,396,Adult,0,0,1,1,0,Male,Business,Urban,36-45,0,1,1,0,0
+9849518586,399,8,94,OnePlus,5G,Feature Phone,20106,4.49,2.63,High,High,40,Adult,0,0,1,1,1,Female,Student,Metro,18-25,0,1,0,1,0
+9815522946,349,35,95,Vivo,4G,Feature Phone,9365,7.72,3.04,High,Medium,276,Young,1,0,0,1,1,Male,Salaried,Urban,60+,1,1,1,0,1
+9892835422,399,8,53,OnePlus,5G,Feature Phone,20619,3.03,1.96,High,Medium,59,Senior,0,1,1,0,0,Female,Business,Urban,36-45,0,1,1,1,0
+9842857857,349,37,41,Xiaomi,5G,Smartphone,10256,2.8,4.17,Low,Medium,237,Young,1,0,1,0,0,Male,Business,Urban,60+,1,1,1,1,0
+9827274894,979,34,105,Samsung,5G,Smartphone,40341,7.88,1.28,Low,Medium,296,Senior,1,1,0,0,1,Female,Salaried,Metro,36-45,0,0,1,1,0
+9874533111,3999,47,8,Samsung,4G,Smartphone,135035,5.01,1.2,Very High,Medium,235,Young,0,1,0,1,1,Male,Business,Metro,18-25,0,0,1,1,1
+9895957919,349,22,28,Oppo,4G,Feature Phone,21485,4.54,0.2,Medium,High,354,Adult,1,1,1,0,0,Female,Salaried,Urban,36-45,0,1,1,0,0
+9890781307,979,52,30,Samsung,5G,Smartphone,55275,4.75,4.89,Very High,High,136,Adult,0,0,1,0,1,Male,Student,Urban,60+,0,1,0,1,0
+9869685028,399,49,46,Samsung,5G,Smartphone,29934,2.6,4.49,Low,High,395,Young,1,1,0,0,1,Female,Student,Urban,60+,1,0,1,0,1
+9815004423,349,23,56,Xiaomi,4G,Smartphone,18162,2.1,4.74,Medium,Low,310,Senior,1,1,1,0,1,Male,Business,Rural,46-60,0,0,1,0,1
+9818309433,3999,33,59,Samsung,4G,Smartphone,115198,7.19,1.69,Medium,High,135,Adult,1,1,0,1,0,Female,Business,Metro,36-45,1,0,1,0,0
+9815020088,349,28,92,Realme,4G,Feature Phone,15888,1.49,1.77,Low,Low,395,Senior,0,0,1,0,0,Female,Business,Rural,36-45,0,0,0,0,0
+9843660194,399,40,52,Samsung,4G,Smartphone,18299,7.27,3.48,High,Medium,249,Adult,1,0,0,1,1,Female,Salaried,Metro,46-60,0,1,0,0,1
+9827958465,399,37,84,Samsung,5G,Smartphone,21644,9.5,3.55,High,Medium,250,Young,1,0,0,0,0,Male,Student,Urban,36-45,1,0,0,1,0
+9872015950,3999,38,68,Samsung,5G,Feature Phone,79016,3.81,1.73,Medium,High,216,Senior,0,1,0,1,1,Male,Salaried,Metro,36-45,1,1,0,1,0
+9898652735,979,17,118,OnePlus,4G,Smartphone,51850,0.25,0.93,Low,Medium,442,Young,1,1,0,1,1,Female,Student,Metro,26-35,0,1,0,0,0
+9885301116,349,15,42,Oppo,4G,Feature Phone,16033,3.19,4.69,High,Low,282,Senior,0,1,0,1,0,Female,Student,Urban,26-35,1,0,0,0,0
+9826315215,399,15,79,OnePlus,5G,Smartphone,19267,8.51,1.88,High,Medium,15,Senior,1,0,0,1,1,Female,Salaried,Urban,18-25,1,1,0,1,0
+9840612727,349,56,93,Vivo,4G,Smartphone,21315,0.78,2.55,High,Medium,200,Adult,1,0,1,1,1,Male,Salaried,Rural,26-35,1,1,1,0,1
+9861838865,349,23,73,Vivo,4G,Feature Phone,14956,7.18,2.58,Low,Medium,343,Young,1,0,1,0,0,Male,Salaried,Urban,46-60,0,1,0,1,1
+9887935108,349,42,77,Oppo,5G,Feature Phone,11472,9.63,2.22,Medium,High,140,Adult,0,0,1,1,0,Female,Student,Urban,60+,1,0,1,1,0
+9872016156,349,60,39,Oppo,5G,Smartphone,19497,7.56,0.14,High,Low,43,Adult,0,0,0,0,0,Female,Homemaker,Rural,60+,0,1,0,0,0
+9885129378,349,15,37,Vivo,5G,Feature Phone,20745,9.3,0.41,High,Low,104,Young,0,1,1,1,0,Female,Business,Urban,46-60,0,1,1,1,1
+9831108185,349,38,111,Vivo,4G,Smartphone,12375,3.34,0.11,High,High,185,Senior,0,0,1,0,1,Male,Homemaker,Urban,46-60,1,1,1,0,0
+9873599248,349,26,55,Oppo,4G,Smartphone,10863,6.04,4.01,Medium,Low,189,Young,0,0,0,0,0,Female,Student,Rural,26-35,0,1,1,1,0
+9860836989,399,30,64,Samsung,5G,Smartphone,22545,6.66,1.48,Medium,High,437,Adult,1,0,1,1,1,Male,Salaried,Urban,18-25,1,1,0,1,1
+9848498586,349,33,39,Realme,5G,Feature Phone,18448,0.12,4.68,High,Medium,154,Adult,1,1,1,1,0,Male,Student,Rural,60+,1,0,0,1,0
+9829858125,399,49,89,OnePlus,4G,Feature Phone,19213,4.5,1.75,Medium,High,271,Young,0,1,1,1,1,Male,Student,Metro,60+,0,1,1,1,0
+9824063647,399,51,92,OnePlus,4G,Feature Phone,18339,5.45,4.05,Very High,Medium,283,Young,1,1,0,0,1,Male,Student,Urban,18-25,1,1,1,0,1
+9810707640,349,39,112,Xiaomi,4G,Feature Phone,17066,6.84,4.76,Very High,Medium,390,Senior,0,0,1,1,1,Male,Student,Rural,18-25,1,1,0,1,0
+9880197273,349,33,89,Vivo,5G,Feature Phone,15006,1.73,0.77,Low,High,301,Young,0,0,0,1,0,Female,Student,Urban,36-45,0,0,1,0,1
+9825328046,979,56,36,Apple,4G,Smartphone,47803,7.63,4.63,High,Low,465,Adult,1,0,1,0,0,Female,Student,Metro,46-60,0,0,0,0,0
+9816888035,399,55,98,Samsung,5G,Feature Phone,21063,4.13,4.06,Low,High,60,Adult,1,0,0,1,0,Male,Student,Urban,36-45,0,1,1,1,1
+9882880144,3999,10,30,Apple,4G,Feature Phone,76328,5.48,4.04,Very High,Low,197,Senior,0,1,0,0,0,Female,Homemaker,Metro,60+,0,1,1,1,0
+9810846502,349,18,113,Oppo,5G,Smartphone,15541,2.13,3.77,Medium,Medium,224,Senior,0,1,0,1,0,Male,Business,Rural,18-25,1,0,0,1,1
+9861951790,349,9,101,Vivo,4G,Feature Phone,21044,2.37,0.51,Medium,Medium,90,Adult,0,1,1,1,0,Male,Business,Rural,46-60,1,0,0,0,0
+9833747473,3999,23,85,Samsung,5G,Feature Phone,88869,0.81,0.77,Low,High,184,Young,1,0,0,0,1,Male,Student,Metro,26-35,0,0,0,0,0
+9892448547,399,47,120,Samsung,4G,Smartphone,21008,6.0,0.43,Medium,Medium,3,Adult,1,0,0,0,0,Female,Salaried,Metro,60+,1,1,0,1,1
+9830338579,399,31,106,Vivo,5G,Smartphone,22647,3.96,2.26,Medium,Medium,128,Adult,1,1,0,0,1,Male,Business,Urban,26-35,1,0,0,1,0
+9852631602,349,37,106,Xiaomi,5G,Smartphone,12922,9.7,4.32,High,High,173,Young,0,0,0,0,0,Female,Student,Urban,18-25,0,1,0,1,1
+9830483710,349,52,68,Vivo,4G,Smartphone,11320,7.13,0.89,High,Low,107,Young,1,1,0,0,0,Female,Homemaker,Urban,36-45,1,0,1,0,1
+9856140392,349,30,11,Realme,5G,Feature Phone,16470,1.62,4.55,Very High,High,86,Young,1,0,1,0,0,Female,Business,Urban,26-35,0,0,1,1,0
+9847457134,399,13,72,Samsung,4G,Feature Phone,25721,4.32,4.69,Very High,Low,280,Young,1,1,0,0,0,Male,Student,Metro,46-60,1,1,1,1,1
+9849173965,349,55,115,Xiaomi,5G,Smartphone,17406,1.67,2.36,Medium,Low,235,Adult,0,1,1,1,0,Male,Salaried,Rural,36-45,1,0,1,0,0
+9869922140,349,36,80,Oppo,5G,Feature Phone,21993,4.41,4.98,High,High,254,Adult,1,0,1,1,1,Female,Salaried,Urban,18-25,1,0,0,0,1
+9810918616,349,18,14,Vivo,5G,Smartphone,12109,2.31,4.13,Medium,Medium,441,Young,1,1,1,0,0,Male,Homemaker,Urban,60+,1,0,1,0,1
+9870997326,349,53,70,Vivo,4G,Feature Phone,12036,7.0,3.8,Very High,High,263,Adult,0,1,0,0,0,Male,Student,Urban,26-35,1,1,1,0,1
+9825706111,349,54,69,Realme,5G,Feature Phone,19620,1.81,1.57,Very High,High,423,Senior,0,0,0,0,1,Male,Business,Rural,36-45,0,0,1,1,0
+9894314196,979,59,61,Samsung,5G,Feature Phone,34119,6.37,3.37,Medium,Low,310,Young,1,0,0,1,0,Male,Business,Urban,46-60,1,1,0,0,1
+9843554400,349,27,94,Realme,4G,Smartphone,17036,6.99,1.96,Low,Low,199,Young,1,0,1,0,1,Female,Student,Urban,26-35,1,1,1,1,0
+9885544313,349,38,118,Xiaomi,5G,Feature Phone,13689,6.98,3.67,Low,Low,273,Adult,1,0,1,0,1,Female,Homemaker,Rural,18-25,1,0,1,0,1
+9882333182,349,25,90,Vivo,5G,Feature Phone,10639,6.14,0.74,Very High,High,259,Adult,0,0,1,0,1,Male,Student,Rural,46-60,1,0,0,1,1
+9874804708,399,25,39,Samsung,4G,Feature Phone,18560,6.95,2.27,High,Medium,226,Young,0,1,0,1,1,Male,Business,Metro,26-35,0,1,0,1,1
+9865552794,3999,46,92,Apple,5G,Smartphone,75024,9.47,4.86,High,Medium,19,Young,0,0,0,1,1,Male,Student,Metro,18-25,1,1,0,1,0
+9843231172,349,44,60,Vivo,5G,Smartphone,20943,8.83,0.24,Medium,High,410,Senior,1,1,1,1,1,Female,Business,Rural,46-60,1,1,0,0,1
+9895580280,399,59,29,Samsung,5G,Smartphone,18929,6.18,2.1,Medium,Low,105,Adult,0,0,1,1,1,Female,Homemaker,Metro,36-45,0,1,0,0,0
+9854496043,3999,40,71,Apple,5G,Feature Phone,146467,5.97,2.19,Low,Medium,145,Young,0,0,1,1,1,Female,Salaried,Metro,18-25,1,0,0,1,1
+9859675558,349,34,67,Oppo,5G,Feature Phone,12998,5.75,4.66,Medium,Low,374,Adult,1,1,0,1,0,Male,Homemaker,Urban,46-60,0,0,1,0,0
+9810952824,349,25,16,Vivo,4G,Smartphone,12228,9.02,1.27,Low,Low,205,Adult,1,1,0,1,0,Female,Business,Rural,36-45,1,1,0,0,1
+9816746869,3999,31,79,Samsung,5G,Smartphone,78840,1.37,1.06,Low,Medium,36,Young,1,0,1,0,1,Male,Student,Metro,36-45,0,1,1,0,1
+9822858283,349,57,80,Oppo,5G,Feature Phone,18766,0.81,2.71,Low,Medium,336,Adult,0,0,1,0,1,Female,Homemaker,Rural,26-35,1,0,1,1,0
+9837909559,399,52,48,OnePlus,4G,Smartphone,24849,3.6,4.25,Low,Medium,479,Senior,0,1,1,0,1,Female,Business,Urban,18-25,0,1,0,0,0
+9846716462,349,60,109,Vivo,4G,Feature Phone,11063,4.3,2.78,High,High,300,Young,1,1,1,1,1,Male,Homemaker,Rural,26-35,0,0,0,1,1
+9875884983,349,13,21,Realme,4G,Feature Phone,19514,9.21,4.82,Low,Medium,83,Adult,0,1,0,1,0,Female,Student,Rural,60+,0,0,1,0,0
+9865070439,349,7,40,Vivo,5G,Feature Phone,11350,3.93,3.94,High,High,193,Senior,0,0,1,1,1,Female,Business,Rural,36-45,1,1,0,1,1
+9868121649,349,26,81,Vivo,5G,Feature Phone,14183,0.32,1.17,High,High,163,Senior,1,1,0,0,1,Female,Student,Urban,26-35,1,0,0,1,0
+9838357169,349,22,59,Oppo,5G,Smartphone,11530,0.82,3.9,Medium,Medium,414,Adult,1,0,1,0,1,Female,Student,Urban,46-60,1,1,0,1,1
+9826169048,349,33,115,Oppo,4G,Feature Phone,12941,2.89,1.48,Low,Medium,194,Adult,0,1,1,0,0,Female,Salaried,Rural,26-35,0,1,0,0,1
+9855937806,349,21,83,Oppo,5G,Feature Phone,8931,3.17,4.77,High,Medium,394,Senior,1,1,1,1,1,Male,Student,Urban,36-45,1,1,1,0,1
+9875025468,349,51,13,Realme,4G,Feature Phone,10401,5.51,3.71,Low,Low,75,Adult,1,1,1,0,0,Female,Salaried,Rural,60+,0,0,0,1,0
+9899628362,399,56,72,OnePlus,5G,Smartphone,23110,0.0,3.2,Low,High,274,Senior,0,0,0,1,1,Female,Student,Urban,36-45,0,1,1,1,1
+9838782591,979,58,42,OnePlus,5G,Feature Phone,31638,3.01,2.2,Medium,High,480,Senior,1,1,0,0,1,Male,Student,Metro,26-35,0,0,0,0,1
+9847771584,399,55,59,Samsung,5G,Smartphone,29201,9.38,4.74,Medium,High,11,Adult,1,0,1,1,1,Male,Salaried,Urban,26-35,1,0,1,1,0
+9897333942,979,31,101,Apple,5G,Feature Phone,44948,6.99,4.69,Low,High,76,Senior,0,0,0,1,1,Female,Homemaker,Metro,36-45,1,0,0,1,1
+9881175094,349,56,93,Realme,4G,Smartphone,12048,4.91,0.25,Medium,Medium,365,Young,1,1,1,1,0,Female,Salaried,Urban,60+,1,1,1,0,0
+9832996931,979,20,50,Apple,4G,Smartphone,39450,4.47,3.32,High,Low,228,Senior,1,0,1,1,1,Male,Homemaker,Urban,36-45,0,0,0,0,1
+9893664603,979,23,98,Apple,5G,Feature Phone,49505,6.62,3.5,High,Medium,405,Adult,1,0,0,0,0,Male,Business,Metro,46-60,1,1,1,1,0
+9821295309,349,55,55,Vivo,5G,Smartphone,17472,0.35,1.44,Low,High,52,Young,0,1,0,0,1,Female,Homemaker,Urban,60+,1,0,1,0,1
+9855841043,979,18,88,Samsung,4G,Feature Phone,53424,9.43,2.0,Low,High,10,Senior,1,0,1,0,1,Female,Business,Metro,46-60,0,1,0,0,0
+9831017815,399,50,46,Oppo,5G,Feature Phone,31002,9.85,1.05,Very High,Medium,216,Young,0,1,0,1,1,Female,Homemaker,Metro,60+,0,1,0,1,1
+9893260859,349,33,114,Oppo,5G,Smartphone,17090,9.74,0.18,High,Low,321,Senior,0,1,0,1,1,Male,Salaried,Rural,60+,0,1,0,1,0
+9836516255,349,9,59,Oppo,4G,Feature Phone,21036,8.19,2.15,Very High,High,427,Adult,0,0,1,1,1,Female,Business,Rural,18-25,1,0,1,0,0
+9871169266,979,54,66,Apple,5G,Smartphone,30939,3.97,2.88,Low,Medium,290,Young,1,0,1,1,0,Male,Homemaker,Urban,18-25,1,1,0,0,0
+9859948235,399,58,44,Vivo,5G,Smartphone,26842,6.46,0.35,High,High,50,Young,1,0,1,1,0,Female,Business,Urban,36-45,0,0,0,1,1
+9860767455,399,52,74,Samsung,4G,Feature Phone,24602,8.05,0.78,Low,Low,5,Young,1,1,1,1,1,Male,Salaried,Urban,18-25,0,1,1,1,0
+9857403398,979,15,9,Apple,5G,Feature Phone,58943,5.66,0.26,Low,High,2,Adult,1,1,1,0,0,Male,Student,Metro,26-35,0,1,1,1,1
+9875707151,349,11,71,Realme,5G,Feature Phone,17677,3.98,4.96,Medium,Low,432,Young,1,0,0,1,1,Male,Business,Urban,36-45,1,1,1,1,1
+9855795347,399,60,120,Vivo,5G,Smartphone,23562,6.26,0.68,Very High,Medium,379,Young,0,1,0,1,0,Male,Student,Urban,60+,0,1,0,1,1
+9828406185,979,52,89,OnePlus,5G,Feature Phone,49102,8.88,2.21,Very High,Medium,346,Senior,0,1,1,1,0,Female,Business,Urban,26-35,0,0,1,0,0
+9822508746,399,56,80,OnePlus,4G,Smartphone,24743,2.53,0.33,Medium,Medium,62,Adult,0,0,0,0,1,Male,Business,Urban,46-60,1,1,1,0,1
+9884541528,349,21,58,Oppo,5G,Smartphone,11937,4.17,3.65,High,Medium,287,Senior,0,0,0,1,1,Male,Homemaker,Urban,26-35,1,1,1,1,1
+9852350037,349,28,73,Vivo,5G,Feature Phone,9005,0.41,0.44,Very High,High,455,Young,0,1,0,0,0,Female,Student,Rural,46-60,1,1,0,0,0
+9882442752,349,40,86,Oppo,5G,Feature Phone,9148,9.39,4.03,Very High,Medium,233,Adult,1,0,1,1,0,Male,Salaried,Rural,46-60,1,0,1,1,1
+9851515535,349,10,117,Xiaomi,5G,Feature Phone,19456,7.23,4.59,High,Medium,40,Senior,0,1,1,1,1,Female,Homemaker,Urban,18-25,1,0,0,1,0
+9876051639,349,8,100,Xiaomi,4G,Feature Phone,10388,2.21,2.02,Medium,Low,394,Young,0,0,0,1,1,Female,Business,Rural,60+,0,0,1,0,0
+9882766948,979,55,18,Samsung,4G,Smartphone,34054,8.57,2.42,High,High,246,Young,1,1,0,1,1,Male,Business,Urban,18-25,0,0,1,1,0
+9863632930,349,13,31,Xiaomi,5G,Smartphone,15938,2.93,2.59,High,High,90,Young,0,1,0,1,0,Female,Student,Urban,60+,1,0,1,0,0
+9872043080,3999,45,105,Samsung,4G,Smartphone,93486,2.91,1.42,Low,High,13,Young,1,1,1,0,0,Female,Student,Metro,46-60,0,1,0,1,1
+9818700587,399,34,66,Oppo,4G,Smartphone,23201,8.8,1.14,Low,Low,496,Adult,0,1,0,0,0,Female,Business,Metro,60+,0,1,1,1,1
+9815927550,349,16,40,Oppo,5G,Smartphone,18464,8.85,0.73,Very High,Low,383,Adult,0,0,0,0,0,Male,Salaried,Rural,46-60,1,1,0,0,0
+9851987545,979,56,17,Apple,4G,Smartphone,59078,6.47,2.75,Low,High,448,Senior,1,0,1,1,1,Female,Salaried,Metro,36-45,0,1,1,1,0
+9841152547,349,52,66,Realme,5G,Smartphone,16801,8.46,1.02,High,High,373,Senior,1,0,1,0,1,Female,Homemaker,Rural,18-25,0,1,0,0,0
+9825924946,979,6,11,Samsung,5G,Feature Phone,40116,2.76,4.56,Low,High,133,Young,0,1,1,1,1,Female,Homemaker,Urban,26-35,1,1,0,0,0
+9824102431,979,47,30,Samsung,4G,Smartphone,34506,2.49,0.09,Low,High,459,Adult,0,0,0,0,1,Male,Student,Metro,46-60,0,0,1,0,0
+9857419351,349,51,31,Oppo,5G,Smartphone,15515,6.96,1.2,Low,High,442,Adult,1,0,0,1,1,Male,Business,Urban,26-35,1,1,1,1,1
+9884073156,979,39,10,OnePlus,5G,Feature Phone,31881,2.77,2.76,Low,Medium,270,Young,1,1,0,1,0,Male,Business,Urban,18-25,1,0,0,1,1
+9884312279,349,37,27,Realme,5G,Smartphone,12283,1.65,3.73,Very High,High,349,Adult,1,1,1,1,1,Female,Salaried,Urban,46-60,1,0,0,0,1
+9841696539,3999,43,40,Samsung,4G,Smartphone,119548,8.18,4.06,Low,High,160,Adult,1,1,1,0,0,Male,Student,Metro,36-45,1,1,0,1,1
+9828973534,349,12,105,Xiaomi,5G,Smartphone,8307,8.7,3.78,Medium,Medium,408,Senior,0,1,1,0,0,Female,Homemaker,Rural,36-45,0,0,1,0,0
+9865909829,979,54,94,OnePlus,4G,Smartphone,32007,2.6,3.27,High,High,335,Adult,0,1,1,1,1,Male,Student,Metro,26-35,0,0,1,1,1
+9837356898,349,50,11,Xiaomi,5G,Smartphone,12157,1.59,2.87,Very High,High,206,Young,0,0,0,0,0,Male,Homemaker,Urban,60+,0,1,0,0,1
+9878388529,349,43,15,Vivo,5G,Smartphone,12204,0.56,1.71,High,Low,342,Young,1,1,1,1,1,Male,Salaried,Urban,26-35,0,0,0,1,1
+9810818648,1729,15,47,Samsung,5G,Feature Phone,81778,9.04,1.29,High,High,424,Senior,0,0,1,1,1,Female,Homemaker,Urban,18-25,0,0,0,1,0
+9866666874,349,26,82,Vivo,5G,Smartphone,16018,3.06,2.37,Very High,Low,237,Adult,0,0,1,0,1,Female,Business,Rural,36-45,1,1,1,0,1
+9898852291,399,54,68,Vivo,5G,Feature Phone,26899,9.01,0.97,High,High,394,Adult,0,0,1,0,1,Female,Business,Urban,18-25,1,0,1,1,1
+9887177219,349,21,48,Realme,4G,Feature Phone,13835,1.97,2.07,High,Medium,48,Adult,1,1,0,1,1,Female,Homemaker,Urban,18-25,1,1,1,1,0
+9845370090,3999,45,118,Apple,5G,Smartphone,125484,1.43,0.78,Medium,Low,460,Adult,0,0,0,0,0,Male,Homemaker,Metro,46-60,0,0,0,1,1
+9838662971,349,55,24,Xiaomi,5G,Feature Phone,20349,9.27,3.94,High,Low,344,Adult,0,0,0,1,1,Female,Business,Rural,36-45,1,0,1,0,0
+9824645950,349,46,8,Vivo,5G,Smartphone,14275,1.13,2.37,Low,Low,257,Senior,0,1,1,0,0,Female,Student,Urban,36-45,0,1,1,1,0
+9841976783,349,58,45,Oppo,5G,Smartphone,9267,7.6,2.97,Very High,Medium,395,Senior,1,1,1,1,0,Female,Homemaker,Rural,18-25,1,0,1,0,1
+9865865957,399,6,66,Vivo,4G,Smartphone,19364,2.39,2.19,Very High,Medium,184,Young,1,1,1,1,1,Female,Business,Urban,60+,1,1,0,0,1
+9883197126,349,16,10,Oppo,4G,Smartphone,19982,6.64,1.05,High,High,178,Young,1,1,0,0,0,Female,Business,Rural,46-60,1,1,1,0,1
+9894743063,1729,12,64,Samsung,4G,Feature Phone,66644,9.01,4.45,Low,Medium,496,Adult,1,0,0,0,0,Male,Student,Metro,36-45,0,0,0,1,1
+9821725913,3999,16,79,Samsung,4G,Feature Phone,98646,7.2,2.28,Medium,Medium,8,Senior,1,0,1,1,1,Female,Homemaker,Metro,46-60,0,1,0,1,0
+9867914445,349,36,95,Vivo,5G,Smartphone,16114,5.79,1.4,Low,High,244,Adult,0,0,1,1,1,Male,Student,Rural,36-45,0,0,1,0,0
+9854608452,349,54,99,Vivo,4G,Feature Phone,18282,6.55,2.49,Very High,Low,404,Senior,1,0,0,0,1,Male,Business,Rural,26-35,0,1,0,1,1
+9853975956,349,16,38,Xiaomi,5G,Smartphone,16241,7.52,0.04,High,Medium,76,Senior,1,1,0,0,1,Male,Student,Rural,60+,1,1,0,1,1
+9887750379,979,59,39,Samsung,4G,Feature Phone,43471,0.29,3.96,High,High,374,Adult,1,0,1,0,0,Female,Salaried,Metro,60+,0,1,0,1,0
+9873843903,349,58,29,Oppo,5G,Smartphone,18942,2.2,3.91,Low,High,172,Senior,0,1,1,1,0,Male,Salaried,Rural,36-45,1,0,1,1,0
+9829166715,3999,57,22,Samsung,4G,Smartphone,92698,9.23,4.04,Low,Medium,265,Young,1,1,0,0,0,Female,Salaried,Metro,46-60,1,0,1,0,0
+9884634587,399,10,56,Samsung,5G,Feature Phone,32444,9.33,4.88,Very High,Low,35,Adult,1,1,0,0,0,Female,Student,Metro,36-45,1,1,0,0,0
+9880978695,349,15,27,Realme,5G,Feature Phone,19164,3.93,4.55,Low,Medium,165,Young,0,0,0,0,1,Female,Student,Urban,36-45,1,1,1,1,0
+9866376542,979,7,15,Samsung,5G,Smartphone,58127,0.58,3.29,Low,High,44,Senior,1,1,1,0,1,Female,Business,Urban,26-35,0,0,0,1,1
+9866110866,3999,43,49,Samsung,5G,Smartphone,138545,5.68,0.15,Medium,Low,326,Senior,0,0,1,1,0,Male,Student,Metro,46-60,1,1,1,0,0
+9848214149,349,21,7,Vivo,4G,Smartphone,20138,5.02,3.87,Low,High,135,Young,0,0,0,0,0,Female,Homemaker,Rural,60+,1,0,0,0,0
+9852987722,349,36,40,Oppo,5G,Smartphone,8942,6.45,1.42,Very High,High,437,Adult,0,1,0,1,0,Female,Student,Urban,46-60,1,0,1,1,1
+9861502768,349,36,44,Oppo,4G,Smartphone,13714,7.67,0.99,Low,Medium,467,Adult,0,0,1,1,0,Male,Business,Rural,36-45,0,0,0,1,0
+9896382563,349,57,32,Realme,4G,Smartphone,10188,7.89,1.97,Low,High,65,Young,0,0,0,0,1,Female,Salaried,Rural,60+,1,1,0,0,0
+9867216619,3999,50,103,Samsung,4G,Feature Phone,92356,4.58,1.78,Very High,High,192,Young,0,1,1,0,1,Female,Student,Metro,46-60,0,0,0,1,0
+9815307103,979,55,88,Apple,4G,Feature Phone,54721,7.2,4.45,High,Low,321,Senior,0,0,0,1,1,Male,Homemaker,Urban,60+,1,1,1,1,1
+9880306266,979,44,45,OnePlus,4G,Smartphone,38557,0.39,1.36,Medium,Medium,364,Adult,1,0,0,1,0,Female,Business,Urban,18-25,1,1,0,0,0
+9827194869,349,47,46,Xiaomi,4G,Smartphone,17297,4.7,2.28,Very High,High,316,Senior,1,0,1,0,0,Female,Student,Rural,26-35,0,1,0,1,1
+9882229146,349,13,62,Oppo,5G,Smartphone,10369,0.86,4.37,Medium,Low,151,Young,1,0,0,1,1,Female,Homemaker,Urban,36-45,1,0,0,0,1
+9889079695,1729,39,30,Samsung,4G,Smartphone,57813,7.91,4.55,Very High,High,323,Adult,0,0,0,1,0,Female,Salaried,Metro,60+,0,0,0,0,1
+9836550296,979,34,90,Samsung,4G,Feature Phone,44566,6.99,0.48,High,High,359,Senior,0,1,1,1,0,Male,Student,Metro,18-25,1,1,1,0,0
+9829525873,399,55,11,Vivo,5G,Feature Phone,29904,6.15,2.17,Low,Low,75,Senior,0,0,0,1,0,Male,Student,Metro,18-25,0,0,1,1,1
+9847921359,3999,57,68,Samsung,5G,Feature Phone,87326,6.22,2.71,Medium,Low,131,Senior,0,0,0,1,0,Female,Salaried,Metro,26-35,1,1,0,0,0
+9879973957,349,28,22,Xiaomi,5G,Feature Phone,20573,0.11,1.39,Low,Low,169,Senior,0,0,1,0,1,Female,Salaried,Urban,26-35,0,0,1,0,1
+9814173134,349,37,25,Oppo,4G,Smartphone,21511,4.95,4.37,Medium,Low,144,Adult,0,0,1,1,1,Female,Homemaker,Rural,36-45,0,0,1,1,0
+9815404201,349,12,12,Vivo,4G,Feature Phone,8663,7.75,0.14,Medium,High,368,Senior,0,1,0,0,0,Female,Student,Rural,60+,0,0,0,1,1
+9895114080,1729,24,55,Apple,4G,Smartphone,85254,5.29,3.51,High,Low,141,Senior,0,1,1,1,1,Female,Homemaker,Metro,26-35,1,0,0,1,0
+9846336312,349,38,43,Vivo,5G,Feature Phone,8660,4.61,1.51,High,Low,116,Young,1,1,0,1,1,Male,Student,Urban,26-35,1,0,1,0,0
+9890635213,349,30,38,Xiaomi,5G,Feature Phone,9512,1.9,2.52,Medium,Low,386,Adult,1,1,0,1,1,Male,Salaried,Rural,26-35,1,0,0,1,1
+9829198718,349,45,49,Oppo,5G,Smartphone,15829,3.33,4.2,Medium,Medium,2,Young,0,1,0,1,1,Male,Salaried,Rural,46-60,0,0,0,1,1
+9891031506,349,15,84,Realme,4G,Smartphone,12480,0.06,1.14,Medium,High,138,Young,1,1,1,1,1,Female,Business,Urban,46-60,1,0,0,0,0
+9878567934,979,38,88,Apple,5G,Smartphone,47984,9.49,2.79,High,High,458,Senior,1,1,0,0,1,Female,Business,Urban,26-35,1,0,1,1,0
+9859136269,349,16,24,Oppo,4G,Feature Phone,12530,6.76,4.12,Very High,High,329,Senior,1,1,0,0,0,Male,Homemaker,Urban,46-60,0,0,1,0,0
+9830175835,399,25,28,Oppo,4G,Smartphone,31877,9.39,1.24,Low,Medium,261,Adult,0,1,0,1,0,Female,Salaried,Metro,26-35,1,0,1,0,0
+9812752004,349,16,36,Xiaomi,5G,Smartphone,15920,0.1,4.25,Very High,Medium,312,Senior,0,0,0,1,0,Male,Salaried,Urban,46-60,1,1,1,0,1
+9835148245,1729,29,41,Samsung,5G,Feature Phone,64775,2.18,2.74,High,High,430,Young,0,1,1,0,0,Male,Salaried,Metro,60+,0,1,1,1,0
+9845645007,399,9,35,Samsung,5G,Feature Phone,19939,6.35,3.94,Low,Medium,448,Young,0,0,0,0,1,Female,Business,Urban,26-35,1,1,0,0,0
+9833801675,349,39,107,Oppo,5G,Feature Phone,20651,7.23,4.05,Low,High,300,Adult,0,0,1,1,1,Female,Student,Rural,26-35,0,0,1,1,0
+9865818527,979,24,114,Apple,5G,Smartphone,33059,1.94,1.58,Medium,High,52,Young,1,0,0,1,0,Male,Homemaker,Metro,18-25,1,0,0,0,0
+9848063638,349,39,24,Realme,5G,Smartphone,18095,5.41,2.72,Low,Low,273,Senior,1,0,0,0,1,Female,Homemaker,Rural,18-25,1,0,0,1,0
+9824937723,349,35,102,Vivo,5G,Smartphone,12898,7.35,2.95,Medium,Medium,11,Young,0,1,0,0,0,Female,Homemaker,Rural,26-35,1,1,0,0,1
+9872389615,979,52,6,Apple,4G,Feature Phone,31232,4.45,1.11,High,Low,402,Young,0,1,1,1,1,Male,Salaried,Metro,46-60,1,1,0,0,1
+9820965969,349,27,108,Xiaomi,4G,Feature Phone,17739,8.6,3.83,Medium,Low,373,Senior,1,1,1,1,1,Female,Business,Urban,18-25,0,0,1,1,1
+9848909066,349,25,61,Realme,5G,Feature Phone,13556,8.53,1.57,High,Low,302,Young,0,0,1,1,1,Male,Student,Urban,46-60,0,1,1,1,0
+9885751679,979,38,42,Samsung,4G,Feature Phone,54961,4.55,3.4,High,High,211,Young,1,0,1,0,1,Male,Student,Urban,60+,1,1,0,1,0
+9825996126,349,12,74,Oppo,4G,Smartphone,13526,1.3,3.1,Medium,High,357,Young,1,1,0,1,0,Male,Student,Urban,36-45,1,1,0,1,1
+9855748518,979,44,17,Apple,4G,Feature Phone,38388,2.64,1.9,Very High,Low,328,Young,1,1,0,0,1,Female,Business,Urban,60+,1,1,0,1,0
+9825950765,3999,37,54,Samsung,4G,Smartphone,104447,2.03,4.71,Low,High,54,Young,0,1,0,0,0,Female,Business,Metro,46-60,0,1,1,0,1
+9840975820,399,10,118,Samsung,5G,Feature Phone,30067,7.89,2.39,Very High,Medium,329,Young,0,1,0,0,1,Male,Homemaker,Metro,60+,0,0,1,0,0
+9886798004,349,28,45,Oppo,4G,Feature Phone,14867,5.85,2.1,High,Low,204,Senior,0,1,1,1,1,Male,Salaried,Rural,26-35,0,1,0,1,1
+9887449109,979,46,39,OnePlus,4G,Smartphone,40916,9.23,0.47,Medium,Medium,294,Young,0,1,0,1,0,Male,Business,Urban,36-45,1,0,0,1,1
+9833832546,3999,28,16,Apple,4G,Smartphone,117481,0.96,0.63,Low,Low,88,Senior,1,1,0,1,0,Male,Student,Metro,26-35,1,0,1,1,1
+9876918126,349,27,106,Oppo,5G,Smartphone,12765,0.15,4.42,Medium,Low,315,Senior,0,0,1,1,0,Male,Business,Urban,46-60,1,0,0,0,1
+9811531982,349,29,116,Vivo,4G,Smartphone,15013,3.32,4.98,Very High,Medium,241,Adult,1,1,1,1,0,Male,Homemaker,Rural,60+,1,1,0,0,0
+9879018206,349,14,116,Oppo,4G,Smartphone,19652,7.91,0.71,Low,Low,26,Young,1,0,1,1,0,Male,Student,Urban,18-25,1,0,1,0,0
+9832776097,979,42,23,Samsung,5G,Feature Phone,50344,5.44,4.9,High,Medium,490,Adult,1,0,0,0,0,Male,Homemaker,Metro,18-25,0,1,1,1,1
+9860849761,399,37,10,Samsung,4G,Feature Phone,28956,1.56,3.07,Medium,High,15,Young,1,1,1,0,1,Male,Homemaker,Urban,36-45,0,1,1,1,1
+9818912102,399,41,114,Vivo,5G,Feature Phone,27185,8.32,2.74,High,Low,90,Senior,1,1,1,0,0,Male,Salaried,Metro,36-45,1,1,0,1,1
+9817628019,349,48,53,Oppo,5G,Feature Phone,17679,2.37,3.87,Very High,Low,287,Senior,0,0,0,1,1,Male,Salaried,Urban,60+,0,0,0,1,1
+9874354373,399,7,114,Samsung,5G,Feature Phone,23336,5.47,0.25,Medium,High,244,Senior,0,1,0,1,0,Female,Homemaker,Urban,46-60,0,0,0,0,0
+9881436713,349,53,101,Xiaomi,4G,Feature Phone,12448,6.74,4.42,Low,Medium,113,Adult,1,0,0,1,1,Male,Homemaker,Urban,36-45,0,1,1,1,0
+9865993918,349,23,100,Vivo,5G,Smartphone,13167,9.61,1.9,High,Low,477,Adult,0,1,1,1,0,Male,Salaried,Urban,60+,1,1,0,1,0
+9858759961,349,56,82,Realme,4G,Feature Phone,21446,7.31,1.36,High,Medium,462,Young,0,0,0,1,0,Female,Business,Rural,60+,0,1,1,1,0
+9843248178,349,15,9,Vivo,4G,Smartphone,12184,1.22,3.13,Very High,High,127,Young,1,0,0,1,0,Male,Business,Rural,36-45,0,1,0,1,0
+9881433855,349,30,39,Oppo,4G,Smartphone,20479,6.32,3.63,Medium,Medium,77,Senior,0,0,1,0,0,Female,Business,Rural,46-60,0,0,1,1,0
+9869772177,349,12,91,Xiaomi,5G,Smartphone,9564,6.69,2.92,Low,Low,119,Senior,1,0,1,0,1,Male,Homemaker,Urban,18-25,1,1,1,1,1
+9831636973,399,54,57,Vivo,4G,Smartphone,31850,4.47,3.76,Very High,Low,246,Adult,1,1,0,0,1,Female,Homemaker,Urban,46-60,0,1,1,0,1
+9835522007,349,47,101,Oppo,4G,Smartphone,15472,7.11,4.28,Very High,Low,163,Young,0,1,0,1,0,Male,Homemaker,Urban,46-60,1,1,1,0,0
+9890597140,1729,48,45,Samsung,5G,Smartphone,50867,5.27,1.93,Low,Low,148,Young,0,1,1,0,0,Male,Homemaker,Urban,60+,0,1,0,0,0
+9829762370,399,45,107,Oppo,5G,Smartphone,22492,6.68,3.57,Very High,Medium,169,Senior,0,0,1,0,0,Female,Homemaker,Urban,26-35,1,0,1,0,1
+9848371499,399,29,43,Oppo,4G,Smartphone,34169,3.24,0.13,Low,Medium,294,Senior,1,1,0,1,0,Female,Homemaker,Urban,36-45,0,0,0,1,1
+9846705176,399,47,46,Vivo,5G,Feature Phone,33377,9.14,4.9,High,Medium,324,Adult,1,0,1,1,1,Female,Salaried,Urban,26-35,0,1,0,0,0
+9890195707,349,58,61,Xiaomi,5G,Feature Phone,17611,1.98,0.8,Medium,Medium,445,Senior,0,0,0,1,0,Female,Student,Urban,26-35,1,0,1,1,0
+9821836274,979,35,79,Samsung,5G,Smartphone,40805,3.14,2.42,Low,High,254,Senior,1,0,1,1,0,Male,Salaried,Metro,46-60,1,0,0,1,1
+9856469170,349,26,44,Oppo,4G,Smartphone,19375,7.82,0.59,Very High,Low,153,Senior,0,0,0,0,0,Male,Business,Urban,46-60,0,1,0,1,0
+9854706111,349,14,103,Xiaomi,4G,Feature Phone,13268,1.54,3.78,Very High,Medium,409,Adult,1,0,0,1,0,Male,Homemaker,Urban,36-45,0,1,1,1,0
+9893164397,349,31,20,Vivo,5G,Smartphone,12337,5.04,1.5,Very High,Low,97,Young,1,1,1,0,0,Male,Business,Urban,36-45,0,1,0,1,0
+9852117827,349,14,42,Xiaomi,5G,Feature Phone,12492,2.63,0.2,Low,Low,145,Young,1,1,0,1,1,Female,Business,Urban,36-45,0,1,0,0,1
+9896593159,3999,48,120,Apple,4G,Feature Phone,92559,6.77,0.53,Medium,High,457,Young,1,1,1,1,1,Male,Student,Metro,46-60,1,1,0,0,1
+9842422448,399,57,117,OnePlus,4G,Feature Phone,24551,3.61,4.46,Low,Medium,216,Young,0,0,0,0,0,Male,Student,Urban,36-45,1,1,1,0,0
+9858362122,3999,55,99,Samsung,5G,Feature Phone,79395,3.57,1.15,Very High,Low,212,Senior,1,0,0,1,0,Female,Student,Metro,46-60,0,0,0,0,0
+9851423849,349,20,119,Realme,4G,Smartphone,20506,2.16,1.61,Low,Medium,131,Young,1,1,1,0,0,Female,Salaried,Rural,18-25,1,1,1,1,1
+9812108633,349,25,13,Xiaomi,4G,Smartphone,12260,4.4,3.45,Medium,Medium,407,Senior,0,0,0,1,0,Male,Student,Rural,60+,1,1,0,1,1
+9859409650,349,50,13,Vivo,4G,Feature Phone,19028,2.24,3.54,Low,High,238,Young,1,0,1,1,1,Female,Homemaker,Rural,46-60,1,1,1,0,0
+9898358859,349,51,68,Realme,4G,Smartphone,17516,9.26,0.96,Medium,High,419,Senior,1,0,1,0,1,Male,Business,Rural,60+,0,0,0,1,0
+9883150215,349,27,93,Realme,4G,Feature Phone,8245,2.4,0.99,Medium,High,186,Adult,0,1,0,0,1,Male,Business,Rural,18-25,0,1,0,1,1
+9810371812,979,9,26,OnePlus,5G,Feature Phone,38059,1.64,1.36,Very High,High,156,Adult,0,0,0,0,1,Female,Salaried,Metro,36-45,1,0,1,0,0
+9884171855,979,21,61,OnePlus,5G,Smartphone,31348,0.81,0.23,Low,High,22,Young,0,0,1,1,1,Male,Business,Urban,26-35,0,1,1,1,1
+9814162133,349,19,28,Xiaomi,5G,Feature Phone,18443,3.72,1.91,Very High,Low,217,Adult,0,0,1,0,1,Female,Student,Rural,60+,0,0,1,1,1
+9865489292,399,51,60,Oppo,4G,Smartphone,22624,3.49,2.82,Very High,Medium,103,Young,1,0,1,1,1,Male,Business,Urban,60+,1,0,0,1,1
+9854590088,349,46,42,Realme,4G,Smartphone,20818,6.19,1.43,Very High,Low,235,Adult,0,1,1,1,1,Male,Student,Rural,18-25,0,1,0,0,1
+9855426307,349,54,109,Xiaomi,5G,Feature Phone,9881,7.82,3.23,Low,Medium,124,Young,0,1,0,1,0,Female,Homemaker,Rural,26-35,1,1,0,1,1
+9813085005,979,41,78,Apple,4G,Smartphone,49635,2.46,1.42,Low,High,100,Young,0,0,0,1,0,Female,Salaried,Urban,36-45,0,1,0,0,0
+9854960579,349,45,63,Vivo,4G,Smartphone,14318,3.38,1.43,Very High,High,169,Adult,0,1,0,0,1,Female,Homemaker,Urban,36-45,1,0,1,0,1
+9812207891,1729,42,13,Apple,5G,Smartphone,58377,4.7,1.76,High,High,167,Young,1,1,0,1,1,Male,Homemaker,Metro,26-35,0,1,0,0,0
+9840493964,349,53,112,Oppo,5G,Feature Phone,19608,9.36,1.57,Very High,Medium,92,Adult,0,1,0,1,1,Female,Student,Urban,36-45,0,1,1,0,0
+9892206666,349,45,86,Realme,4G,Smartphone,14572,0.92,0.76,High,Low,186,Adult,1,0,0,0,0,Male,Salaried,Rural,18-25,0,1,1,1,1
+9812182656,349,10,53,Xiaomi,5G,Feature Phone,18593,8.95,3.94,Medium,High,115,Young,0,1,0,0,0,Female,Salaried,Urban,46-60,1,0,1,0,0
+9879259473,979,48,78,Apple,5G,Smartphone,42872,0.58,4.79,Medium,High,350,Young,1,0,0,1,0,Male,Salaried,Urban,26-35,1,1,0,0,1
+9846546710,979,50,89,Apple,4G,Feature Phone,34010,0.98,0.57,Low,Medium,372,Senior,1,0,0,0,1,Male,Business,Metro,26-35,1,1,1,0,0
+9892220818,979,9,75,OnePlus,4G,Smartphone,59912,1.64,1.3,Very High,Medium,217,Senior,0,1,1,1,0,Female,Student,Metro,18-25,1,1,0,1,1
+9886184264,349,58,76,Xiaomi,5G,Smartphone,19320,6.86,2.46,High,Low,234,Adult,1,1,1,1,0,Female,Student,Urban,36-45,1,1,1,1,0
+9825807775,349,43,62,Vivo,5G,Feature Phone,14793,4.79,4.6,High,Medium,213,Young,1,0,1,1,0,Female,Homemaker,Rural,18-25,0,1,1,0,0
+9828912087,349,46,73,Vivo,5G,Feature Phone,20279,9.64,3.92,High,Medium,110,Senior,0,1,1,1,0,Male,Business,Rural,60+,1,1,0,1,1
+9813620539,399,38,106,OnePlus,4G,Smartphone,28118,8.1,4.75,Very High,Low,350,Adult,0,1,0,0,0,Male,Student,Urban,36-45,1,1,1,0,1
+9821545828,349,17,72,Vivo,5G,Feature Phone,21273,7.34,4.74,Low,Medium,301,Senior,1,1,0,0,0,Male,Student,Urban,36-45,1,0,0,0,1
+9874547813,349,48,98,Xiaomi,5G,Feature Phone,8995,6.73,3.86,Very High,Medium,353,Young,0,0,1,1,1,Female,Homemaker,Rural,26-35,1,0,1,1,0
+9840700422,399,55,86,Oppo,5G,Smartphone,21750,1.76,2.82,Medium,Low,390,Young,0,1,0,0,1,Female,Salaried,Metro,46-60,0,0,0,1,0
+9899578114,349,26,74,Realme,5G,Smartphone,9354,7.38,1.66,Low,Medium,4,Senior,0,1,0,1,1,Female,Salaried,Urban,18-25,1,1,1,0,0
+9861877229,349,20,22,Realme,5G,Feature Phone,19800,2.05,2.66,Medium,Medium,497,Adult,1,1,1,0,0,Female,Student,Urban,26-35,1,0,1,1,1
+9855501760,349,50,56,Vivo,4G,Feature Phone,9965,2.26,0.15,High,Low,143,Senior,1,0,0,0,1,Male,Student,Rural,36-45,0,0,0,1,1
+9827817048,399,23,64,Vivo,5G,Feature Phone,34099,8.83,4.54,High,High,450,Senior,0,1,1,1,1,Male,Student,Metro,26-35,1,1,0,1,1
+9880538256,349,49,113,Vivo,5G,Feature Phone,8896,2.45,1.33,Very High,High,416,Adult,0,1,0,0,1,Female,Homemaker,Urban,26-35,0,1,0,1,1
+9847370286,349,25,73,Vivo,4G,Smartphone,11474,3.79,1.79,Medium,Low,51,Adult,1,0,0,0,0,Male,Salaried,Rural,36-45,0,1,1,0,1
+9851099960,349,22,11,Vivo,5G,Smartphone,19105,0.34,0.49,Low,High,467,Senior,0,0,0,1,1,Female,Student,Urban,26-35,1,0,1,0,1
+9872047628,349,16,37,Realme,4G,Feature Phone,16644,8.51,2.75,Very High,Low,74,Senior,1,0,1,0,1,Male,Student,Urban,36-45,1,1,1,1,0
+9893819029,349,11,48,Realme,4G,Smartphone,20474,4.11,3.71,Low,Medium,370,Adult,0,1,0,0,0,Male,Homemaker,Rural,18-25,1,1,0,1,0
+9886663689,349,44,113,Xiaomi,5G,Smartphone,13225,8.6,2.86,Medium,Low,418,Adult,1,1,1,0,0,Female,Homemaker,Rural,46-60,0,1,0,1,1
+9839568684,399,18,112,Oppo,4G,Feature Phone,23853,6.86,2.05,Very High,Medium,310,Senior,1,1,1,0,0,Male,Business,Metro,46-60,1,1,0,0,1
+9892191298,349,17,87,Oppo,5G,Feature Phone,11209,5.35,0.66,Medium,Medium,258,Young,0,1,0,0,1,Male,Homemaker,Urban,36-45,0,1,1,0,0
+9877157055,3999,30,10,Apple,4G,Smartphone,119816,4.16,4.78,High,High,382,Senior,1,1,1,0,0,Female,Homemaker,Metro,60+,1,0,1,0,0
+9823696184,349,56,111,Vivo,5G,Feature Phone,10196,7.79,4.01,Medium,High,376,Senior,0,0,0,1,0,Male,Salaried,Urban,18-25,0,1,1,0,0
+9848701871,979,56,34,OnePlus,5G,Smartphone,42857,9.62,4.48,Medium,High,403,Young,0,1,0,1,1,Male,Business,Metro,26-35,0,0,1,0,0
+9848959169,399,59,40,Samsung,4G,Smartphone,29958,7.22,2.04,High,Medium,7,Adult,1,1,1,0,1,Female,Business,Metro,46-60,1,0,1,1,1
+9855476135,979,10,34,Apple,5G,Feature Phone,57702,7.15,2.85,High,High,117,Senior,1,1,0,1,0,Male,Salaried,Metro,36-45,0,1,1,0,1
+9861150864,1729,45,13,Apple,5G,Smartphone,78981,0.31,1.29,Very High,Low,334,Senior,1,1,1,1,0,Male,Homemaker,Metro,18-25,0,1,1,0,0
+9821392919,399,59,45,OnePlus,5G,Feature Phone,19003,2.15,4.9,Medium,Low,221,Senior,0,1,1,1,1,Male,Salaried,Urban,26-35,0,0,1,1,1
+9861033619,979,28,49,OnePlus,4G,Feature Phone,39886,7.88,2.58,High,High,61,Senior,0,0,1,0,1,Female,Student,Urban,36-45,1,1,0,0,1
+9853923183,349,44,29,Realme,4G,Smartphone,12962,6.81,2.88,Very High,Low,38,Senior,0,1,0,1,1,Female,Homemaker,Urban,26-35,1,1,0,1,1
+9811760086,349,24,35,Vivo,4G,Feature Phone,13653,8.93,3.27,High,Low,346,Adult,1,1,1,1,1,Male,Student,Urban,26-35,1,0,1,1,0
+9841574446,349,51,72,Xiaomi,4G,Feature Phone,15489,5.57,4.14,Very High,Medium,308,Adult,0,0,0,0,1,Female,Student,Rural,18-25,1,1,1,1,0
+9864032044,3999,18,31,Samsung,4G,Feature Phone,84358,6.46,1.34,Very High,Low,252,Adult,0,1,0,1,1,Male,Homemaker,Metro,36-45,1,0,0,0,0
+9812040833,349,27,93,Oppo,5G,Feature Phone,9605,7.76,4.22,Very High,High,299,Senior,0,1,1,0,0,Female,Business,Rural,26-35,0,0,0,1,1
+9815421757,349,51,16,Vivo,4G,Feature Phone,18774,6.55,0.77,Medium,High,88,Adult,1,0,1,1,0,Female,Homemaker,Urban,18-25,0,0,0,1,1
+9831285278,349,48,6,Realme,5G,Smartphone,12546,4.29,1.05,Low,Low,135,Adult,0,0,0,0,1,Female,Business,Rural,46-60,0,0,0,1,0
+9863588563,399,43,7,OnePlus,5G,Feature Phone,27861,5.2,1.63,Very High,Low,55,Young,0,1,1,1,1,Male,Homemaker,Urban,60+,0,0,1,0,0
+9897926494,979,59,114,OnePlus,4G,Smartphone,30394,8.5,4.09,Low,High,274,Young,1,0,1,0,1,Male,Salaried,Urban,26-35,1,1,1,0,1
+9812954376,1729,39,81,Apple,4G,Smartphone,56175,4.34,1.56,Low,High,176,Young,1,1,1,1,0,Male,Student,Urban,36-45,1,0,0,0,0
+9888974633,349,45,48,Vivo,5G,Smartphone,14461,7.11,3.18,Very High,High,241,Senior,1,1,0,1,1,Female,Business,Rural,26-35,1,1,0,0,1
+9897694467,349,47,16,Realme,5G,Feature Phone,12854,2.44,1.23,Very High,Low,135,Adult,1,1,1,0,1,Male,Homemaker,Urban,46-60,1,1,1,1,0
+9812710653,349,52,38,Oppo,4G,Feature Phone,8980,0.82,2.33,High,Low,120,Adult,1,1,0,1,1,Male,Business,Urban,36-45,0,0,0,0,0
+9849393852,1729,47,67,Apple,5G,Smartphone,50205,7.61,2.69,High,Low,208,Adult,1,1,1,1,0,Male,Salaried,Urban,60+,1,1,0,1,1
+9827389152,3999,48,15,Apple,4G,Feature Phone,116955,5.81,1.85,High,Low,137,Adult,0,1,1,1,1,Male,Homemaker,Metro,18-25,1,0,0,1,0
+9833231123,349,22,99,Xiaomi,5G,Smartphone,20291,5.8,0.26,High,High,328,Senior,0,1,1,1,0,Male,Student,Rural,46-60,1,0,1,1,1
+9889083733,1729,49,12,Samsung,5G,Smartphone,81030,7.87,1.17,High,High,449,Adult,1,0,1,1,0,Female,Business,Urban,60+,0,1,0,0,0
+9845707434,349,28,87,Vivo,4G,Smartphone,8843,6.9,3.16,High,High,460,Senior,1,0,1,0,1,Female,Student,Rural,60+,0,0,0,1,1
+9810811380,349,11,15,Realme,5G,Feature Phone,18644,4.43,1.73,Low,Medium,113,Young,0,0,0,1,0,Male,Student,Rural,36-45,0,1,0,1,1
+9883335114,349,19,44,Realme,5G,Feature Phone,13004,5.59,1.88,Medium,Medium,158,Young,0,1,0,1,0,Female,Homemaker,Urban,46-60,0,1,1,0,0
+9837943992,399,28,14,Oppo,5G,Feature Phone,25237,3.22,4.16,Very High,High,98,Adult,0,0,0,0,0,Female,Homemaker,Metro,60+,0,1,1,1,0
+9827094196,399,59,36,Samsung,4G,Smartphone,20212,3.3,4.35,Very High,High,67,Adult,0,0,0,1,1,Female,Homemaker,Urban,18-25,1,0,1,1,1
+9891827506,349,18,6,Realme,5G,Feature Phone,18856,4.5,2.38,Medium,Medium,298,Senior,0,1,1,0,0,Female,Student,Urban,46-60,0,1,0,0,0
+9843135271,979,41,61,OnePlus,5G,Feature Phone,47241,4.68,3.04,Low,Low,5,Adult,0,1,1,1,0,Female,Business,Urban,60+,0,1,0,0,1
+9888727569,349,17,81,Vivo,5G,Smartphone,18855,5.02,4.1,Low,Low,65,Adult,1,0,0,1,0,Female,Business,Urban,60+,0,0,0,0,0
+9866595825,399,50,74,Samsung,5G,Feature Phone,20017,8.63,0.45,Low,High,484,Young,1,1,1,1,1,Female,Student,Urban,46-60,1,1,0,0,1
+9899845055,979,24,96,OnePlus,4G,Feature Phone,56913,8.38,1.25,Medium,Low,283,Adult,1,0,0,0,0,Female,Business,Metro,26-35,0,1,0,0,1
+9837546208,979,52,87,Samsung,4G,Feature Phone,31578,2.15,3.34,Low,High,157,Senior,1,0,0,1,1,Male,Business,Urban,36-45,1,1,0,0,1
+9860229805,979,17,100,OnePlus,4G,Feature Phone,57895,3.23,4.22,High,High,252,Adult,1,0,0,1,1,Male,Student,Metro,36-45,1,0,1,0,0
+9867047827,979,40,43,Apple,4G,Smartphone,44518,9.4,1.29,Medium,High,322,Adult,1,1,0,0,1,Female,Salaried,Urban,46-60,0,0,1,0,1
+9874351633,349,22,49,Xiaomi,4G,Feature Phone,18961,7.85,1.57,Low,High,388,Adult,1,0,0,0,0,Male,Homemaker,Urban,18-25,1,0,0,1,1
+9849920128,3999,35,50,Apple,4G,Feature Phone,124133,0.23,1.63,Low,Low,415,Adult,0,0,1,0,0,Female,Student,Metro,26-35,1,1,0,0,1
+9863007817,1729,30,16,Apple,4G,Smartphone,84525,5.53,3.72,High,Low,219,Senior,1,0,1,0,1,Male,Business,Urban,18-25,0,0,1,0,1
+9892419457,349,50,55,Realme,5G,Feature Phone,9149,8.66,3.24,Low,Medium,225,Adult,1,0,0,1,0,Male,Salaried,Rural,46-60,1,1,1,1,1
+9830944017,3999,60,57,Samsung,4G,Feature Phone,99166,2.57,2.92,Low,Low,394,Adult,0,0,1,1,0,Male,Homemaker,Metro,26-35,0,1,0,1,1
+9849681568,399,7,71,OnePlus,5G,Feature Phone,26250,1.8,0.36,Low,Low,342,Senior,1,0,1,0,1,Female,Homemaker,Urban,60+,0,1,0,0,0
+9893243561,349,45,105,Oppo,5G,Smartphone,20231,3.79,0.24,Medium,Medium,101,Young,0,1,1,0,1,Female,Homemaker,Rural,46-60,1,1,0,0,1
+9897619748,3999,13,53,Apple,5G,Feature Phone,125310,4.0,2.28,Medium,High,326,Adult,1,1,0,0,1,Female,Business,Metro,60+,0,0,1,1,0
+9820492027,399,49,73,Vivo,4G,Smartphone,25165,4.04,2.43,Very High,High,2,Senior,0,0,0,0,0,Female,Student,Urban,18-25,1,1,0,0,0
+9854962864,399,34,15,Samsung,5G,Feature Phone,20923,5.29,0.14,Low,High,491,Senior,0,0,0,0,0,Male,Homemaker,Urban,26-35,0,0,0,0,0
+9812738471,979,39,93,OnePlus,5G,Feature Phone,35225,2.47,3.59,Very High,Low,459,Adult,1,1,1,0,1,Male,Student,Metro,18-25,0,0,0,0,0
+9884703672,3999,55,93,Apple,4G,Smartphone,116703,9.12,0.55,High,Medium,66,Young,0,0,0,0,1,Female,Business,Metro,26-35,1,0,1,1,1
+9841156606,349,33,31,Vivo,4G,Smartphone,15574,2.95,1.65,Low,Low,433,Senior,1,1,1,0,0,Male,Business,Rural,18-25,0,0,1,1,0
+9840100000,979,41,120,Apple,4G,Feature Phone,50063,1.34,2.79,Very High,High,478,Young,1,1,0,1,0,Female,Homemaker,Urban,36-45,0,0,1,1,1
+9864160389,349,28,57,Oppo,5G,Smartphone,17223,3.56,0.81,Medium,High,307,Young,0,1,1,1,1,Male,Student,Urban,46-60,0,0,0,1,1
+9893014177,349,30,49,Xiaomi,5G,Feature Phone,20749,5.8,2.09,Medium,Low,269,Young,1,1,1,1,0,Male,Business,Urban,26-35,0,1,0,0,1
+9872886891,1729,50,96,Samsung,4G,Smartphone,74584,4.48,0.52,High,High,417,Young,0,1,1,1,0,Male,Student,Urban,60+,1,1,0,1,0
+9874601981,399,48,108,Vivo,4G,Smartphone,27535,9.63,0.85,Medium,High,447,Senior,1,0,1,0,0,Male,Homemaker,Metro,36-45,0,0,1,1,1
+9892419322,979,35,64,Apple,5G,Smartphone,56749,3.23,3.46,Medium,Low,391,Senior,0,0,1,0,1,Female,Salaried,Urban,60+,0,0,1,0,0
+9831261771,349,26,106,Oppo,4G,Feature Phone,19409,0.06,1.65,Low,Low,459,Senior,0,0,1,1,0,Male,Student,Urban,26-35,1,1,0,1,0
+9864758803,979,45,36,Apple,4G,Smartphone,39369,0.18,1.71,High,Medium,63,Young,0,0,1,1,1,Female,Salaried,Metro,60+,0,0,1,0,1
+9889432674,349,35,40,Xiaomi,5G,Feature Phone,21197,9.44,3.16,Very High,Low,238,Adult,1,1,0,1,0,Male,Homemaker,Urban,46-60,1,1,0,0,0
+9815392898,349,26,103,Vivo,4G,Feature Phone,14638,2.36,1.04,Medium,High,191,Senior,1,1,1,1,1,Female,Business,Rural,36-45,0,1,0,1,0
+9840764029,349,29,79,Realme,4G,Feature Phone,8760,5.95,4.03,High,Low,6,Young,1,1,1,0,1,Male,Business,Rural,46-60,1,1,0,1,0
+9856380207,349,58,110,Realme,5G,Feature Phone,8798,6.07,3.59,Very High,Medium,253,Young,0,1,1,0,0,Female,Homemaker,Urban,36-45,0,0,1,0,1
+9833073341,349,50,91,Oppo,5G,Feature Phone,10288,0.67,0.7,Low,Medium,196,Young,1,0,1,1,1,Male,Student,Rural,18-25,1,0,0,0,1
+9855841781,349,37,16,Xiaomi,5G,Smartphone,17532,4.18,4.33,Very High,Medium,413,Young,0,0,0,1,1,Male,Homemaker,Urban,26-35,1,0,0,1,1
+9856366969,349,17,18,Realme,4G,Feature Phone,12113,6.86,0.19,Low,Medium,99,Senior,0,1,0,1,1,Male,Student,Urban,60+,0,1,1,1,0
+9865108979,349,30,40,Vivo,5G,Smartphone,9742,8.99,3.96,Very High,High,452,Senior,0,1,1,0,1,Female,Homemaker,Urban,18-25,1,0,0,0,1
+9836420876,1729,45,21,Samsung,4G,Smartphone,83370,9.95,2.39,Medium,Medium,192,Senior,1,0,1,0,0,Female,Student,Urban,26-35,0,0,1,0,1
+9851319794,349,52,99,Xiaomi,5G,Smartphone,21249,2.74,1.56,Low,High,318,Senior,1,1,0,1,1,Male,Business,Rural,60+,1,1,0,1,1
+9817290875,349,27,33,Oppo,5G,Smartphone,14580,5.82,4.8,High,Medium,77,Adult,0,0,0,1,1,Female,Business,Urban,60+,0,0,0,0,0
+9883073008,349,9,103,Realme,5G,Smartphone,19631,5.76,2.95,Very High,Low,43,Senior,0,0,0,0,1,Male,Business,Urban,26-35,1,1,1,1,1
+9812794604,399,25,92,Samsung,4G,Smartphone,23143,6.65,4.67,High,Medium,125,Young,1,0,0,0,1,Male,Homemaker,Metro,60+,1,1,0,1,1
+9885245205,349,37,68,Xiaomi,5G,Smartphone,21185,7.44,3.25,Medium,Medium,113,Senior,0,0,1,1,0,Male,Business,Rural,36-45,0,0,0,0,1
+9820029635,399,43,114,OnePlus,4G,Smartphone,20958,9.32,2.21,Low,Medium,164,Adult,0,1,1,0,0,Male,Business,Metro,46-60,0,0,1,0,1
+9882416866,349,50,27,Vivo,5G,Smartphone,19641,6.68,4.26,Low,High,135,Young,0,0,0,0,0,Male,Salaried,Rural,46-60,0,1,1,1,1
+9819392257,979,35,97,Apple,4G,Smartphone,41266,9.12,4.19,Low,Medium,327,Senior,1,0,1,1,1,Male,Salaried,Metro,18-25,1,0,0,0,1
+9820854941,979,18,69,Apple,5G,Smartphone,37625,8.4,3.54,Low,Low,417,Young,0,1,0,0,0,Male,Business,Urban,18-25,0,1,0,1,1
+9842184764,979,50,102,Apple,5G,Smartphone,49393,8.92,1.58,Very High,Medium,400,Young,0,1,0,1,1,Male,Homemaker,Metro,46-60,0,0,1,0,1
+9835610809,979,25,32,Apple,4G,Feature Phone,49194,0.93,2.31,Low,Medium,387,Adult,1,1,1,0,0,Male,Student,Urban,18-25,0,1,0,1,1
+9859939358,349,39,112,Oppo,4G,Smartphone,9606,8.61,4.29,Low,High,145,Adult,0,0,1,0,1,Female,Homemaker,Rural,36-45,0,1,1,0,1
+9828568623,349,15,106,Xiaomi,5G,Smartphone,17124,9.08,0.57,Medium,Medium,102,Young,0,1,0,1,0,Female,Business,Urban,18-25,0,1,1,1,1
+9873263150,349,42,70,Xiaomi,5G,Smartphone,10653,3.6,1.77,Medium,Low,275,Senior,1,1,0,0,1,Female,Student,Rural,36-45,1,0,1,1,1
+9895859447,979,48,49,Samsung,4G,Smartphone,35641,7.61,3.96,Low,Low,392,Young,1,1,0,1,1,Female,Student,Urban,60+,0,0,1,1,1
+9898866753,349,37,114,Realme,5G,Smartphone,14735,3.07,4.12,Low,Low,102,Young,0,0,1,0,0,Female,Homemaker,Urban,18-25,1,1,1,0,0
+9867543283,399,56,18,OnePlus,5G,Feature Phone,24224,7.78,0.52,High,Medium,12,Senior,0,1,1,0,0,Male,Homemaker,Metro,46-60,0,1,0,1,0
+9875322172,399,10,34,Samsung,4G,Feature Phone,32793,2.54,3.12,Medium,Medium,90,Senior,0,1,1,0,0,Female,Homemaker,Urban,46-60,0,0,1,1,1
+9860279553,1729,59,59,Samsung,5G,Smartphone,58669,7.87,4.25,Low,High,311,Senior,0,1,0,0,0,Female,Salaried,Urban,18-25,1,0,0,0,0
+9834817496,349,17,13,Oppo,4G,Feature Phone,12711,9.28,4.71,Very High,Low,354,Senior,1,0,1,0,0,Male,Homemaker,Urban,26-35,0,1,1,1,0
+9838464901,979,24,43,Apple,4G,Feature Phone,40379,5.5,0.33,Low,High,146,Adult,0,1,0,1,0,Male,Student,Urban,60+,0,0,0,1,1
+9869472116,979,9,20,OnePlus,5G,Smartphone,36987,1.92,2.55,Low,High,425,Adult,1,1,1,1,0,Female,Homemaker,Metro,26-35,0,0,0,1,1
+9851351948,3999,32,109,Apple,5G,Feature Phone,101957,1.41,4.53,Low,High,124,Young,0,0,0,1,0,Female,Homemaker,Metro,46-60,1,0,0,1,0
+9875619943,979,38,106,Samsung,5G,Smartphone,45121,9.39,1.04,High,High,421,Senior,1,1,0,0,1,Female,Homemaker,Metro,36-45,0,0,1,1,0
+9875668242,349,26,73,Oppo,4G,Feature Phone,11139,1.19,0.94,Low,Medium,74,Senior,1,1,1,1,1,Female,Salaried,Rural,36-45,0,0,1,0,1
+9820720197,979,39,74,Apple,4G,Smartphone,55413,1.33,2.39,Very High,Medium,191,Adult,1,0,0,0,0,Male,Salaried,Metro,46-60,0,0,1,1,0
+9854286081,979,46,23,Samsung,5G,Smartphone,51850,6.99,4.69,Very High,High,432,Young,1,0,1,1,1,Male,Student,Urban,18-25,1,0,0,0,1
+9828836342,979,23,10,Apple,4G,Smartphone,45620,5.11,3.54,Medium,Medium,310,Adult,1,0,1,1,0,Male,Homemaker,Urban,46-60,0,0,1,1,0
+9824078789,349,56,118,Vivo,5G,Feature Phone,10986,1.07,2.64,Medium,Medium,417,Adult,0,0,1,0,0,Female,Homemaker,Urban,36-45,0,1,0,0,1
+9897541292,399,6,10,Samsung,4G,Smartphone,26400,3.78,4.19,Low,Low,396,Young,1,1,0,0,1,Female,Student,Urban,18-25,0,0,0,1,1
+9884065670,3999,32,19,Samsung,5G,Feature Phone,141885,0.98,3.0,Low,Low,3,Senior,0,0,0,0,0,Male,Business,Metro,36-45,0,1,1,0,0
+9873183494,399,36,76,Vivo,4G,Feature Phone,31500,6.4,0.23,Low,Low,2,Young,0,0,0,1,1,Male,Homemaker,Urban,46-60,0,1,1,0,1
+9858212310,349,10,38,Xiaomi,5G,Smartphone,14161,9.11,1.85,Medium,Medium,365,Adult,0,0,1,1,1,Female,Salaried,Urban,36-45,0,0,0,1,1
+9817515178,349,58,96,Vivo,4G,Smartphone,16677,5.59,3.87,Low,Medium,433,Adult,1,0,0,0,1,Female,Homemaker,Rural,60+,1,1,0,1,0
+9842086327,979,57,118,Apple,5G,Smartphone,54924,1.04,0.98,Medium,Medium,418,Adult,0,1,1,1,1,Female,Homemaker,Metro,36-45,1,0,0,1,0
+9850707523,979,11,14,OnePlus,4G,Smartphone,46632,4.61,4.15,High,Medium,16,Senior,1,1,0,0,0,Female,Salaried,Urban,60+,0,1,1,0,1
+9825831312,349,16,58,Oppo,5G,Smartphone,13591,3.73,1.16,Very High,Low,414,Senior,1,1,0,1,0,Female,Student,Urban,18-25,1,0,0,0,0
+9878604608,399,53,62,Oppo,4G,Smartphone,23394,4.35,3.86,Low,Low,367,Young,1,0,1,1,0,Female,Student,Urban,60+,0,0,1,1,1
+9824374630,349,35,115,Xiaomi,5G,Smartphone,14225,3.52,0.7,High,Medium,252,Adult,1,0,0,1,0,Male,Homemaker,Rural,46-60,1,1,1,1,0
+9840389361,349,56,95,Oppo,4G,Feature Phone,15316,8.96,4.1,Very High,High,270,Adult,0,0,0,0,0,Male,Homemaker,Rural,60+,1,1,0,0,0
+9890682657,349,58,117,Vivo,4G,Feature Phone,8577,5.76,3.2,Very High,Medium,28,Senior,1,1,1,0,1,Female,Salaried,Rural,18-25,1,1,1,0,1
+9840571991,349,33,22,Realme,5G,Smartphone,16225,1.56,1.51,Low,High,360,Adult,0,0,1,0,1,Female,Business,Urban,46-60,0,0,1,0,1
+9880408078,349,39,23,Realme,5G,Smartphone,9296,2.3,4.03,Low,High,113,Senior,1,1,1,0,1,Female,Homemaker,Rural,36-45,1,0,0,0,1
+9857212861,349,19,72,Xiaomi,5G,Smartphone,11504,8.93,0.02,Low,Low,19,Senior,0,0,1,0,0,Female,Student,Rural,46-60,1,0,1,0,1
+9867062985,349,22,117,Realme,5G,Feature Phone,13644,1.07,3.09,Medium,Low,456,Young,1,0,0,0,1,Female,Business,Urban,26-35,1,1,0,1,1
+9895615922,349,55,27,Oppo,5G,Smartphone,20281,7.95,1.4,Very High,Low,103,Adult,0,0,1,0,1,Female,Homemaker,Urban,46-60,0,1,0,1,0
+9825979318,399,45,49,Oppo,5G,Smartphone,20478,8.28,4.54,Very High,Low,409,Young,0,0,0,1,0,Female,Homemaker,Urban,26-35,1,1,1,0,0
+9855168948,349,12,71,Realme,4G,Feature Phone,20739,4.08,4.0,Low,High,251,Adult,0,0,0,0,0,Male,Salaried,Rural,18-25,1,0,1,0,0
+9862105926,349,12,105,Oppo,5G,Smartphone,10603,0.7,3.97,Medium,Medium,422,Senior,0,1,1,0,1,Male,Student,Urban,36-45,0,0,1,0,1
+9811535185,349,51,46,Oppo,5G,Feature Phone,14770,8.74,1.22,Medium,High,44,Adult,1,1,1,1,1,Female,Salaried,Urban,60+,1,1,0,0,1
+9840128037,979,17,32,OnePlus,4G,Feature Phone,50913,5.61,3.9,Low,Low,182,Adult,0,1,1,1,0,Male,Student,Metro,36-45,0,1,1,0,0
+9880263978,979,10,107,Apple,5G,Smartphone,55292,7.22,2.37,Very High,Low,349,Adult,1,0,0,0,0,Male,Business,Urban,36-45,1,1,1,1,0
+9835391336,349,10,16,Xiaomi,4G,Smartphone,8726,5.12,4.75,High,High,414,Adult,0,1,0,1,0,Female,Business,Rural,26-35,0,0,1,0,1
+9829241612,399,24,30,Oppo,4G,Feature Phone,26209,6.78,2.42,Very High,High,292,Adult,0,0,0,1,0,Female,Homemaker,Metro,46-60,1,0,1,0,1
+9871045209,3999,53,36,Samsung,5G,Feature Phone,72198,5.55,0.25,High,Medium,196,Senior,1,0,1,0,0,Male,Homemaker,Metro,36-45,1,0,1,1,0
+9835477223,349,26,30,Realme,4G,Smartphone,15732,0.63,2.69,Low,Low,62,Adult,1,0,0,0,1,Female,Business,Urban,60+,0,0,0,0,0
+9853598161,349,53,71,Xiaomi,4G,Smartphone,21142,1.96,0.59,Medium,Low,200,Young,1,0,0,0,0,Male,Salaried,Rural,18-25,0,1,1,0,0
+9861287384,1729,27,61,Samsung,4G,Smartphone,68026,8.27,2.08,Very High,Medium,122,Young,0,1,1,0,0,Male,Business,Metro,18-25,0,1,0,0,0
+9889169462,349,35,97,Vivo,5G,Smartphone,11846,9.39,0.41,Medium,Low,89,Senior,0,1,0,0,0,Male,Business,Rural,46-60,0,1,1,0,1
+9874654277,1729,17,61,Samsung,4G,Feature Phone,88025,8.6,2.9,Very High,Low,426,Adult,1,1,1,0,0,Female,Homemaker,Metro,46-60,1,0,0,1,1
+9859771573,979,31,72,Samsung,5G,Smartphone,56596,2.97,3.76,Low,Medium,21,Senior,0,1,0,1,1,Female,Salaried,Metro,36-45,1,0,1,0,1
+9824173037,3999,14,81,Apple,4G,Feature Phone,100266,8.72,0.78,Low,Low,457,Young,1,1,1,0,1,Female,Salaried,Metro,18-25,1,1,0,1,1
+9869811137,349,39,102,Vivo,4G,Smartphone,10984,3.76,5.0,High,Medium,83,Adult,1,1,1,0,0,Male,Student,Rural,36-45,0,1,0,1,0
+9857723321,399,17,103,Oppo,5G,Smartphone,32521,2.42,4.84,High,High,219,Young,0,0,1,1,0,Female,Salaried,Metro,46-60,1,0,0,0,1
+9890654612,979,32,52,Samsung,4G,Smartphone,59650,8.4,1.16,High,High,350,Senior,0,1,1,1,1,Male,Student,Urban,36-45,1,1,0,1,0
+9860389659,349,47,106,Oppo,5G,Feature Phone,19760,2.42,0.5,Low,Medium,148,Young,1,0,0,0,0,Female,Homemaker,Rural,46-60,1,1,1,1,1
+9857091666,3999,53,106,Samsung,5G,Smartphone,89484,8.31,4.87,Very High,Medium,329,Senior,1,0,1,0,0,Male,Homemaker,Metro,36-45,1,0,0,1,0
+9837762615,349,51,61,Vivo,5G,Smartphone,11306,2.48,4.59,High,Medium,57,Young,1,0,1,0,1,Female,Homemaker,Urban,46-60,1,1,1,0,0
+9816627953,349,47,34,Vivo,4G,Smartphone,19909,2.77,4.03,Low,Medium,302,Adult,1,1,1,1,1,Male,Salaried,Urban,36-45,1,0,1,0,1
+9897491733,979,9,71,Samsung,5G,Feature Phone,50444,0.95,3.19,Medium,Medium,484,Adult,1,0,0,1,0,Male,Salaried,Metro,18-25,0,1,0,0,1
+9846670413,979,42,114,Samsung,5G,Feature Phone,50975,6.69,2.02,Low,Low,43,Senior,0,1,1,0,1,Female,Student,Urban,46-60,0,1,1,1,1
+9825748471,349,35,60,Oppo,4G,Smartphone,11077,4.41,3.85,High,Medium,136,Senior,0,1,0,1,0,Male,Salaried,Urban,36-45,1,0,1,0,0

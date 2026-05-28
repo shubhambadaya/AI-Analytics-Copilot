@@ -1,0 +1,501 @@
+msisdn,offer_tag,HS_AON,NW_AON,HS_BRAND,HS_BAND,HS_TYPE,Price,data_80_limit_breach,fup_limit_breach,data_usage_level,bundle_consistency,vowifi_mous,customer_age,cricket_cohort_tag,ir_roamer_tag,bb_tag,dth_tag,other_recharge,GENDER_L1,Category,GEO_TAG,AGE_BUCKET,AI_MASTER,NATIONAL_ROAMER,CWE,Digital_Savvy,OTT_LOVER
+USR_15X86YTZXQ,349,57,98,Xiaomi,5G,Feature Phone,10470,6.23,3.94,Medium,Low,379,Adult,1,1,0,0,0,Male,Business,Rural,18-25,1,0,1,1,1
+USR_U68DIX3U3B,349,28,100,Oppo,4G,Feature Phone,20456,7.79,3.19,Very High,High,29,Young,0,1,0,1,1,Female,Student,Rural,60+,1,1,1,1,1
+USR_U7438LYQYN,349,27,104,Xiaomi,5G,Feature Phone,9882,4.19,2.98,Very High,High,105,Young,1,1,0,0,0,Female,Salaried,Rural,18-25,1,1,1,1,0
+USR_T90J67WDH9,399,7,114,Oppo,5G,Smartphone,32446,3.06,4.27,Medium,Medium,234,Adult,0,0,0,1,0,Female,Homemaker,Metro,60+,0,1,0,0,1
+USR_JYSFKDYUZ4,3999,44,84,Samsung,5G,Smartphone,138670,6.34,1.07,Medium,Medium,130,Senior,1,0,0,0,0,Male,Salaried,Metro,60+,1,0,0,1,1
+USR_L2A60Z46Q7,349,51,66,Realme,4G,Smartphone,15017,8.04,3.77,Very High,High,412,Senior,1,0,0,1,1,Female,Homemaker,Rural,18-25,1,0,0,1,0
+USR_GHM1ZUS5UT,3999,29,61,Apple,5G,Feature Phone,132871,3.62,2.55,High,High,240,Senior,1,1,0,1,1,Female,Student,Metro,18-25,0,0,0,1,0
+USR_JPPI788ECI,349,31,114,Realme,4G,Smartphone,20308,4.61,1.29,Medium,High,174,Senior,0,1,0,1,0,Female,Business,Urban,36-45,0,0,0,1,0
+USR_BUT8JVVWGU,1729,56,24,Apple,4G,Feature Phone,63859,3.45,2.55,Low,Medium,412,Senior,0,1,1,0,0,Male,Homemaker,Urban,36-45,1,1,1,1,1
+USR_EI9VQL8COE,349,6,114,Xiaomi,5G,Smartphone,17073,3.86,3.48,Medium,Medium,163,Young,1,0,0,0,0,Female,Business,Rural,36-45,1,1,0,0,0
+USR_XQHQDXQDZO,349,13,97,Realme,5G,Feature Phone,18181,0.3,3.04,High,Medium,479,Young,0,0,0,0,1,Male,Homemaker,Rural,60+,0,1,1,0,0
+USR_W9Y5WRZ634,349,36,65,Realme,4G,Smartphone,15893,8.0,3.2,High,Medium,0,Senior,0,1,0,0,0,Female,Homemaker,Urban,60+,0,1,0,1,1
+USR_JWEXE0H1OP,349,13,92,Vivo,5G,Smartphone,15386,7.37,4.2,Medium,Low,128,Adult,1,1,0,0,0,Male,Salaried,Urban,60+,1,1,0,0,0
+USR_W5VHO80MFL,349,47,43,Xiaomi,4G,Smartphone,21267,1.9,3.4,Low,High,301,Adult,1,0,1,1,0,Male,Salaried,Rural,46-60,0,1,0,1,1
+USR_2X5FX2R60Q,399,50,98,Vivo,4G,Smartphone,21938,4.72,2.12,Very High,Low,109,Adult,1,1,0,0,0,Male,Student,Urban,60+,0,0,1,1,0
+USR_IK3AT9Q5KX,349,51,106,Xiaomi,4G,Feature Phone,10805,4.98,1.26,Low,High,155,Senior,1,0,0,1,0,Female,Homemaker,Rural,60+,1,0,0,0,0
+USR_9II6ROPXOZ,399,44,57,Samsung,5G,Smartphone,32132,7.07,2.44,High,Low,324,Senior,0,0,1,0,0,Female,Homemaker,Urban,60+,1,1,1,0,1
+USR_D5JKKLCTO2,349,6,56,Oppo,4G,Smartphone,13980,8.34,4.09,Low,High,295,Adult,1,1,0,0,1,Female,Homemaker,Urban,46-60,1,1,0,1,1
+USR_C75O9PPTZ5,3999,52,54,Samsung,5G,Feature Phone,107614,1.78,4.78,Medium,Medium,395,Young,0,1,1,0,0,Male,Student,Metro,26-35,0,1,1,1,0
+USR_3SRNSTLEJV,349,38,76,Xiaomi,5G,Smartphone,13677,6.4,4.44,Medium,Low,184,Senior,1,0,0,1,1,Male,Salaried,Urban,36-45,1,0,1,0,0
+USR_ZJPP2030QZ,3999,26,60,Samsung,5G,Smartphone,140756,6.88,0.53,High,Low,250,Senior,0,0,1,0,1,Female,Business,Metro,46-60,0,1,0,0,1
+USR_020GCYUS3R,979,15,35,Apple,5G,Smartphone,34576,7.81,4.25,Low,High,277,Adult,1,0,0,0,1,Male,Salaried,Urban,60+,0,1,0,0,1
+USR_PQFVVI0P38,349,45,6,Xiaomi,5G,Smartphone,8999,4.93,0.36,Medium,Low,15,Young,0,1,1,0,0,Female,Business,Rural,18-25,0,1,0,1,0
+USR_H27XM3YZ4R,979,53,100,Apple,4G,Feature Phone,45308,2.16,3.47,Very High,Low,470,Young,1,1,1,0,0,Female,Homemaker,Metro,36-45,1,1,1,0,1
+USR_AS4LM8OUP2,349,56,73,Oppo,4G,Smartphone,18557,9.73,0.1,Medium,Low,72,Young,1,1,0,1,0,Male,Salaried,Rural,26-35,0,1,1,1,1
+USR_9RMTVV3K4O,349,23,111,Xiaomi,4G,Feature Phone,18873,3.16,2.61,Very High,Medium,295,Young,1,1,1,1,0,Male,Homemaker,Rural,60+,1,1,1,1,1
+USR_X8T8U3GRN1,979,6,27,OnePlus,4G,Smartphone,36599,6.6,3.89,High,Low,278,Young,1,0,1,1,1,Male,Salaried,Metro,36-45,0,0,1,0,1
+USR_55BL84Q2EB,349,15,117,Realme,4G,Smartphone,8150,3.35,3.44,Medium,High,419,Senior,1,1,1,0,1,Male,Homemaker,Urban,18-25,1,1,1,0,1
+USR_QGO8ML54WJ,979,45,75,Samsung,4G,Feature Phone,59621,0.04,1.12,High,Low,13,Adult,1,0,1,1,0,Female,Student,Metro,36-45,0,1,0,1,0
+USR_0E34XUB0XZ,349,28,85,Realme,5G,Smartphone,13431,7.37,0.98,Medium,Low,152,Young,1,1,0,1,1,Male,Business,Urban,18-25,0,1,1,1,0
+USR_1JZV5TQTZX,979,40,74,OnePlus,5G,Feature Phone,39034,9.52,2.25,High,Low,232,Senior,1,0,0,1,1,Female,Homemaker,Urban,18-25,1,1,0,0,1
+USR_HLACLU0VM8,349,44,62,Vivo,5G,Smartphone,21924,5.99,4.33,Low,High,464,Young,0,0,0,0,0,Female,Salaried,Urban,26-35,0,1,0,0,1
+USR_V9IF3BZG38,349,24,103,Xiaomi,5G,Smartphone,16055,6.37,2.48,Low,Medium,88,Adult,0,1,0,1,1,Male,Student,Rural,18-25,0,0,0,0,0
+USR_1415EATBU6,399,35,44,Vivo,4G,Smartphone,19644,8.16,3.43,High,High,47,Adult,1,0,1,0,0,Male,Business,Urban,46-60,0,1,0,1,0
+USR_PZALER073X,399,19,53,Samsung,4G,Smartphone,31215,6.6,0.31,Very High,Low,192,Young,1,0,1,0,0,Female,Homemaker,Urban,26-35,0,0,0,1,1
+USR_S3VMR1AORV,3999,28,120,Samsung,5G,Feature Phone,104531,7.25,0.05,High,High,405,Adult,1,0,1,0,1,Male,Business,Metro,18-25,0,0,1,1,0
+USR_X88WKTLX4I,399,47,112,Samsung,5G,Feature Phone,33103,9.75,3.68,Very High,High,2,Young,0,1,1,1,1,Male,Homemaker,Urban,60+,0,0,1,1,1
+USR_QUUZDCRS5L,3999,34,56,Samsung,5G,Feature Phone,128992,7.35,1.55,Low,Low,480,Senior,0,0,1,1,1,Female,Homemaker,Metro,46-60,1,0,0,0,0
+USR_VXE7052FWW,399,24,112,Oppo,5G,Smartphone,33608,4.93,0.67,Low,High,146,Adult,1,1,0,1,0,Male,Student,Metro,60+,0,0,0,0,0
+USR_TPEE4FCYIC,399,56,13,OnePlus,4G,Smartphone,19526,5.45,0.03,Medium,High,247,Adult,0,0,1,1,1,Female,Business,Urban,36-45,1,0,0,1,1
+USR_G9ULA2O0O1,979,25,17,Samsung,5G,Smartphone,52466,0.5,0.6,Low,Medium,111,Senior,1,1,0,1,1,Female,Student,Metro,60+,1,0,1,0,0
+USR_MF0B0YP4XK,349,9,71,Oppo,4G,Feature Phone,14308,0.56,2.24,Very High,High,357,Adult,1,0,1,0,0,Female,Homemaker,Rural,36-45,1,0,1,0,0
+USR_RTGD2QA9FP,349,56,44,Xiaomi,5G,Feature Phone,18111,9.09,1.66,High,High,56,Adult,1,1,0,0,0,Male,Business,Rural,60+,1,0,1,0,1
+USR_FRVM8H9LEQ,349,41,78,Realme,5G,Smartphone,9931,9.46,3.93,Low,Low,127,Senior,1,1,1,0,0,Female,Salaried,Urban,46-60,0,1,1,1,1
+USR_WOXOM1GB12,349,31,103,Xiaomi,5G,Feature Phone,15295,9.82,1.34,Low,High,230,Senior,1,1,1,0,0,Male,Homemaker,Rural,36-45,0,0,0,0,1
+USR_LK62KZ0917,349,50,6,Oppo,4G,Smartphone,9664,1.92,0.9,Very High,High,347,Adult,1,1,1,1,0,Male,Business,Urban,46-60,0,1,1,0,0
+USR_EWGKF1GX40,3999,19,85,Samsung,5G,Smartphone,101611,3.72,0.84,High,High,180,Young,0,1,0,0,1,Female,Business,Metro,26-35,0,1,1,0,0
+USR_WSQUXJNGFN,3999,27,43,Apple,5G,Smartphone,119212,7.54,2.54,Medium,Low,331,Adult,0,0,0,0,0,Male,Salaried,Metro,60+,0,0,1,0,0
+USR_TEGPSDGDBI,1729,41,30,Samsung,5G,Feature Phone,69062,9.05,1.47,High,Medium,447,Young,1,0,1,0,0,Male,Homemaker,Metro,26-35,0,0,1,1,1
+USR_1O1ZZGDVWQ,349,59,118,Realme,5G,Feature Phone,13528,2.91,1.43,Low,Low,422,Senior,0,0,1,1,1,Female,Salaried,Urban,46-60,1,1,0,1,1
+USR_TB76R8BJ5O,349,42,28,Xiaomi,5G,Feature Phone,8946,9.27,3.63,Very High,Medium,183,Senior,1,0,1,0,0,Male,Business,Rural,26-35,0,1,0,1,1
+USR_L6DOTXA87J,349,58,67,Oppo,4G,Smartphone,15522,2.66,3.91,Very High,High,250,Young,1,0,1,1,0,Female,Student,Urban,18-25,1,0,1,1,1
+USR_X4HHAFQNXA,349,15,11,Xiaomi,5G,Feature Phone,13561,7.9,1.61,Low,Low,457,Adult,0,0,0,0,1,Male,Salaried,Urban,18-25,1,1,1,1,0
+USR_ZSX8JKX9KT,349,27,100,Vivo,5G,Feature Phone,10712,9.75,2.46,Medium,Low,75,Senior,0,1,1,1,1,Male,Business,Urban,36-45,0,1,1,0,1
+USR_TV8B1CO6XW,349,6,72,Realme,4G,Feature Phone,17938,9.87,2.59,High,Low,77,Adult,0,0,0,0,1,Female,Homemaker,Rural,36-45,0,1,0,1,1
+USR_IPI0IMKF14,349,46,116,Xiaomi,4G,Feature Phone,14263,4.28,4.08,Very High,Low,62,Senior,0,0,0,1,0,Female,Homemaker,Rural,18-25,1,0,0,0,1
+USR_OO936P2ATL,399,59,91,Vivo,5G,Feature Phone,26539,7.75,1.74,High,Low,259,Young,0,0,0,0,1,Male,Student,Urban,18-25,0,1,0,1,0
+USR_GJTCOCB098,979,49,59,Samsung,4G,Feature Phone,40698,3.21,4.1,Medium,Medium,495,Adult,0,1,0,1,1,Male,Homemaker,Urban,26-35,0,1,0,1,1
+USR_ZT18U2D3ZL,979,57,83,Samsung,4G,Smartphone,46909,8.77,1.67,High,Medium,58,Young,0,1,1,1,0,Male,Homemaker,Metro,18-25,0,0,0,1,1
+USR_XUP37LEAL4,979,14,67,Samsung,5G,Feature Phone,38774,8.62,3.85,High,Medium,173,Senior,0,0,1,0,0,Female,Homemaker,Metro,60+,1,1,0,1,0
+USR_NEF4JIN9DT,3999,17,16,Samsung,4G,Feature Phone,124449,4.69,3.99,Low,Low,104,Adult,0,1,0,0,1,Male,Student,Metro,36-45,1,0,1,1,0
+USR_57UJWZHPLO,349,18,13,Oppo,5G,Feature Phone,14976,9.03,2.29,High,Low,471,Young,1,1,1,0,1,Female,Business,Rural,46-60,0,1,0,1,1
+USR_FWYFLC05SP,349,19,17,Vivo,5G,Feature Phone,11853,0.5,1.77,Medium,Low,297,Adult,1,0,0,0,0,Female,Salaried,Urban,18-25,1,1,1,0,1
+USR_4Y017JT2YA,349,17,37,Vivo,5G,Smartphone,10243,0.08,4.85,High,Medium,337,Adult,1,0,0,0,0,Female,Homemaker,Urban,46-60,0,1,1,0,0
+USR_L5ST5BXWO2,399,21,113,Vivo,4G,Feature Phone,31159,6.94,2.6,Medium,High,226,Senior,1,1,1,1,0,Male,Student,Urban,36-45,1,1,0,0,0
+USR_8HBFNB1JJL,979,13,107,Apple,4G,Feature Phone,56960,7.11,4.52,High,Medium,409,Young,1,1,0,0,1,Female,Homemaker,Metro,46-60,1,0,1,1,1
+USR_3QLDASDS6N,349,13,43,Vivo,5G,Smartphone,16762,5.55,3.69,Low,Low,388,Young,0,1,1,0,0,Female,Salaried,Rural,26-35,1,0,1,1,0
+USR_TIA9RHXYVN,349,27,96,Vivo,5G,Feature Phone,16454,2.49,3.36,Medium,High,302,Young,1,1,0,0,1,Female,Salaried,Rural,26-35,1,1,1,1,1
+USR_ESM9V74VL4,979,55,34,OnePlus,4G,Smartphone,40499,6.65,4.23,Very High,Medium,370,Senior,1,1,1,1,1,Female,Student,Metro,46-60,0,0,1,1,0
+USR_P0CP4RRQO4,349,53,21,Realme,5G,Feature Phone,21006,6.89,4.36,Very High,Low,331,Senior,0,0,0,0,1,Male,Student,Urban,26-35,0,0,1,0,1
+USR_NBKBX7L6UN,979,17,53,OnePlus,4G,Feature Phone,50409,4.21,1.61,High,High,23,Senior,1,1,1,1,1,Female,Homemaker,Metro,26-35,1,1,0,0,0
+USR_PKJOURIOEP,349,54,27,Vivo,4G,Feature Phone,17056,4.81,1.17,Very High,Low,384,Senior,0,0,1,0,0,Female,Business,Rural,36-45,1,1,0,1,0
+USR_7SVD7AU3GA,349,15,74,Vivo,4G,Feature Phone,18737,3.36,4.52,Very High,High,128,Adult,0,1,1,1,0,Female,Student,Urban,36-45,1,1,0,1,0
+USR_9AOSCZVGSB,349,38,35,Xiaomi,4G,Smartphone,11723,0.23,2.01,Very High,Low,185,Senior,1,1,0,1,1,Female,Student,Urban,26-35,0,1,1,1,0
+USR_4QF5YRPUHX,1729,22,11,Samsung,5G,Feature Phone,66233,6.94,1.26,Very High,Low,68,Adult,0,1,1,1,0,Female,Salaried,Urban,46-60,0,1,1,0,1
+USR_WRKA0ELWOE,399,49,52,Samsung,5G,Feature Phone,18341,3.28,4.37,High,High,24,Adult,1,1,0,1,0,Female,Salaried,Metro,60+,0,1,0,0,1
+USR_5SCHI7Y8B3,399,49,48,Vivo,5G,Feature Phone,32174,4.2,4.21,High,High,477,Senior,0,1,1,0,1,Male,Business,Urban,18-25,0,1,1,0,0
+USR_Y2X0S1THG0,399,25,103,Vivo,5G,Smartphone,18766,7.83,4.17,Low,Medium,223,Young,1,0,1,0,0,Male,Homemaker,Urban,60+,0,0,0,0,0
+USR_ME20KYZJDI,979,12,45,Apple,4G,Smartphone,35100,3.61,1.27,High,Low,368,Adult,1,0,0,0,0,Male,Salaried,Metro,36-45,0,1,0,0,0
+USR_C3LITVVYBG,349,45,86,Realme,5G,Feature Phone,19482,6.24,2.57,Medium,High,150,Adult,1,0,0,1,1,Male,Salaried,Rural,46-60,0,0,1,0,0
+USR_8D2PQ1QFV8,349,52,78,Realme,5G,Feature Phone,10931,3.16,3.56,Medium,Medium,25,Adult,0,1,1,1,1,Female,Business,Urban,36-45,1,0,0,0,1
+USR_K1A3O094DR,349,29,45,Xiaomi,4G,Feature Phone,18568,5.28,3.4,Medium,Low,196,Senior,0,0,1,1,0,Male,Homemaker,Urban,36-45,1,0,1,0,0
+USR_J44MARUHRY,3999,17,43,Samsung,5G,Feature Phone,72953,4.59,4.66,Medium,Medium,46,Young,0,1,1,0,0,Female,Student,Metro,60+,0,1,1,1,1
+USR_WGFH84OI76,349,25,78,Realme,5G,Feature Phone,14305,3.08,1.51,Low,Medium,263,Young,1,1,0,0,1,Male,Homemaker,Rural,36-45,0,1,0,0,0
+USR_MO3WC0CQGS,979,34,16,Samsung,4G,Smartphone,40491,7.96,1.56,Low,Low,186,Senior,0,0,0,0,1,Female,Student,Metro,46-60,1,0,1,0,1
+USR_U5R894GGFI,979,58,61,Samsung,4G,Feature Phone,34100,8.28,3.82,Medium,Low,256,Senior,0,1,1,1,0,Female,Student,Urban,46-60,0,1,0,0,1
+USR_Z2RWZPC4PF,349,11,20,Oppo,4G,Feature Phone,9710,9.99,3.83,Medium,High,212,Young,1,0,1,0,0,Male,Homemaker,Rural,36-45,1,0,1,1,1
+USR_1N7XI7KJYL,979,50,31,OnePlus,4G,Smartphone,35145,3.12,3.88,High,Low,176,Senior,0,1,0,1,1,Female,Business,Urban,26-35,1,0,0,1,0
+USR_JDZNB08TOO,1729,14,9,Apple,4G,Feature Phone,75453,3.99,2.14,Medium,Medium,195,Young,0,0,1,1,0,Male,Student,Urban,26-35,0,1,1,0,1
+USR_DRZ4GH7WKE,349,23,24,Xiaomi,5G,Feature Phone,14368,1.96,4.85,High,High,293,Senior,1,0,1,0,0,Male,Business,Rural,46-60,1,1,1,1,0
+USR_WR8014I4RT,399,14,58,OnePlus,4G,Smartphone,24782,8.07,0.59,High,Medium,143,Adult,1,0,0,0,0,Female,Salaried,Metro,18-25,1,0,1,0,1
+USR_HVS46ULBDI,3999,55,24,Apple,5G,Feature Phone,90541,2.24,1.93,Medium,Low,250,Young,1,1,1,0,1,Female,Student,Metro,46-60,0,1,1,1,0
+USR_OCICRA2HY0,349,24,6,Xiaomi,5G,Smartphone,8911,4.49,0.89,Medium,High,387,Adult,1,0,0,0,1,Female,Salaried,Rural,26-35,1,0,1,0,1
+USR_0JPXL6OEK9,1729,19,53,Samsung,5G,Smartphone,81641,1.86,4.15,Low,Low,349,Young,0,1,1,1,0,Male,Business,Metro,18-25,1,0,0,1,1
+USR_T13H74KSJY,349,18,54,Xiaomi,4G,Feature Phone,18663,6.01,2.33,High,Low,260,Adult,1,0,1,0,1,Female,Salaried,Urban,36-45,1,0,1,1,1
+USR_0LBAKBUZMI,979,60,40,OnePlus,4G,Smartphone,44489,9.41,0.75,Low,Low,255,Young,1,0,1,0,0,Male,Business,Metro,18-25,0,1,1,0,1
+USR_9NI5HF4MJD,979,10,15,Samsung,5G,Smartphone,51264,1.34,0.09,Medium,Low,406,Young,1,0,0,1,0,Male,Homemaker,Metro,36-45,1,0,0,0,0
+USR_B45GA9LUYR,349,35,94,Oppo,4G,Feature Phone,21358,9.9,3.85,Medium,Low,135,Young,1,0,1,1,0,Female,Student,Urban,26-35,0,1,1,1,1
+USR_BKFRJSNWJ9,349,51,62,Oppo,5G,Smartphone,9996,9.83,3.7,Very High,Medium,293,Senior,1,0,1,0,1,Female,Salaried,Urban,60+,0,0,0,0,0
+USR_8ZF7EUTNOI,979,45,63,Apple,4G,Feature Phone,37405,3.15,2.4,High,Medium,452,Young,0,0,0,0,1,Female,Business,Metro,46-60,0,0,1,1,1
+USR_K9WMZBPEH7,349,26,66,Oppo,4G,Smartphone,8147,3.67,2.89,Very High,Low,13,Senior,1,1,0,1,1,Female,Salaried,Urban,60+,1,1,1,1,1
+USR_XXX5450M7P,349,27,41,Vivo,5G,Smartphone,18223,4.25,3.28,Low,Low,28,Senior,0,1,0,0,1,Female,Student,Urban,60+,0,1,1,0,0
+USR_IHAEBXJ8JN,349,21,90,Oppo,5G,Feature Phone,19318,7.0,0.33,Very High,High,266,Senior,0,1,1,1,1,Female,Salaried,Urban,60+,1,0,1,0,0
+USR_NI7LOYDPU4,399,58,38,Vivo,4G,Smartphone,19946,9.11,1.74,Low,Low,231,Senior,1,1,0,1,1,Female,Business,Metro,26-35,1,1,1,1,0
+USR_65RB4A6HJW,399,35,88,OnePlus,4G,Feature Phone,21757,4.78,3.87,Very High,Low,160,Young,1,0,1,1,1,Male,Salaried,Metro,26-35,0,0,0,1,1
+USR_GJ9IR4CIFZ,349,37,45,Vivo,4G,Feature Phone,10733,7.58,0.76,Medium,High,171,Senior,1,0,0,1,1,Female,Student,Rural,46-60,1,1,1,0,1
+USR_HN7LA9TGWE,979,6,29,Apple,4G,Feature Phone,59580,9.58,1.77,Medium,Low,470,Young,1,1,1,0,0,Female,Student,Urban,46-60,1,1,1,0,0
+USR_MX3O4DKRF5,979,6,73,Samsung,5G,Feature Phone,32145,8.51,0.76,Medium,Medium,445,Adult,1,1,0,1,0,Female,Salaried,Metro,36-45,0,1,1,1,1
+USR_GH4G8XV7PF,3999,50,9,Samsung,5G,Feature Phone,120154,6.81,4.31,High,Low,403,Senior,1,1,1,0,0,Female,Business,Metro,36-45,0,0,0,0,1
+USR_U45UZU0PMF,399,19,20,Samsung,5G,Feature Phone,32849,0.19,2.13,Very High,Low,84,Senior,0,0,1,0,0,Male,Salaried,Metro,26-35,0,0,0,1,0
+USR_319O8BFB54,1729,28,114,Samsung,4G,Feature Phone,83662,9.71,3.35,Very High,Medium,476,Adult,1,1,0,0,1,Male,Salaried,Urban,46-60,1,0,0,1,0
+USR_0S53C2ECR4,979,47,32,OnePlus,5G,Feature Phone,54952,6.89,1.58,High,High,2,Senior,1,1,0,0,0,Male,Business,Metro,26-35,1,1,1,0,0
+USR_HZU72C7VAW,349,52,76,Vivo,4G,Feature Phone,14363,1.68,3.45,Very High,Medium,75,Senior,0,0,1,1,0,Female,Salaried,Urban,46-60,1,1,0,1,1
+USR_X1Q1BQ0U4S,349,20,66,Realme,5G,Feature Phone,21678,5.9,4.97,Low,Low,311,Young,0,1,1,0,0,Female,Homemaker,Urban,26-35,1,0,0,1,1
+USR_WR8LRNRYOY,349,24,12,Vivo,4G,Feature Phone,20150,4.73,3.1,Medium,High,40,Senior,0,1,1,0,1,Male,Salaried,Urban,46-60,1,0,0,1,0
+USR_40PISMB866,349,50,51,Oppo,5G,Feature Phone,12869,1.42,3.48,High,High,450,Young,0,1,0,1,0,Female,Business,Urban,26-35,1,1,0,0,1
+USR_D64F2CQTJB,349,50,75,Vivo,4G,Smartphone,19285,2.96,1.88,Very High,Medium,404,Senior,0,0,1,1,1,Male,Student,Urban,26-35,0,1,0,0,1
+USR_0KQYL973UV,399,42,16,Vivo,5G,Feature Phone,22743,5.22,3.54,Very High,Low,457,Adult,0,0,0,1,0,Female,Student,Urban,60+,0,1,0,0,1
+USR_SAKHV4YBUO,349,54,25,Vivo,4G,Smartphone,15882,7.01,1.16,Low,High,315,Young,1,1,0,1,1,Female,Homemaker,Rural,26-35,0,0,0,0,0
+USR_3P6ZTPH27V,399,13,120,Oppo,5G,Smartphone,31917,8.07,1.03,Low,Low,333,Adult,0,0,0,0,0,Male,Student,Metro,46-60,0,1,1,1,1
+USR_1ZY3PMG8JS,349,19,119,Vivo,4G,Smartphone,20094,0.72,0.02,Medium,Medium,44,Adult,1,0,1,1,1,Female,Student,Rural,46-60,0,1,1,0,1
+USR_N1PD78NEWM,1729,17,76,Apple,4G,Feature Phone,70459,1.37,2.1,Very High,Medium,376,Young,0,0,0,0,0,Female,Salaried,Urban,60+,1,1,0,1,0
+USR_5JQMIP22UN,349,60,63,Oppo,5G,Feature Phone,21274,1.48,1.96,Very High,Medium,303,Young,0,1,0,0,1,Male,Salaried,Urban,18-25,1,0,0,1,0
+USR_1EBKD6O8IQ,349,28,106,Realme,5G,Feature Phone,16482,4.45,0.81,Very High,Medium,168,Adult,0,1,1,1,1,Female,Student,Urban,26-35,0,1,1,1,1
+USR_5OEIS4US4W,3999,28,51,Samsung,4G,Feature Phone,98232,9.95,1.78,High,Medium,3,Adult,0,1,0,0,1,Male,Homemaker,Metro,36-45,1,1,0,0,1
+USR_69ZP1ZU7IK,3999,45,6,Apple,4G,Smartphone,94373,8.02,2.91,High,High,277,Senior,0,1,1,1,0,Female,Student,Metro,60+,0,1,0,1,1
+USR_FY0OTQV9RN,349,36,109,Vivo,4G,Smartphone,11481,8.87,3.07,Very High,Low,458,Young,1,1,1,0,0,Female,Homemaker,Rural,60+,1,0,1,1,1
+USR_QXR3AV5PEB,349,15,7,Vivo,4G,Smartphone,15614,1.92,2.25,Low,High,362,Senior,0,1,1,1,0,Male,Student,Rural,46-60,0,0,1,1,0
+USR_EUOGLS8QXL,399,13,47,OnePlus,4G,Smartphone,32761,9.45,3.74,Low,Low,84,Young,0,1,0,1,0,Female,Homemaker,Metro,46-60,0,0,0,0,0
+USR_7V92YET0EM,979,21,97,Apple,4G,Smartphone,34788,3.57,4.09,Medium,High,132,Senior,0,0,1,0,1,Male,Student,Urban,26-35,0,0,0,0,1
+USR_UEO845TPL5,349,42,86,Oppo,5G,Feature Phone,15126,10.0,1.89,High,Low,35,Adult,0,0,1,1,0,Male,Homemaker,Rural,36-45,0,1,1,1,0
+USR_48G9AMMK53,349,27,114,Vivo,5G,Smartphone,13470,1.38,1.81,Medium,Low,329,Senior,0,0,0,0,1,Male,Student,Urban,26-35,0,1,0,0,0
+USR_CFFTAIDUZX,349,35,95,Xiaomi,4G,Smartphone,11609,2.7,4.2,High,High,368,Senior,0,1,0,1,0,Male,Salaried,Rural,18-25,1,1,1,1,1
+USR_VLVPFRNJA9,979,31,112,OnePlus,4G,Smartphone,43798,6.96,4.06,Low,Low,483,Adult,1,1,1,0,1,Male,Student,Urban,26-35,0,0,1,0,1
+USR_71L32TRZIJ,349,8,74,Realme,5G,Smartphone,14408,9.72,0.91,Low,Low,200,Adult,0,1,1,0,0,Male,Student,Urban,26-35,1,0,0,0,0
+USR_T010HRIUAJ,349,56,119,Oppo,5G,Smartphone,18844,9.96,0.61,Low,High,413,Young,0,1,0,0,0,Female,Salaried,Rural,26-35,0,0,0,0,1
+USR_6UR7EV32I1,349,16,32,Oppo,4G,Feature Phone,16785,6.61,2.31,Low,Low,126,Adult,1,0,0,1,1,Female,Homemaker,Urban,60+,0,0,0,0,1
+USR_5449JY37W9,399,46,99,OnePlus,5G,Smartphone,33119,7.57,2.21,High,Low,352,Adult,1,1,0,0,0,Male,Homemaker,Metro,18-25,1,0,0,1,1
+USR_PE1RL47JYV,349,26,8,Realme,5G,Smartphone,9223,1.6,4.07,Low,Medium,127,Adult,1,1,1,0,0,Female,Student,Rural,46-60,1,0,1,0,0
+USR_4KI3KHFLK9,349,53,8,Realme,4G,Smartphone,11103,3.38,4.51,Low,High,120,Young,0,1,1,0,0,Male,Salaried,Urban,18-25,0,1,0,0,0
+USR_PSV1PBI38I,979,17,54,Samsung,5G,Feature Phone,41434,1.16,4.76,Very High,High,203,Adult,0,1,1,0,0,Female,Salaried,Metro,46-60,0,1,1,1,1
+USR_Y6NL9CI2F7,349,54,67,Xiaomi,4G,Feature Phone,14214,4.97,3.84,Low,Medium,483,Senior,0,1,1,1,0,Female,Business,Urban,26-35,1,0,0,1,1
+USR_CI0OBYUGL8,349,13,110,Vivo,4G,Smartphone,8377,7.09,2.59,Very High,High,28,Senior,0,0,1,1,1,Male,Salaried,Urban,36-45,0,1,1,0,1
+USR_KEDJCJ05GA,979,7,73,Apple,4G,Smartphone,50735,1.38,0.68,Low,High,477,Senior,0,0,1,1,0,Female,Homemaker,Metro,18-25,1,1,0,0,0
+USR_HTGSPU74KR,399,15,102,Vivo,4G,Smartphone,23348,1.62,0.38,Low,Medium,105,Adult,0,1,0,0,0,Female,Salaried,Metro,18-25,1,0,0,1,0
+USR_JFYTKFB7YK,349,53,11,Oppo,4G,Feature Phone,21610,1.51,3.6,Medium,Low,64,Senior,0,0,1,1,1,Female,Salaried,Rural,46-60,0,1,0,0,1
+USR_KQHL6OE595,349,54,56,Realme,5G,Smartphone,13289,2.06,1.21,Low,High,138,Young,1,1,1,0,1,Male,Business,Urban,26-35,1,1,1,0,1
+USR_4NM70QOWX9,399,52,97,Vivo,5G,Feature Phone,25744,8.58,2.19,Medium,Low,411,Young,1,1,0,0,1,Male,Student,Urban,60+,1,1,1,1,0
+USR_JVKAU33ACU,3999,49,86,Samsung,5G,Smartphone,126418,3.01,0.49,High,High,53,Adult,1,1,0,0,1,Female,Salaried,Metro,36-45,0,1,1,1,0
+USR_O47T88A5ZO,979,37,70,Samsung,4G,Smartphone,53037,9.39,2.95,High,High,485,Senior,1,1,0,1,0,Male,Homemaker,Urban,60+,0,1,0,1,0
+USR_SPY4BRXUUC,979,8,96,Samsung,4G,Feature Phone,35469,9.53,0.56,Very High,Low,314,Adult,1,0,1,1,0,Female,Student,Metro,18-25,1,0,0,1,1
+USR_ZYI59L2QTA,349,57,20,Realme,4G,Smartphone,17404,4.35,0.49,Very High,High,115,Senior,1,0,1,1,0,Male,Salaried,Rural,18-25,1,0,1,1,0
+USR_1KKYXD14YM,349,13,89,Realme,4G,Smartphone,15989,8.59,4.88,High,High,323,Adult,0,1,0,1,1,Female,Homemaker,Urban,46-60,0,0,1,0,1
+USR_VSPPEDKDQ2,399,30,119,Oppo,4G,Feature Phone,31706,1.3,2.46,Medium,Medium,131,Senior,0,0,1,1,0,Male,Homemaker,Metro,60+,1,1,0,0,1
+USR_H1L3YM2LJC,349,44,30,Vivo,5G,Smartphone,15156,4.32,4.39,Low,Medium,250,Adult,1,1,0,0,0,Male,Student,Urban,60+,0,1,0,0,0
+USR_U1MLSIWRJ5,349,49,65,Xiaomi,4G,Smartphone,11999,7.99,1.69,Medium,High,286,Adult,0,1,1,0,0,Female,Business,Urban,18-25,1,0,1,1,1
+USR_6TETU9ZDUH,979,51,47,Apple,4G,Smartphone,57416,8.44,2.01,Medium,High,10,Adult,0,0,0,1,1,Male,Homemaker,Metro,26-35,0,0,1,1,0
+USR_YZTWN9MJ02,3999,29,53,Samsung,4G,Smartphone,140076,6.49,3.81,High,Low,359,Adult,0,1,0,1,1,Male,Business,Metro,36-45,1,0,1,1,1
+USR_GTFC1PG0VA,399,22,33,Samsung,4G,Feature Phone,29457,4.67,1.92,High,Low,297,Senior,0,1,0,1,1,Male,Salaried,Metro,60+,0,0,1,1,0
+USR_3PTW53EG8G,349,48,25,Oppo,5G,Smartphone,11088,3.67,2.62,Medium,Low,146,Senior,0,1,1,1,0,Female,Salaried,Rural,60+,1,1,0,1,1
+USR_8IBC905WB0,979,8,21,Apple,5G,Smartphone,49283,4.17,1.56,High,Medium,303,Young,1,1,1,0,0,Male,Student,Urban,26-35,0,0,0,1,1
+USR_7O6YKTC76Y,979,30,45,Apple,5G,Smartphone,37819,4.14,0.14,Medium,High,260,Young,1,0,0,0,1,Female,Business,Metro,36-45,1,0,1,1,0
+USR_QQU23WNJUN,399,13,7,Vivo,4G,Smartphone,34707,8.99,4.6,High,Low,113,Senior,0,1,1,1,1,Male,Business,Metro,46-60,1,0,1,1,0
+USR_9WCP7OM6S8,349,52,63,Realme,5G,Feature Phone,11345,0.43,3.18,High,Medium,239,Young,0,1,0,0,0,Female,Salaried,Urban,26-35,0,1,0,0,0
+USR_64DC6UDMBC,349,48,94,Xiaomi,5G,Smartphone,20457,8.01,1.74,Low,Medium,471,Senior,1,0,0,1,1,Male,Business,Rural,18-25,0,1,1,0,0
+USR_1NFZCKAOF2,349,28,114,Vivo,5G,Smartphone,11985,7.95,4.88,Low,Low,100,Adult,0,1,1,0,0,Male,Salaried,Rural,36-45,0,1,0,0,0
+USR_LQCUX8KJ3K,349,58,100,Vivo,5G,Feature Phone,13361,4.48,0.31,Medium,Low,57,Adult,1,1,0,0,0,Male,Business,Rural,18-25,1,1,1,1,1
+USR_IZO3RUT62B,979,14,93,OnePlus,5G,Smartphone,51976,9.97,3.68,Low,Medium,91,Adult,0,0,1,0,0,Male,Student,Urban,26-35,1,0,1,1,0
+USR_8ESG4WMB2G,349,48,25,Xiaomi,4G,Feature Phone,16761,2.15,2.04,High,Medium,326,Senior,0,1,1,0,0,Female,Business,Urban,46-60,1,1,0,0,1
+USR_BZIZJ26SBC,979,42,79,OnePlus,5G,Feature Phone,40933,9.74,4.41,Low,Medium,368,Young,0,1,1,0,0,Female,Salaried,Urban,36-45,0,0,1,0,0
+USR_BMLPVG382M,349,54,74,Oppo,5G,Smartphone,13518,2.43,4.61,Very High,Medium,307,Senior,1,0,0,0,0,Female,Student,Rural,60+,0,1,0,0,1
+USR_WHGS73QHPF,349,37,22,Xiaomi,5G,Feature Phone,17564,9.9,4.07,Very High,Medium,343,Adult,0,1,0,1,0,Female,Student,Urban,36-45,1,1,0,0,1
+USR_CVUO3T0G3B,349,11,17,Oppo,5G,Smartphone,12618,4.91,3.47,High,High,282,Adult,1,1,0,0,1,Male,Student,Urban,26-35,1,0,0,0,1
+USR_V43B599TD7,979,20,72,Apple,5G,Smartphone,35219,2.25,0.56,Low,Medium,469,Senior,1,1,1,0,0,Male,Student,Metro,60+,1,0,0,1,1
+USR_54L7V16VKR,3999,51,20,Samsung,5G,Feature Phone,92963,3.94,2.83,Medium,Low,252,Adult,1,0,0,0,0,Male,Business,Metro,60+,0,0,1,1,0
+USR_4TCR8DAY1J,1729,40,41,Apple,5G,Feature Phone,52441,2.42,4.22,Low,High,214,Adult,0,1,0,0,1,Female,Business,Metro,36-45,1,1,1,1,1
+USR_B7NF2DA135,349,23,13,Oppo,5G,Smartphone,18363,4.53,4.08,High,High,457,Young,0,1,1,0,0,Female,Student,Rural,60+,1,0,1,0,1
+USR_KTTNXFTKG7,3999,48,28,Samsung,5G,Smartphone,72015,2.35,4.63,High,Low,496,Senior,1,1,0,1,0,Female,Student,Metro,36-45,1,1,1,1,0
+USR_8IBIE89A3X,349,14,33,Realme,5G,Feature Phone,19129,8.39,4.36,Very High,High,123,Adult,1,0,1,0,0,Male,Business,Rural,18-25,0,0,0,1,1
+USR_TMV4LRYP9B,399,48,114,Samsung,4G,Smartphone,28869,3.42,4.98,High,Low,277,Adult,0,1,1,0,1,Female,Student,Urban,18-25,1,0,1,1,1
+USR_KGZ1WMLV83,349,23,89,Xiaomi,4G,Smartphone,14124,5.93,0.45,Low,Medium,76,Adult,0,1,0,0,0,Male,Homemaker,Rural,46-60,0,1,1,1,1
+USR_QVC3VT5WV7,979,48,8,Apple,4G,Feature Phone,39831,8.94,0.76,Medium,Low,390,Young,0,1,0,1,0,Female,Salaried,Urban,26-35,0,1,1,0,1
+USR_SEEDGRADQL,399,45,75,Samsung,4G,Feature Phone,20861,9.49,0.06,Low,Medium,56,Senior,1,0,1,1,1,Male,Homemaker,Urban,18-25,1,1,0,1,1
+USR_63SEKIHSOL,399,59,79,Vivo,5G,Smartphone,18778,1.25,2.59,Low,Low,122,Adult,1,0,0,0,0,Female,Salaried,Urban,46-60,0,1,0,0,0
+USR_LMOTSME6NE,1729,33,83,Samsung,4G,Smartphone,55322,9.55,4.0,Very High,High,496,Senior,0,1,1,1,1,Male,Salaried,Metro,18-25,1,0,1,1,1
+USR_3NXD5A7HHD,349,12,6,Xiaomi,5G,Feature Phone,19122,4.21,1.53,Very High,High,18,Adult,0,1,0,0,1,Female,Salaried,Urban,26-35,1,0,1,0,1
+USR_TVPJ625KQ8,979,47,66,OnePlus,4G,Feature Phone,55996,8.54,4.14,High,Medium,458,Young,1,1,0,1,0,Female,Student,Urban,18-25,1,1,1,0,0
+USR_462U1A89SD,349,13,111,Xiaomi,4G,Feature Phone,8009,9.78,1.64,High,Low,471,Senior,1,1,0,1,0,Female,Student,Urban,26-35,0,1,0,0,1
+USR_PM80E6NIN0,399,53,103,Samsung,5G,Feature Phone,22616,8.57,0.28,Very High,Medium,430,Young,1,1,0,1,0,Female,Homemaker,Urban,18-25,0,1,0,0,0
+USR_AQR27KPT0T,3999,51,29,Samsung,4G,Smartphone,86152,5.11,0.5,Medium,Medium,141,Young,1,0,0,1,1,Female,Business,Metro,46-60,1,1,0,0,0
+USR_FEWUVKAIK2,979,17,74,Apple,5G,Feature Phone,33319,5.42,3.53,High,High,378,Senior,1,1,0,1,1,Female,Homemaker,Metro,60+,1,1,0,0,1
+USR_BJG311T0ZJ,3999,48,50,Apple,5G,Smartphone,82283,0.09,4.09,High,Low,51,Young,1,0,0,1,1,Male,Homemaker,Metro,60+,0,0,1,0,0
+USR_MLD7CGHE0B,349,26,47,Realme,4G,Feature Phone,8071,8.35,1.96,Medium,High,341,Adult,1,0,1,0,0,Female,Student,Rural,46-60,1,1,0,0,0
+USR_9XC03RA4IY,349,15,97,Realme,5G,Smartphone,21372,4.12,1.59,Low,Low,261,Adult,0,0,0,1,1,Male,Homemaker,Urban,26-35,1,0,1,1,0
+USR_QJ7S91P1Q5,349,14,102,Xiaomi,5G,Feature Phone,14918,5.8,1.76,Very High,Low,344,Senior,0,1,1,1,1,Male,Homemaker,Urban,26-35,1,1,1,1,0
+USR_K51JTQDELR,349,14,16,Oppo,4G,Feature Phone,14374,7.48,1.15,Very High,Low,322,Young,1,1,1,0,0,Female,Student,Urban,18-25,1,0,1,1,0
+USR_9BU6J4PQGF,979,58,13,Samsung,4G,Feature Phone,42535,0.9,2.53,Low,Low,154,Young,1,1,0,1,1,Male,Student,Urban,18-25,1,1,0,0,1
+USR_YY1JULWYYC,979,27,51,Samsung,5G,Feature Phone,58613,0.47,3.69,Very High,High,184,Adult,0,0,1,1,0,Female,Salaried,Urban,18-25,1,1,1,1,1
+USR_GJHDZOADDQ,399,58,60,OnePlus,5G,Smartphone,19521,3.74,3.49,Low,Low,157,Adult,0,0,0,1,0,Female,Salaried,Metro,36-45,0,1,1,0,0
+USR_F3YN9X761T,349,35,40,Vivo,4G,Feature Phone,10849,1.07,2.34,High,Low,456,Adult,1,1,1,0,1,Female,Homemaker,Urban,18-25,0,1,0,1,1
+USR_D2AS9OOBHR,3999,21,57,Samsung,4G,Feature Phone,128703,9.71,4.45,Low,Low,500,Senior,0,0,1,1,0,Female,Salaried,Metro,36-45,1,0,0,0,0
+USR_4EW74ODKAZ,349,51,98,Realme,4G,Smartphone,8811,8.15,4.13,High,High,287,Young,1,1,1,1,0,Male,Homemaker,Rural,46-60,1,1,1,1,0
+USR_T7BI5PM4GU,349,16,11,Oppo,5G,Smartphone,18673,2.07,0.68,Very High,High,257,Senior,1,1,1,0,0,Female,Homemaker,Rural,36-45,1,1,1,1,0
+USR_KXISUFCVS9,399,51,102,OnePlus,5G,Smartphone,34599,2.85,0.55,Medium,Low,262,Young,1,0,0,0,0,Male,Student,Urban,60+,1,0,1,1,0
+USR_R0U31IS8Z7,3999,18,26,Apple,4G,Feature Phone,92114,8.62,1.26,High,High,230,Young,0,0,1,0,0,Female,Student,Metro,36-45,1,0,0,1,1
+USR_172T8B1MXJ,349,18,92,Oppo,4G,Feature Phone,21056,0.97,0.66,Very High,Low,314,Adult,0,1,0,1,0,Female,Business,Rural,46-60,1,0,1,0,0
+USR_7ZZO977BXE,349,21,18,Vivo,4G,Feature Phone,10591,3.88,1.86,High,High,351,Young,0,1,0,0,0,Male,Salaried,Rural,36-45,0,0,1,0,1
+USR_99LV59DVX2,979,25,120,Samsung,5G,Feature Phone,55295,9.66,4.58,Low,Medium,476,Senior,1,1,1,1,1,Female,Business,Metro,18-25,1,0,1,1,1
+USR_128GRUG201,979,22,70,OnePlus,4G,Feature Phone,54590,4.34,3.73,Medium,Low,387,Senior,0,1,1,1,0,Male,Business,Metro,18-25,0,0,1,1,1
+USR_Q2TB4TIAC0,3999,17,23,Apple,4G,Feature Phone,72790,6.54,0.46,Medium,High,341,Senior,1,0,1,0,0,Male,Student,Metro,36-45,0,1,0,1,0
+USR_DQJRWTVB6O,1729,51,10,Apple,4G,Smartphone,78923,4.2,4.04,Medium,Medium,488,Senior,1,1,1,1,0,Female,Student,Metro,26-35,0,1,0,0,1
+USR_VD3RSL2DN2,349,19,30,Vivo,4G,Feature Phone,14779,5.2,2.98,Medium,Medium,395,Senior,0,0,1,0,1,Female,Salaried,Urban,36-45,1,0,0,0,0
+USR_GI73KH807D,399,12,101,Oppo,5G,Feature Phone,31124,6.32,1.22,Medium,Medium,388,Young,0,1,0,1,0,Female,Student,Urban,36-45,1,1,1,0,1
+USR_9F2693PZAG,349,25,103,Vivo,4G,Feature Phone,14755,0.05,4.0,Medium,Low,330,Senior,0,0,0,0,0,Male,Business,Rural,36-45,1,1,0,1,1
+USR_FPUQSNCGN1,979,8,116,Apple,5G,Feature Phone,46354,6.97,2.07,Low,Low,443,Adult,1,1,0,0,0,Female,Homemaker,Metro,60+,0,1,0,0,1
+USR_OD9VBMO4QT,349,44,67,Oppo,4G,Smartphone,11938,5.95,1.46,Low,High,292,Adult,0,0,0,0,1,Male,Homemaker,Urban,26-35,1,1,0,1,0
+USR_UZKDA2BDQA,399,56,100,Vivo,4G,Feature Phone,18688,4.8,4.59,Very High,Medium,321,Young,0,0,1,0,0,Male,Business,Urban,18-25,0,1,1,0,0
+USR_MKN2E4LY16,349,38,14,Vivo,4G,Smartphone,16438,2.51,4.57,Medium,High,32,Young,0,1,0,1,0,Male,Business,Urban,36-45,1,1,0,1,1
+USR_W7RC4V445B,349,14,40,Oppo,5G,Feature Phone,19988,4.94,1.35,High,Medium,43,Adult,1,0,0,1,1,Male,Business,Rural,36-45,1,1,0,1,0
+USR_PLPIPVVX6F,349,33,115,Xiaomi,5G,Feature Phone,14215,6.53,3.41,Very High,Low,125,Young,0,1,0,1,0,Female,Student,Urban,26-35,1,1,1,0,1
+USR_PENLXPP4DO,3999,49,68,Apple,4G,Feature Phone,149567,2.84,4.79,Low,Low,344,Senior,1,1,1,1,0,Male,Student,Metro,46-60,1,0,1,0,0
+USR_CP4CDA4F8L,3999,31,101,Samsung,4G,Smartphone,95038,8.35,1.14,High,Low,444,Young,0,0,1,1,1,Female,Homemaker,Metro,18-25,1,1,0,0,1
+USR_UOPTTNSVKJ,979,12,114,Samsung,4G,Smartphone,48907,7.57,4.66,Medium,Low,236,Young,1,1,0,1,1,Female,Homemaker,Urban,26-35,0,1,1,1,0
+USR_JLC4AS4R06,349,37,32,Oppo,4G,Smartphone,12178,7.09,2.01,High,High,226,Young,0,0,0,1,1,Male,Homemaker,Rural,60+,1,1,1,0,1
+USR_UJ02AX8AHL,349,35,77,Vivo,4G,Smartphone,15351,6.35,2.38,Very High,Low,414,Adult,0,0,1,0,1,Female,Student,Rural,36-45,1,1,0,1,1
+USR_2K8TAY6JAB,349,23,54,Vivo,4G,Feature Phone,15449,7.65,0.13,Medium,High,283,Young,0,1,1,0,0,Female,Salaried,Rural,60+,0,1,0,1,1
+USR_PF57S8AN3E,349,16,34,Realme,4G,Smartphone,9216,9.63,1.13,Medium,High,364,Young,1,1,1,0,0,Male,Student,Rural,60+,0,1,0,0,1
+USR_KZB30Q1M4S,349,59,34,Oppo,5G,Smartphone,13746,0.84,2.12,Low,Medium,98,Young,0,1,0,0,1,Female,Homemaker,Rural,46-60,1,0,0,1,0
+USR_SVZCPFL6QY,979,47,55,Samsung,4G,Feature Phone,49981,9.87,0.03,Very High,Low,234,Adult,1,0,0,0,0,Male,Business,Urban,18-25,1,1,0,0,1
+USR_DEIUL8ZB7Q,3999,21,111,Samsung,4G,Feature Phone,107648,3.15,0.88,Medium,Low,319,Young,1,1,1,1,1,Female,Homemaker,Metro,60+,0,1,1,0,0
+USR_P5B4MPX2KT,3999,43,17,Samsung,5G,Feature Phone,83013,8.96,3.95,Medium,Low,129,Adult,0,0,0,1,1,Female,Homemaker,Metro,18-25,1,1,1,0,0
+USR_J9DWVA67AD,979,45,81,Apple,5G,Feature Phone,39586,7.91,0.74,Low,Low,431,Adult,0,0,0,0,1,Female,Homemaker,Metro,46-60,1,0,0,1,0
+USR_9SW83LCMQC,399,32,19,Samsung,5G,Smartphone,23907,1.16,2.51,Very High,High,46,Young,1,1,1,1,1,Male,Business,Metro,60+,1,0,1,0,0
+USR_SZ49QN3ZUF,349,51,64,Oppo,4G,Smartphone,12002,1.19,1.21,Low,High,128,Adult,0,0,0,0,1,Male,Business,Rural,26-35,1,0,1,0,1
+USR_0WBPXF4M4N,349,7,33,Oppo,4G,Feature Phone,17143,0.52,0.02,Medium,High,158,Senior,1,1,1,1,0,Female,Student,Rural,18-25,0,1,0,1,1
+USR_0ZEQ5CDRDB,1729,30,14,Samsung,4G,Smartphone,66953,7.59,2.46,Very High,Low,346,Adult,0,0,0,0,0,Female,Student,Metro,18-25,1,0,1,1,1
+USR_AKQHH0ZQDZ,399,28,21,OnePlus,5G,Smartphone,31726,4.04,2.72,Low,Medium,144,Adult,0,0,1,0,0,Male,Business,Urban,26-35,0,0,1,1,1
+USR_W36ZC5QL08,979,12,64,Samsung,5G,Feature Phone,30420,9.07,0.42,Medium,Low,59,Adult,1,1,0,1,1,Male,Homemaker,Urban,36-45,0,0,0,0,1
+USR_56MSJQHW20,3999,16,22,Samsung,4G,Feature Phone,119465,2.26,3.85,Medium,High,427,Young,0,0,1,1,1,Female,Business,Metro,60+,0,1,0,1,1
+USR_EJ5YWGYBVQ,349,55,99,Realme,4G,Smartphone,9394,7.37,1.91,Low,Low,301,Senior,0,0,1,0,0,Female,Student,Rural,60+,0,1,0,1,0
+USR_PD5MWIMY1O,3999,19,16,Apple,4G,Feature Phone,114263,2.91,1.14,High,Low,408,Senior,0,0,1,0,0,Female,Salaried,Metro,26-35,1,0,0,0,0
+USR_OISW7KH1UW,979,6,19,OnePlus,5G,Smartphone,54031,7.33,3.68,High,Low,183,Adult,0,1,0,1,1,Male,Student,Metro,18-25,0,0,0,1,1
+USR_HKWPTWYAZ3,349,36,75,Xiaomi,5G,Smartphone,20315,4.53,2.8,Medium,Medium,3,Young,1,0,0,1,1,Female,Student,Rural,26-35,0,1,1,0,1
+USR_LE7518GF28,979,22,50,Samsung,5G,Smartphone,55510,6.96,4.99,Medium,Medium,439,Adult,1,0,1,1,0,Male,Business,Metro,36-45,1,1,0,0,1
+USR_21IP5I7BZX,349,45,74,Realme,4G,Smartphone,18971,1.61,1.67,Low,Medium,328,Young,0,1,0,1,0,Female,Homemaker,Rural,46-60,0,0,0,1,1
+USR_KUCEJQDEEZ,399,19,57,Vivo,4G,Feature Phone,31436,1.68,0.19,Medium,Low,464,Senior,0,0,1,1,1,Male,Homemaker,Metro,36-45,0,0,1,0,0
+USR_DBL6YV4XJG,349,12,71,Vivo,5G,Smartphone,20754,6.85,4.09,Very High,High,260,Young,1,0,0,1,1,Male,Student,Rural,26-35,1,1,0,1,0
+USR_TGYDBQ4W91,979,35,15,OnePlus,5G,Feature Phone,33637,8.11,2.38,Very High,Low,424,Young,0,1,1,1,1,Male,Business,Metro,18-25,0,1,0,1,0
+USR_Y9X926VSGQ,349,52,85,Oppo,5G,Feature Phone,16864,0.48,0.78,Medium,Medium,79,Adult,0,0,1,0,1,Female,Homemaker,Rural,26-35,0,0,1,0,0
+USR_1MC8R618S2,349,12,61,Vivo,4G,Smartphone,12016,9.99,1.09,Very High,Low,255,Young,1,0,1,1,1,Female,Salaried,Rural,46-60,1,0,0,0,1
+USR_UKE3V1OLJB,349,60,13,Xiaomi,4G,Feature Phone,15321,7.74,3.43,Low,Low,283,Young,1,1,0,0,1,Male,Salaried,Urban,18-25,0,0,1,1,1
+USR_RPIUVQ4F4U,349,47,24,Oppo,5G,Feature Phone,11208,2.34,0.47,High,Medium,373,Senior,0,0,1,0,0,Female,Homemaker,Rural,26-35,0,1,0,0,0
+USR_0JH3K3KHF0,349,45,41,Realme,4G,Smartphone,18659,5.26,4.41,Very High,Medium,160,Senior,0,0,1,0,0,Male,Business,Urban,46-60,1,0,0,1,0
+USR_B8BSQ4YOD0,349,48,107,Xiaomi,4G,Smartphone,13119,3.54,1.33,Medium,Medium,142,Adult,0,0,1,0,1,Male,Student,Urban,60+,1,0,0,0,0
+USR_JWLEB5TKX9,399,52,86,Samsung,4G,Feature Phone,31426,2.14,4.02,Medium,Low,137,Senior,0,0,1,0,1,Female,Salaried,Urban,36-45,1,1,1,0,1
+USR_39BR92YXZS,979,29,17,Apple,4G,Smartphone,33960,2.51,0.95,High,Low,332,Young,1,1,1,1,0,Male,Salaried,Metro,36-45,1,1,0,1,1
+USR_ADWRDM7F2J,349,13,117,Oppo,5G,Smartphone,19338,5.62,2.19,Very High,Low,199,Adult,1,0,0,0,1,Female,Student,Rural,60+,0,0,1,1,0
+USR_WISZ2D73S8,399,50,12,Samsung,5G,Feature Phone,28638,8.94,3.64,High,Low,369,Young,1,1,1,0,1,Female,Business,Metro,60+,0,0,1,0,1
+USR_61URQWAE8Q,1729,17,21,Samsung,5G,Smartphone,61053,8.45,0.47,Low,High,70,Adult,0,1,0,0,0,Male,Salaried,Urban,46-60,0,1,1,1,0
+USR_1PLYWBK24V,349,56,120,Realme,4G,Smartphone,18690,2.34,0.13,Very High,Low,337,Senior,0,1,1,1,0,Female,Salaried,Rural,46-60,1,0,1,1,1
+USR_F7UB0IAPEP,1729,35,79,Samsung,5G,Feature Phone,89386,0.53,2.34,Low,High,475,Senior,1,1,0,0,1,Female,Homemaker,Metro,26-35,1,1,1,1,0
+USR_P2QSVDUJKC,979,55,93,Samsung,4G,Smartphone,51315,3.37,2.47,High,High,292,Senior,1,0,0,1,1,Female,Student,Metro,36-45,0,0,1,1,1
+USR_1UEOD0F4UF,349,57,113,Xiaomi,4G,Feature Phone,14963,7.61,4.02,Medium,Low,71,Senior,0,1,1,1,0,Female,Student,Urban,18-25,1,0,0,1,0
+USR_0C3UQMGUD6,349,51,58,Vivo,5G,Feature Phone,12098,0.98,0.92,High,Low,103,Senior,1,1,0,1,0,Female,Salaried,Urban,26-35,1,1,1,0,0
+USR_GVUIJX2F11,349,40,54,Xiaomi,4G,Feature Phone,11907,9.45,2.39,Medium,High,306,Senior,0,1,1,0,1,Male,Student,Urban,26-35,1,1,1,1,1
+USR_8UABZO214U,399,35,12,Samsung,5G,Feature Phone,26700,3.95,2.93,Very High,High,196,Senior,0,0,0,0,0,Female,Salaried,Metro,36-45,0,1,0,1,0
+USR_DUINXD6MXL,979,24,76,OnePlus,4G,Smartphone,47436,2.83,4.75,Low,High,398,Young,1,0,0,1,1,Male,Business,Metro,36-45,1,0,0,0,1
+USR_D6KO66OVWL,349,34,55,Vivo,5G,Smartphone,18822,9.32,4.16,Low,Medium,304,Adult,1,0,0,0,0,Female,Homemaker,Urban,36-45,1,0,0,1,0
+USR_4FYOGJG3M2,349,45,59,Oppo,5G,Feature Phone,11761,7.26,4.56,Medium,High,252,Senior,0,1,0,1,1,Male,Salaried,Rural,46-60,1,0,0,1,0
+USR_X8SKUP0LPK,349,19,55,Oppo,4G,Feature Phone,14094,7.66,4.8,Low,High,12,Senior,0,1,0,1,1,Male,Salaried,Urban,26-35,0,1,0,1,0
+USR_WKIC5S0SFJ,3999,53,13,Apple,4G,Smartphone,132782,1.61,4.2,Medium,Medium,97,Young,0,1,0,1,0,Male,Student,Metro,60+,0,1,1,1,0
+USR_5YS27A78L8,399,57,85,OnePlus,5G,Feature Phone,32513,0.86,4.21,Very High,Medium,470,Young,0,0,1,1,1,Female,Student,Urban,26-35,0,0,1,0,0
+USR_O8D4CVO7FD,399,16,107,Vivo,5G,Smartphone,31572,8.46,1.89,Medium,Medium,389,Young,1,1,0,0,1,Female,Homemaker,Urban,26-35,0,1,0,0,1
+USR_Y4ABOBQYJA,979,58,111,OnePlus,4G,Smartphone,39391,7.6,3.36,High,Medium,288,Senior,1,0,0,0,1,Female,Homemaker,Urban,18-25,1,0,1,0,1
+USR_5KDU6C7Y0E,349,23,47,Realme,5G,Feature Phone,8909,7.19,2.48,Very High,High,120,Adult,0,1,1,0,1,Female,Salaried,Urban,46-60,0,1,1,0,1
+USR_VZIYCS56HX,979,6,20,OnePlus,5G,Smartphone,44641,5.8,2.79,Very High,Medium,8,Young,1,1,1,1,0,Female,Salaried,Urban,18-25,0,1,1,0,0
+USR_4UFSVYHVJF,349,60,113,Xiaomi,5G,Feature Phone,13326,6.38,3.37,High,Low,186,Senior,0,1,1,1,1,Female,Student,Rural,36-45,1,1,0,1,0
+USR_QWY5464EK4,979,48,92,Samsung,5G,Feature Phone,33792,3.68,1.47,Low,Medium,406,Young,1,0,0,0,1,Male,Business,Metro,60+,1,1,1,0,1
+USR_NH2G9OTCSG,399,54,9,Vivo,4G,Smartphone,32709,0.94,2.09,Very High,Medium,91,Senior,1,0,0,1,1,Female,Business,Metro,60+,0,0,1,1,1
+USR_PEJDHN7D4S,979,33,98,Apple,4G,Smartphone,36789,0.71,4.15,High,High,36,Young,1,1,1,0,0,Male,Student,Metro,36-45,1,1,0,1,0
+USR_Q3U8ZGJC32,349,38,91,Xiaomi,4G,Feature Phone,10523,4.91,1.82,High,High,176,Young,1,1,1,1,0,Male,Student,Rural,18-25,0,0,0,1,1
+USR_L8HJWQOCU7,349,7,117,Xiaomi,5G,Feature Phone,21572,6.57,1.57,Very High,Low,117,Adult,0,1,1,1,0,Female,Homemaker,Rural,26-35,1,1,0,0,1
+USR_8SBV9YM1Y4,979,43,120,OnePlus,4G,Smartphone,30103,4.51,3.91,Very High,Low,487,Young,0,1,1,0,0,Male,Student,Metro,46-60,1,0,0,1,1
+USR_3KC1KGL1SY,979,34,24,OnePlus,4G,Feature Phone,35622,4.86,4.56,Low,Low,294,Adult,0,1,0,0,0,Female,Student,Urban,60+,1,1,1,1,1
+USR_FZXWIC96K1,399,24,99,Oppo,4G,Smartphone,29407,4.2,2.77,Low,High,129,Senior,1,0,0,1,0,Female,Homemaker,Urban,60+,0,1,0,1,1
+USR_N0LRJBYS2S,349,40,114,Oppo,5G,Smartphone,10569,9.13,3.54,Low,High,172,Senior,0,1,0,1,0,Female,Homemaker,Urban,26-35,0,0,1,1,1
+USR_XW6BWSNUMQ,349,40,102,Realme,5G,Smartphone,18036,4.75,2.54,Very High,Low,183,Adult,0,0,0,0,0,Male,Salaried,Urban,46-60,1,1,1,1,1
+USR_SUVQGGOXNL,979,49,65,OnePlus,4G,Feature Phone,51536,2.15,3.77,Very High,Low,215,Senior,1,0,0,0,1,Female,Homemaker,Metro,46-60,0,1,0,1,1
+USR_4IREJEYC00,979,45,41,Samsung,5G,Feature Phone,47963,0.6,2.26,Low,Low,117,Adult,1,0,0,1,1,Female,Salaried,Urban,46-60,0,1,0,0,1
+USR_OHJ4R2WZF2,3999,14,50,Apple,5G,Feature Phone,139833,8.52,2.63,High,High,202,Young,0,0,0,0,0,Female,Student,Metro,46-60,0,1,1,0,0
+USR_Z458BYE9JL,3999,20,27,Samsung,4G,Smartphone,90418,5.56,4.67,Very High,High,40,Adult,1,0,1,0,1,Female,Business,Metro,36-45,1,1,1,0,1
+USR_O9CDYIMOKK,349,47,34,Oppo,5G,Smartphone,18806,1.06,1.02,High,High,456,Adult,1,0,0,0,1,Male,Business,Urban,36-45,0,0,0,1,0
+USR_T8QYJQPDA8,349,10,37,Vivo,5G,Feature Phone,9255,9.35,1.1,Very High,Medium,190,Young,0,1,0,1,1,Female,Business,Urban,26-35,1,1,1,1,0
+USR_RZ614RLKDV,1729,20,84,Apple,4G,Feature Phone,69059,6.79,3.9,Medium,High,353,Adult,0,1,0,1,1,Female,Salaried,Urban,18-25,0,1,1,0,0
+USR_O434RNJFUI,979,38,87,Apple,5G,Feature Phone,34102,1.25,3.82,Very High,Medium,458,Young,0,1,0,0,1,Female,Business,Metro,60+,0,0,0,0,0
+USR_1I6VBL5ZPK,349,50,109,Vivo,4G,Smartphone,16981,6.24,3.71,Medium,Low,239,Adult,0,1,1,1,0,Female,Salaried,Rural,60+,0,1,1,0,1
+USR_UR83LISOY5,3999,57,51,Apple,4G,Feature Phone,101599,4.57,4.65,Very High,High,124,Senior,0,1,1,0,1,Male,Student,Metro,26-35,1,1,1,0,1
+USR_Z88O7W3MJT,349,49,42,Realme,4G,Feature Phone,21230,7.92,2.96,Very High,High,293,Young,1,0,1,1,1,Female,Student,Rural,18-25,0,0,0,1,1
+USR_IP9S5G8C4X,349,39,28,Vivo,4G,Smartphone,20456,6.97,1.71,High,Low,128,Young,0,1,0,1,0,Male,Student,Urban,46-60,0,0,1,1,0
+USR_MA99VTAR7P,399,45,28,Vivo,4G,Feature Phone,22269,1.85,4.48,Medium,Low,87,Senior,0,0,0,0,0,Male,Homemaker,Metro,26-35,1,0,0,0,0
+USR_GZ6O6MT7V8,979,45,108,Apple,4G,Feature Phone,43959,3.92,0.78,High,High,129,Senior,0,1,0,0,1,Female,Salaried,Urban,60+,0,0,0,1,1
+USR_CNZC1HAZB6,349,13,36,Oppo,4G,Smartphone,16102,5.28,0.02,Very High,Medium,128,Young,0,1,0,0,1,Female,Business,Urban,60+,1,1,0,1,0
+USR_Y0VKWZLM83,3999,11,9,Samsung,4G,Smartphone,97001,4.33,4.61,Medium,High,399,Senior,0,0,0,1,0,Female,Homemaker,Metro,26-35,0,0,0,1,1
+USR_1ZPRYCYIH0,3999,51,26,Apple,5G,Smartphone,108182,8.95,2.0,Very High,Low,264,Senior,0,1,0,1,1,Male,Business,Metro,36-45,1,1,1,1,1
+USR_X0HWOOXWLA,349,28,14,Realme,4G,Feature Phone,10234,0.63,4.11,High,Low,417,Senior,1,0,0,1,1,Female,Homemaker,Rural,36-45,1,1,1,1,0
+USR_77AUKJAYZG,349,22,66,Realme,4G,Smartphone,14706,7.54,0.47,Medium,Medium,8,Senior,0,1,0,0,1,Male,Homemaker,Urban,60+,1,0,1,0,0
+USR_3XERWJGWJ5,349,26,7,Vivo,5G,Smartphone,20798,8.94,2.14,High,Medium,220,Young,0,1,0,1,1,Female,Business,Urban,46-60,0,1,0,1,0
+USR_F28P5U90WN,3999,41,93,Samsung,5G,Smartphone,113487,1.25,0.27,Medium,High,318,Senior,1,1,1,0,0,Female,Salaried,Metro,46-60,0,1,0,1,0
+USR_YD60DY9NJG,349,27,31,Realme,4G,Smartphone,13217,3.18,4.75,High,High,7,Senior,1,0,1,1,1,Female,Student,Rural,60+,0,1,0,1,0
+USR_5EIZTJSKFY,399,10,86,Oppo,4G,Smartphone,25868,2.98,0.4,Low,Low,440,Young,0,0,0,1,1,Male,Salaried,Metro,18-25,1,1,1,1,0
+USR_H4KKLYBEUN,399,36,36,Samsung,5G,Feature Phone,33822,6.46,3.36,Medium,Low,154,Adult,0,1,1,1,1,Female,Salaried,Metro,36-45,1,0,0,1,0
+USR_BYN768N4TY,399,50,15,Samsung,5G,Smartphone,25200,8.49,0.9,Very High,Low,153,Adult,1,1,1,1,0,Female,Homemaker,Urban,18-25,0,1,1,0,0
+USR_QLT31AJHE7,349,20,21,Realme,4G,Smartphone,11388,9.33,3.96,Very High,High,197,Adult,1,1,0,0,0,Female,Business,Urban,18-25,0,0,0,0,0
+USR_3D88YXEFD7,3999,38,55,Apple,4G,Feature Phone,78592,3.56,2.64,High,High,498,Adult,1,0,1,1,0,Male,Homemaker,Metro,46-60,1,1,1,0,1
+USR_SHCAD99E80,979,59,105,OnePlus,4G,Smartphone,38525,3.05,3.7,Medium,Low,281,Adult,1,1,0,0,0,Female,Homemaker,Metro,60+,0,1,0,0,1
+USR_UKKWGRAVOC,979,16,23,Samsung,4G,Feature Phone,32093,5.74,2.42,Low,High,223,Senior,1,1,1,0,1,Female,Salaried,Metro,26-35,0,1,0,1,1
+USR_6ACVO2KR62,349,28,89,Realme,4G,Smartphone,19449,6.25,0.71,Very High,High,465,Senior,0,1,0,1,1,Female,Salaried,Rural,36-45,1,0,1,1,1
+USR_IECGWYLEQD,979,55,21,Samsung,4G,Feature Phone,33824,4.64,2.9,Very High,High,402,Senior,1,1,1,0,1,Male,Homemaker,Metro,60+,1,1,0,1,0
+USR_FAXG9U6D4P,979,31,71,OnePlus,4G,Smartphone,31335,9.15,4.86,Very High,Medium,99,Senior,1,1,1,0,1,Female,Homemaker,Metro,46-60,1,0,1,1,0
+USR_5AJG4IN195,349,11,45,Realme,4G,Feature Phone,8051,2.6,3.47,Medium,Low,186,Adult,1,0,1,0,0,Female,Salaried,Urban,36-45,1,1,0,0,0
+USR_Y1ISO7KFQ9,349,18,116,Realme,5G,Smartphone,13913,4.29,2.11,Low,Medium,366,Young,0,0,1,1,0,Female,Homemaker,Urban,18-25,1,0,0,1,0
+USR_Y09KCO8M8M,349,10,82,Oppo,4G,Smartphone,14608,6.34,1.7,Very High,High,125,Young,1,0,0,0,0,Female,Business,Rural,18-25,0,1,0,1,0
+USR_92QKI9IRTL,349,22,67,Oppo,4G,Smartphone,16704,5.71,1.07,Medium,High,452,Senior,0,0,0,0,1,Female,Student,Rural,46-60,1,1,1,0,0
+USR_OERL59SRK2,349,35,59,Vivo,4G,Smartphone,12540,4.74,1.46,Very High,Medium,416,Young,0,0,0,1,1,Male,Business,Rural,18-25,0,0,0,1,0
+USR_YTRRBIK1N4,349,46,34,Xiaomi,4G,Smartphone,13113,1.28,2.59,High,High,227,Adult,0,1,1,1,1,Male,Business,Urban,26-35,0,1,1,1,0
+USR_PUZNI4AKIW,3999,18,45,Samsung,4G,Smartphone,79356,7.6,2.09,Medium,High,365,Adult,1,1,1,0,0,Female,Salaried,Metro,60+,0,1,0,1,1
+USR_6149RPOT4B,399,6,85,Vivo,5G,Smartphone,22578,7.18,3.14,High,Low,289,Senior,1,0,1,1,1,Female,Business,Urban,46-60,0,1,0,1,0
+USR_D0KNRUEHC1,349,44,21,Realme,4G,Smartphone,9478,9.63,1.66,Low,High,186,Young,0,1,1,0,0,Male,Salaried,Urban,26-35,0,0,0,1,0
+USR_6D0N1LTQGP,979,29,83,Samsung,4G,Feature Phone,55726,7.36,2.66,Low,Low,259,Adult,0,1,1,0,0,Female,Student,Urban,26-35,1,1,1,1,1
+USR_Z4X01VQ4TE,979,55,48,Samsung,4G,Smartphone,41109,9.16,2.56,Very High,Low,302,Young,1,0,1,0,0,Female,Homemaker,Metro,46-60,0,0,1,0,0
+USR_313YI38V3K,349,27,55,Xiaomi,4G,Feature Phone,20218,4.56,2.22,Medium,Medium,432,Adult,0,0,0,1,1,Male,Homemaker,Urban,26-35,0,1,1,0,1
+USR_6HGDLBR8J0,349,12,80,Vivo,5G,Feature Phone,13876,3.11,0.22,Low,High,450,Adult,1,0,0,0,0,Male,Homemaker,Rural,46-60,1,1,1,1,0
+USR_DTLR8V0AWH,349,52,10,Xiaomi,5G,Smartphone,17425,0.04,3.02,Medium,High,456,Young,0,1,1,1,1,Male,Student,Urban,36-45,0,1,0,1,0
+USR_O2H37KBVIH,349,9,42,Oppo,5G,Smartphone,18365,8.39,4.32,High,High,454,Senior,1,1,0,1,0,Female,Business,Urban,18-25,0,0,1,1,0
+USR_IOM6O20TNM,979,49,56,OnePlus,4G,Smartphone,59884,1.83,1.89,Medium,Medium,432,Adult,1,0,0,1,0,Male,Student,Metro,18-25,0,1,1,0,0
+USR_FXBSZC9X5U,349,8,11,Oppo,5G,Smartphone,9641,7.27,3.64,High,Medium,199,Young,0,1,0,0,1,Male,Salaried,Urban,36-45,1,1,1,0,1
+USR_UAKXXGTN8T,349,15,93,Realme,5G,Smartphone,18222,5.78,0.63,Medium,Medium,30,Senior,1,1,0,0,1,Male,Homemaker,Urban,46-60,0,0,0,0,0
+USR_88E0O885F8,1729,23,93,Apple,5G,Feature Phone,51095,4.17,4.65,Very High,Medium,337,Adult,1,1,0,0,1,Female,Business,Metro,18-25,0,0,1,0,0
+USR_8DIQ8LIKCM,349,45,17,Realme,5G,Feature Phone,13993,1.59,0.24,Very High,High,5,Senior,0,0,1,0,1,Female,Student,Urban,60+,0,0,1,1,0
+USR_DCLD980GW7,349,12,21,Vivo,5G,Feature Phone,18995,4.06,3.29,Medium,High,387,Adult,1,1,1,1,1,Female,Homemaker,Urban,36-45,1,0,1,1,0
+USR_5ATSLYGNHV,399,57,71,OnePlus,4G,Smartphone,23281,3.81,0.11,Very High,Low,392,Adult,0,0,1,0,1,Male,Student,Urban,26-35,1,1,1,1,0
+USR_CRHJKPDRP4,979,18,34,Samsung,4G,Feature Phone,49407,1.82,4.37,Medium,High,248,Adult,0,1,1,0,1,Female,Business,Urban,36-45,1,1,1,1,0
+USR_7K3MAM2067,349,19,93,Realme,5G,Smartphone,13618,5.98,0.69,Very High,Medium,128,Young,0,0,1,1,0,Male,Student,Rural,36-45,1,0,0,1,0
+USR_6K8CRRRHV7,399,26,82,OnePlus,4G,Smartphone,33421,3.36,4.03,Medium,High,37,Senior,1,0,0,1,0,Male,Homemaker,Metro,18-25,1,1,1,0,1
+USR_6DOAQOOTT6,1729,18,91,Apple,4G,Smartphone,80567,2.57,1.01,Very High,High,371,Senior,0,1,0,0,1,Male,Student,Metro,36-45,1,0,1,0,1
+USR_IHUI93C95P,399,28,98,Vivo,5G,Smartphone,25785,0.48,2.35,Medium,Low,150,Senior,1,1,1,1,0,Female,Homemaker,Metro,60+,0,1,1,1,0
+USR_GHNYWVC7XY,399,58,30,OnePlus,4G,Smartphone,19378,4.93,2.79,Very High,Low,452,Adult,1,0,0,0,1,Male,Homemaker,Metro,46-60,0,0,1,1,0
+USR_RKYYJQFZG2,399,28,81,Samsung,4G,Feature Phone,28363,2.56,4.8,High,Low,280,Senior,0,1,0,1,1,Male,Student,Metro,36-45,0,1,1,1,0
+USR_90MQN38KUS,1729,6,34,Apple,5G,Feature Phone,67717,5.64,3.8,High,Medium,411,Young,1,0,0,1,1,Female,Salaried,Metro,46-60,0,0,1,0,0
+USR_MHSAYJEZRR,349,20,55,Oppo,4G,Smartphone,8809,6.15,2.74,Medium,Medium,87,Senior,0,1,0,0,0,Male,Student,Rural,46-60,1,0,0,1,1
+USR_FMQY6PL9OJ,349,14,6,Oppo,5G,Feature Phone,13155,9.56,4.51,High,High,456,Adult,1,1,1,0,1,Female,Homemaker,Rural,18-25,0,0,0,1,0
+USR_49YIBNAJTA,349,35,108,Realme,5G,Smartphone,11538,1.11,1.14,Low,High,325,Senior,1,0,1,1,1,Male,Student,Rural,36-45,0,1,0,0,1
+USR_3KN8J57F77,349,18,12,Realme,4G,Feature Phone,12822,8.54,1.25,High,High,53,Young,1,1,1,1,0,Female,Salaried,Urban,60+,0,0,0,1,0
+USR_0QAJWXI58D,979,31,22,Samsung,5G,Feature Phone,53289,9.36,3.91,Low,High,379,Young,0,0,1,0,0,Male,Homemaker,Metro,18-25,0,1,0,1,0
+USR_UQUO26Q97O,349,6,81,Realme,4G,Feature Phone,17239,3.16,4.46,Medium,Low,375,Young,1,0,0,0,1,Female,Student,Rural,18-25,0,1,0,1,1
+USR_TY8H5R775W,979,14,17,Samsung,5G,Smartphone,32140,5.12,3.06,Medium,Medium,167,Young,1,0,1,1,1,Female,Student,Urban,60+,0,1,1,1,0
+USR_H557J9PMMX,979,53,68,OnePlus,5G,Smartphone,43795,5.37,3.44,Medium,Medium,322,Senior,0,0,1,1,1,Female,Salaried,Metro,36-45,1,1,1,1,0
+USR_97G6MREUI7,349,42,98,Realme,4G,Smartphone,8328,0.62,0.98,Very High,High,101,Young,1,0,0,0,1,Male,Business,Rural,46-60,1,0,0,0,0
+USR_SKM2ZA5KOZ,349,58,34,Vivo,4G,Feature Phone,21319,7.64,4.44,Low,Medium,49,Adult,1,0,0,1,0,Female,Student,Rural,60+,1,0,0,1,1
+USR_974VKVPSUL,349,30,82,Realme,5G,Feature Phone,8113,1.37,1.23,Medium,Medium,429,Adult,0,0,1,0,1,Male,Salaried,Urban,26-35,1,1,1,1,0
+USR_QZAR9RLF11,349,16,82,Realme,4G,Feature Phone,15739,9.29,2.63,Medium,Medium,411,Young,0,0,1,0,0,Male,Salaried,Urban,18-25,1,0,0,0,1
+USR_F3EJNLHVT0,979,58,79,OnePlus,4G,Feature Phone,46310,9.76,0.6,Medium,Low,138,Young,1,1,0,1,0,Male,Salaried,Urban,18-25,0,1,0,1,0
+USR_8F4WN4NW36,349,23,72,Xiaomi,5G,Feature Phone,13378,7.29,1.49,Low,Low,14,Adult,1,1,1,0,1,Male,Homemaker,Rural,60+,1,1,1,1,1
+USR_AKT2XA4UNW,349,33,45,Oppo,4G,Feature Phone,16231,8.41,4.77,High,Low,409,Adult,1,0,0,0,0,Female,Business,Urban,18-25,0,0,1,0,1
+USR_UD832CBP5Q,3999,8,19,Apple,5G,Smartphone,82292,6.44,1.92,High,Medium,229,Senior,1,1,0,0,1,Male,Student,Metro,18-25,0,1,0,0,0
+USR_SL1P6QD50T,349,49,109,Xiaomi,5G,Smartphone,14016,7.25,0.34,Medium,Medium,325,Senior,0,1,1,0,0,Male,Business,Rural,26-35,1,0,0,1,1
+USR_U0058KDK80,349,8,88,Vivo,5G,Smartphone,20575,2.31,2.51,Low,Medium,7,Senior,0,1,1,0,0,Female,Homemaker,Rural,36-45,1,0,0,0,1
+USR_WKK0ZO5490,349,49,64,Oppo,4G,Smartphone,12451,2.28,4.92,Low,Medium,254,Senior,1,1,0,1,1,Female,Homemaker,Rural,60+,0,1,1,1,0
+USR_D8ZKTPZ75V,979,21,58,Samsung,4G,Smartphone,45004,5.49,0.73,Very High,High,281,Adult,0,0,0,1,1,Female,Homemaker,Urban,36-45,1,1,0,0,0
+USR_6SR1Q1PNOC,349,17,80,Oppo,5G,Feature Phone,12921,1.78,3.65,Very High,Low,418,Senior,1,0,0,0,0,Male,Business,Rural,36-45,0,1,0,0,0
+USR_3X7P76X6FI,1729,9,54,Apple,4G,Feature Phone,86152,6.52,0.46,High,Low,402,Senior,0,1,1,1,0,Male,Homemaker,Urban,46-60,0,0,0,1,0
+USR_43TLQAOOQF,399,35,58,Vivo,4G,Feature Phone,30595,2.64,2.19,Low,Low,497,Young,1,0,0,0,0,Male,Homemaker,Urban,18-25,0,1,0,1,1
+USR_A833FGEKI9,349,48,53,Xiaomi,4G,Feature Phone,17359,7.07,4.79,Medium,Medium,138,Senior,0,0,1,1,1,Female,Business,Rural,36-45,0,0,1,1,0
+USR_UJICD0RFFQ,349,27,108,Vivo,4G,Feature Phone,12724,4.72,3.57,Low,Low,60,Adult,0,0,0,0,1,Female,Business,Rural,18-25,0,0,0,1,1
+USR_M21I2OG70F,349,32,7,Vivo,5G,Feature Phone,21628,0.69,2.69,Low,High,363,Adult,0,0,0,1,0,Male,Salaried,Urban,18-25,0,1,0,1,1
+USR_IF6564N73V,979,36,25,OnePlus,4G,Smartphone,53520,2.13,1.57,High,Low,104,Young,1,1,1,0,1,Female,Student,Urban,18-25,0,0,1,1,1
+USR_TG39TBRRZ5,349,35,76,Vivo,5G,Smartphone,20003,1.67,0.92,High,High,56,Young,1,0,1,1,1,Female,Student,Rural,60+,1,0,0,0,0
+USR_QN4DEV0KG9,3999,15,17,Apple,4G,Smartphone,95744,0.78,3.51,Low,Low,56,Adult,1,1,0,0,0,Male,Homemaker,Metro,60+,1,1,1,0,0
+USR_0HTRZYYUD3,399,13,105,Samsung,4G,Feature Phone,19181,7.66,4.1,Very High,Low,85,Senior,0,0,0,1,1,Female,Business,Metro,26-35,0,0,1,0,0
+USR_DJWER2UV37,399,11,77,Samsung,5G,Smartphone,20873,0.17,0.33,Very High,High,396,Adult,1,0,0,0,0,Male,Homemaker,Metro,36-45,0,1,1,1,1
+USR_XRZI8O8RYY,979,11,21,Samsung,4G,Feature Phone,34169,4.93,0.6,Medium,Medium,88,Adult,0,1,1,1,0,Male,Salaried,Metro,26-35,0,0,0,0,0
+USR_E1W952JQ7P,979,23,66,Apple,5G,Smartphone,50999,5.09,4.72,Very High,Medium,298,Senior,0,1,1,1,0,Female,Homemaker,Metro,26-35,1,1,0,1,1
+USR_MGN5ERPIYI,979,41,60,OnePlus,4G,Smartphone,49221,9.93,2.98,Medium,Low,348,Adult,1,1,1,0,1,Male,Homemaker,Urban,26-35,1,1,1,1,0
+USR_EX7FP93Q9E,399,48,7,Vivo,4G,Smartphone,21834,6.51,1.05,Medium,High,494,Senior,0,1,0,1,1,Male,Student,Urban,46-60,0,0,0,1,0
+USR_S6AK1O6VPP,979,48,33,Samsung,4G,Smartphone,57694,0.62,3.9,Low,Low,110,Senior,1,1,1,1,1,Male,Salaried,Urban,36-45,1,0,1,1,0
+USR_NPC4XAUCMZ,349,56,109,Oppo,5G,Feature Phone,8583,8.7,3.78,Low,Low,46,Senior,1,0,1,1,0,Male,Homemaker,Urban,26-35,0,1,0,0,0
+USR_LDE12MX6RT,3999,11,55,Samsung,5G,Feature Phone,79793,4.08,4.1,Very High,Low,114,Senior,1,1,0,0,1,Male,Homemaker,Metro,18-25,0,1,0,0,0
+USR_UO91LBRST1,349,15,60,Xiaomi,5G,Feature Phone,16013,3.12,0.44,High,High,152,Adult,1,1,0,0,0,Female,Homemaker,Urban,26-35,1,1,1,1,1
+USR_920C94QZLD,349,6,17,Vivo,5G,Smartphone,18118,3.92,0.07,High,Low,170,Adult,0,0,0,0,0,Female,Business,Rural,36-45,1,0,0,1,1
+USR_4VWSTTLWPS,349,6,75,Realme,4G,Feature Phone,13951,2.05,2.52,Medium,High,91,Young,0,1,1,1,1,Female,Student,Urban,18-25,0,1,1,0,1
+USR_5MIDE1ZZDY,349,17,14,Realme,4G,Feature Phone,8333,5.44,1.23,Low,Low,168,Adult,0,1,1,1,0,Male,Salaried,Urban,46-60,0,1,1,0,1
+USR_TNXOSQYTL8,399,56,111,OnePlus,5G,Feature Phone,19469,2.67,0.67,Very High,Low,195,Young,1,1,1,1,0,Female,Homemaker,Metro,46-60,0,1,0,0,1
+USR_TD1MRJWK1N,349,18,98,Realme,5G,Smartphone,13865,2.38,1.35,Low,Medium,303,Adult,1,1,0,0,1,Female,Salaried,Urban,36-45,1,0,0,0,1
+USR_PN6CTU0A9W,399,35,20,OnePlus,4G,Feature Phone,30592,8.29,1.54,Medium,Low,93,Adult,0,0,0,0,1,Female,Business,Metro,36-45,0,1,1,0,1
+USR_VSIH8D3T04,979,27,103,Apple,5G,Smartphone,58715,5.33,0.11,Very High,Low,13,Adult,0,0,0,1,0,Male,Business,Metro,36-45,0,1,1,0,1
+USR_TY9Q1KTKFA,3999,55,45,Samsung,5G,Smartphone,97101,0.9,3.34,High,Medium,294,Young,0,1,1,1,1,Female,Salaried,Metro,18-25,0,1,0,0,1
+USR_M5RBF71MY3,1729,44,65,Samsung,5G,Smartphone,85624,3.18,4.84,Medium,Low,349,Senior,0,1,0,1,1,Male,Salaried,Urban,18-25,0,1,1,0,0
+USR_ZEACQE7B35,349,6,85,Realme,4G,Feature Phone,21803,1.91,1.77,Low,Low,88,Senior,0,1,0,1,1,Female,Homemaker,Urban,18-25,1,1,0,1,1
+USR_C9GKCZR8FE,349,54,9,Xiaomi,4G,Smartphone,9504,6.74,0.59,Low,Medium,64,Adult,1,0,1,0,0,Male,Salaried,Rural,26-35,0,1,0,1,1
+USR_CQ90A2WUS1,399,40,36,Oppo,4G,Smartphone,24391,3.84,2.52,Very High,Low,376,Senior,1,1,0,0,1,Female,Student,Metro,46-60,1,0,1,0,0
+USR_UAST1X1TA3,1729,25,91,Apple,5G,Smartphone,82679,3.65,0.54,Low,Medium,198,Adult,1,0,1,0,0,Male,Business,Metro,60+,0,0,1,1,0
+USR_MS8E08FIP6,349,13,28,Oppo,5G,Smartphone,10193,9.76,1.07,Low,High,29,Senior,1,1,1,1,1,Male,Homemaker,Urban,46-60,0,0,0,0,1
+USR_ASAHDLWHTZ,399,35,80,Vivo,4G,Smartphone,26069,3.64,0.94,Very High,Medium,335,Senior,0,0,1,1,0,Female,Salaried,Metro,36-45,1,1,1,0,0
+USR_WQCSEX29HN,349,12,26,Realme,5G,Feature Phone,21773,5.2,0.07,Very High,High,315,Senior,1,1,0,0,0,Female,Business,Rural,26-35,0,0,1,1,1
+USR_63KCKC72R0,349,51,113,Xiaomi,4G,Feature Phone,13648,7.74,0.22,Low,Medium,118,Senior,0,1,1,1,0,Male,Homemaker,Urban,18-25,1,1,1,1,0
+USR_20B9S0AIK2,349,36,75,Oppo,5G,Smartphone,14139,9.97,2.55,Low,High,482,Young,0,1,0,0,0,Female,Business,Urban,18-25,0,1,0,1,0
+USR_YIDKCVKK2V,349,25,97,Realme,4G,Feature Phone,15798,5.16,4.13,High,High,442,Senior,1,0,1,1,0,Female,Salaried,Urban,60+,1,0,0,1,0
+USR_5I3T2NULV1,349,47,58,Oppo,5G,Feature Phone,16980,0.03,0.96,Very High,High,403,Senior,0,0,0,1,0,Male,Salaried,Urban,60+,0,0,0,0,0
+USR_DHF33K7G2O,349,21,102,Vivo,4G,Smartphone,11423,4.52,4.16,High,High,248,Senior,0,0,0,0,0,Female,Salaried,Urban,60+,1,1,1,1,0
+USR_95ZFOB5RUE,979,46,46,Samsung,5G,Smartphone,55512,6.09,3.3,Medium,High,485,Adult,1,0,0,1,1,Female,Salaried,Metro,18-25,0,1,1,0,0
+USR_URLUHL67W5,349,59,106,Xiaomi,4G,Feature Phone,16384,4.29,4.1,High,Medium,41,Young,0,0,1,0,0,Male,Homemaker,Rural,36-45,1,1,1,0,1
+USR_2EL5WCJ0AC,349,35,48,Xiaomi,4G,Feature Phone,15795,5.02,0.18,High,Low,71,Senior,1,0,1,0,1,Female,Salaried,Urban,46-60,0,1,1,0,0
+USR_KW48RYX4VR,349,54,96,Oppo,5G,Smartphone,17515,1.01,3.23,Medium,Low,226,Young,0,0,1,0,0,Female,Student,Rural,46-60,1,1,1,1,1
+USR_DM2IKO0K04,399,41,13,Vivo,4G,Feature Phone,30780,8.16,3.23,Low,High,26,Young,0,1,0,0,0,Male,Student,Urban,60+,0,1,1,1,1
+USR_QS3ZYWMHL2,349,31,76,Vivo,4G,Smartphone,14602,8.89,1.73,Medium,High,109,Young,1,0,1,1,0,Male,Business,Urban,36-45,1,0,1,1,1
+USR_DJRIQRZ1WF,979,31,109,Samsung,5G,Feature Phone,35027,2.97,4.63,High,Low,68,Senior,1,0,1,1,0,Female,Business,Metro,26-35,0,0,0,1,0
+USR_AO83L71K7H,349,42,40,Vivo,5G,Feature Phone,18903,9.81,4.83,Medium,Medium,378,Young,1,1,1,0,1,Male,Student,Rural,60+,0,0,0,0,1
+USR_NUGE8EXFI2,349,58,78,Vivo,5G,Feature Phone,12435,6.54,2.41,Very High,High,93,Senior,1,0,0,0,0,Female,Student,Rural,26-35,1,1,1,0,0
+USR_YC82J7LQQN,399,51,32,OnePlus,5G,Feature Phone,21992,9.18,2.16,High,Low,456,Adult,1,0,0,0,1,Male,Student,Urban,18-25,0,0,1,1,0
+USR_IUXNFG7G88,349,31,14,Realme,4G,Smartphone,18631,5.58,3.84,Very High,High,52,Young,0,0,1,0,1,Male,Salaried,Urban,46-60,0,0,1,0,1
+USR_VYGGMFROX0,349,13,39,Oppo,5G,Feature Phone,16833,1.86,3.68,Low,Medium,404,Senior,1,0,0,1,1,Female,Student,Urban,36-45,1,0,1,0,1
+USR_VZSSWIA90U,979,16,45,OnePlus,5G,Feature Phone,45584,0.61,4.15,High,Medium,292,Young,1,0,0,1,1,Male,Salaried,Metro,26-35,1,0,1,0,0
+USR_FHI4LMPPH5,349,7,72,Xiaomi,4G,Smartphone,12796,4.65,3.58,High,Low,88,Adult,1,1,0,0,1,Male,Student,Urban,36-45,0,1,1,0,0
+USR_P2UHA5QFZH,399,47,66,Oppo,4G,Smartphone,33872,1.3,3.12,Low,Low,459,Adult,0,0,1,1,1,Male,Business,Urban,18-25,1,0,0,1,0
+USR_IHFJ37JDA2,349,16,120,Realme,4G,Feature Phone,13572,3.47,1.79,High,Low,32,Adult,0,1,1,1,1,Female,Salaried,Rural,36-45,1,1,0,0,1
+USR_DI7Y4XFKKZ,349,48,113,Vivo,5G,Feature Phone,13772,9.46,1.3,Medium,Low,63,Senior,0,1,0,1,1,Female,Business,Rural,18-25,1,1,1,1,1
+USR_1FMHVG5ON6,3999,37,89,Samsung,5G,Smartphone,94118,9.05,3.39,Low,Low,55,Young,1,0,1,0,1,Female,Salaried,Metro,26-35,0,1,0,0,0
+USR_KA8EJCNJ3H,979,54,110,OnePlus,5G,Feature Phone,38971,3.28,0.9,High,Medium,179,Adult,0,0,0,1,0,Male,Student,Urban,18-25,0,0,0,0,1
+USR_BMMG4JQ0MG,399,23,60,Samsung,5G,Smartphone,28024,8.98,0.88,Low,Medium,157,Senior,0,0,0,0,1,Male,Salaried,Metro,46-60,1,1,0,1,0
+USR_UPTWBMT72Q,349,58,77,Oppo,5G,Smartphone,9367,1.51,3.16,Medium,Medium,142,Senior,0,1,1,1,0,Male,Business,Urban,26-35,1,1,0,0,1
+USR_8H1JKCCUUG,349,43,84,Oppo,4G,Smartphone,19635,4.66,0.41,High,Medium,168,Senior,1,1,0,0,0,Female,Business,Urban,60+,0,1,1,1,1
+USR_1O1KWYLML7,349,11,82,Oppo,5G,Smartphone,8305,0.16,2.58,Low,High,356,Young,1,1,1,1,1,Male,Homemaker,Rural,36-45,1,0,0,1,0
+USR_5Q3C075DYV,349,33,22,Xiaomi,4G,Smartphone,9717,3.43,1.7,Low,Medium,79,Adult,0,1,1,1,0,Female,Salaried,Urban,18-25,1,0,0,1,1
+USR_13LCB6OI5I,979,14,36,Samsung,4G,Smartphone,52807,2.39,4.74,Low,High,387,Senior,0,0,0,1,0,Male,Salaried,Urban,60+,1,0,0,1,0
+USR_YKF9AX9YGC,349,27,51,Realme,4G,Feature Phone,13608,4.04,3.62,Low,Medium,425,Adult,1,0,1,0,0,Male,Salaried,Rural,60+,0,1,1,1,0
+USR_UD7TALPGHW,979,47,67,OnePlus,5G,Feature Phone,50045,3.54,2.97,Low,Medium,153,Senior,1,0,0,0,1,Male,Salaried,Urban,18-25,1,0,0,0,1
+USR_DHXCROMSA3,3999,15,66,Samsung,5G,Smartphone,145657,5.49,4.97,High,Low,72,Senior,0,1,0,1,0,Female,Homemaker,Metro,26-35,0,1,0,1,1
+USR_DVLMN6ZUK3,1729,53,79,Samsung,5G,Smartphone,84716,5.93,4.22,Medium,Low,35,Senior,0,0,1,1,1,Male,Homemaker,Metro,60+,1,1,1,1,0
+USR_CVFM5WG4S7,399,31,32,Vivo,5G,Feature Phone,22126,2.84,2.06,Low,Low,20,Adult,0,0,1,0,1,Female,Student,Metro,60+,0,0,1,1,0
+USR_S8ZGL8RAJY,349,36,101,Realme,4G,Feature Phone,11603,3.43,1.0,High,Low,259,Adult,0,1,1,0,0,Female,Homemaker,Rural,36-45,0,0,1,1,1
+USR_XKY1IDCL1U,3999,20,50,Samsung,4G,Smartphone,103612,7.82,1.16,Very High,Medium,388,Young,1,1,0,1,0,Male,Business,Metro,60+,1,0,0,1,1
+USR_IRA4TPMWAG,3999,58,104,Apple,5G,Feature Phone,86597,8.3,2.48,Very High,Low,290,Young,1,0,1,0,1,Male,Business,Metro,18-25,0,0,1,0,0
+USR_KL65OP3XIQ,979,14,77,Samsung,4G,Smartphone,38850,0.47,2.49,Very High,Low,337,Adult,0,0,0,1,0,Female,Student,Metro,26-35,1,1,0,0,1
+USR_KUPLZFGXTO,349,39,75,Oppo,5G,Smartphone,13164,8.22,0.71,Very High,Low,353,Adult,1,1,0,1,1,Female,Homemaker,Rural,46-60,0,1,1,1,0
+USR_5F2JQOSH2S,349,54,33,Realme,4G,Smartphone,16269,8.57,1.09,Medium,Medium,495,Adult,1,1,1,1,1,Male,Student,Urban,60+,1,0,1,1,0
+USR_AGFVW261LY,3999,16,95,Samsung,5G,Smartphone,148842,8.94,3.15,Medium,Medium,398,Adult,0,0,0,0,0,Male,Business,Metro,46-60,1,1,0,0,1
+USR_LOKZ9MCSDO,349,30,117,Vivo,4G,Smartphone,16341,4.22,3.19,Very High,Low,416,Adult,0,0,0,0,0,Female,Homemaker,Urban,18-25,0,0,1,1,1
+USR_LO7J0BHRHN,349,28,59,Vivo,5G,Smartphone,9721,2.56,2.16,Low,High,250,Senior,0,0,1,0,0,Male,Student,Rural,18-25,1,1,0,1,1
+USR_OUI12PM0T3,979,9,32,OnePlus,5G,Feature Phone,49077,0.02,3.96,Medium,Medium,122,Young,0,1,1,0,1,Male,Salaried,Urban,36-45,0,1,1,1,1
+USR_56UQ8B7IKJ,349,9,12,Vivo,5G,Smartphone,20590,9.87,1.73,Medium,High,484,Young,0,0,0,1,0,Female,Business,Rural,26-35,0,1,0,0,0
+USR_Y55N8IS9B3,349,43,42,Oppo,5G,Smartphone,17138,9.49,4.16,High,Medium,418,Young,1,0,0,0,0,Female,Homemaker,Rural,26-35,0,0,0,0,1
+USR_ZBKE6QZRZV,979,60,35,Apple,4G,Feature Phone,52509,8.59,3.89,Very High,Low,484,Young,1,1,1,1,0,Female,Student,Metro,60+,0,0,0,0,0
+USR_ONDA8MFH0K,349,26,34,Realme,4G,Feature Phone,13176,0.05,4.74,Low,Medium,220,Young,1,1,1,0,0,Female,Business,Rural,18-25,0,1,0,1,1
+USR_8UIIZ2IVES,349,43,110,Realme,5G,Feature Phone,9437,7.02,4.22,Low,High,481,Adult,0,0,1,1,0,Male,Salaried,Urban,18-25,1,1,1,0,0
+USR_AAYRTHGMM2,349,49,118,Realme,4G,Smartphone,16651,6.78,3.15,Low,High,253,Young,1,0,1,1,1,Male,Business,Urban,18-25,0,1,1,0,0
+USR_IOHKLRDPKR,979,48,50,OnePlus,5G,Smartphone,40640,2.6,0.96,Very High,Low,391,Young,0,1,0,1,0,Male,Student,Urban,26-35,1,0,0,0,0
+USR_8O1FX1AOYC,349,32,109,Vivo,5G,Feature Phone,18808,4.12,2.58,High,High,485,Young,1,1,0,0,1,Female,Student,Rural,60+,0,0,1,0,0
+USR_8X72ZVFYG9,3999,11,72,Apple,4G,Feature Phone,77544,0.88,3.32,Very High,High,159,Adult,1,1,0,0,0,Male,Student,Metro,60+,1,0,1,0,0
+USR_3OG3HVTTT0,349,16,104,Oppo,5G,Smartphone,19944,7.48,3.92,Low,High,290,Adult,0,0,1,1,0,Male,Business,Urban,46-60,0,0,1,0,0
+USR_OSPAWUQ7PO,399,45,67,Samsung,4G,Feature Phone,32869,6.46,3.74,Very High,High,200,Senior,0,1,1,1,0,Female,Business,Metro,60+,0,0,1,1,1
+USR_K794ZIIOUO,349,37,48,Vivo,5G,Smartphone,20268,7.55,1.11,Very High,Low,448,Senior,1,0,0,1,0,Female,Salaried,Urban,36-45,0,1,0,0,0
+USR_PDAXIPQSOR,349,23,81,Xiaomi,4G,Smartphone,21469,7.5,4.3,Very High,High,320,Young,1,0,0,1,0,Female,Business,Rural,26-35,0,0,0,0,0
+USR_V807OEP5KU,3999,24,55,Apple,4G,Feature Phone,86020,6.54,0.12,Very High,Medium,268,Young,0,0,0,1,1,Male,Business,Metro,18-25,0,0,0,0,1
+USR_3YAGSTHPV4,349,40,66,Oppo,5G,Feature Phone,15003,0.81,2.9,Very High,High,297,Young,1,0,0,1,1,Female,Homemaker,Urban,60+,0,1,0,0,0
+USR_AQOSP7AWVD,3999,23,60,Samsung,5G,Feature Phone,123441,6.69,4.03,High,Medium,467,Young,1,0,0,0,1,Male,Homemaker,Metro,46-60,1,1,1,1,1
+USR_KQEV01WRB6,979,60,113,Apple,5G,Smartphone,35269,3.87,4.93,Low,High,280,Adult,0,0,1,1,1,Male,Business,Metro,26-35,1,0,0,1,0
+USR_PINAHSBIH7,349,49,89,Xiaomi,4G,Feature Phone,17859,0.08,1.7,Very High,Low,142,Adult,1,1,0,0,1,Male,Homemaker,Urban,18-25,0,0,1,1,0
+USR_2W5IVV3KG5,3999,44,108,Samsung,5G,Smartphone,143505,8.1,1.88,Very High,Low,62,Adult,1,1,1,1,0,Female,Business,Metro,18-25,1,1,0,1,0
+USR_8ZOG9DDFCG,349,42,61,Vivo,5G,Feature Phone,10812,2.82,3.65,Very High,Low,40,Senior,1,1,0,1,1,Female,Salaried,Urban,36-45,1,0,0,1,0
+USR_QGZ6X1NJZL,399,34,66,OnePlus,5G,Feature Phone,33897,3.92,0.31,Low,Medium,139,Young,1,0,1,0,1,Female,Homemaker,Urban,18-25,1,1,0,0,0
+USR_D1UBFQCIRC,349,19,17,Vivo,5G,Smartphone,18354,9.54,4.54,High,Low,396,Adult,1,1,1,0,1,Female,Student,Rural,46-60,1,0,1,0,1
+USR_15IRHK3XU4,979,13,67,Apple,4G,Feature Phone,51717,5.18,2.87,High,Medium,348,Senior,1,0,0,0,1,Male,Salaried,Metro,36-45,1,0,0,1,0
+USR_PG25SQ4IDS,979,60,52,Samsung,4G,Feature Phone,42154,0.7,4.44,Low,High,50,Senior,0,0,0,0,1,Female,Homemaker,Urban,60+,0,0,0,0,1
+USR_2XD9P904EH,1729,28,9,Apple,5G,Feature Phone,77059,3.43,0.43,Low,Low,283,Young,1,0,1,1,0,Female,Homemaker,Metro,36-45,1,1,0,0,0
+USR_YFP1Z9F4FO,349,27,51,Xiaomi,4G,Smartphone,8968,4.29,4.94,Low,Medium,474,Senior,0,1,1,1,0,Female,Homemaker,Rural,26-35,1,0,1,0,1
+USR_83NPRKM45V,979,54,118,Samsung,4G,Smartphone,58845,9.23,0.39,High,Low,76,Senior,0,0,1,1,0,Female,Student,Urban,60+,0,1,1,1,0
+USR_JZF6TT6P60,399,32,89,Samsung,5G,Feature Phone,33949,5.75,1.27,Medium,High,84,Young,0,1,1,0,1,Female,Student,Urban,26-35,1,1,0,0,0
+USR_XOGQTDEAH9,979,17,74,OnePlus,4G,Feature Phone,36672,1.43,3.45,Low,Low,58,Adult,0,1,1,0,0,Female,Salaried,Metro,60+,0,1,0,0,0
+USR_RFKWD9XEP3,979,58,112,Apple,4G,Smartphone,58147,7.97,0.2,Very High,High,62,Young,0,0,0,0,0,Male,Business,Urban,46-60,1,1,1,1,1
+USR_JNBDLNSEZ0,349,21,78,Xiaomi,5G,Smartphone,8697,7.73,0.69,High,Medium,94,Young,0,1,1,0,0,Male,Business,Rural,60+,0,1,0,1,1
+USR_DZ0FTOJLMN,349,25,61,Realme,5G,Feature Phone,13940,4.56,0.98,Medium,Medium,149,Adult,0,1,1,0,1,Male,Salaried,Rural,18-25,1,1,0,0,0
+USR_C4KGX6BSB8,349,28,90,Oppo,5G,Smartphone,11499,4.39,2.13,Low,High,83,Young,0,0,1,0,0,Male,Salaried,Urban,18-25,1,1,1,1,1
+USR_X66YCQ05IA,349,38,115,Vivo,4G,Smartphone,8473,7.96,4.25,Medium,Low,405,Senior,0,1,1,0,1,Male,Business,Rural,26-35,1,1,0,0,1
+USR_LPZAB2SGEX,349,42,103,Realme,5G,Feature Phone,18361,6.21,0.6,Medium,Medium,163,Adult,1,1,0,1,0,Male,Homemaker,Rural,36-45,1,0,1,1,1
+USR_AA4NF1FS7G,3999,42,95,Apple,5G,Feature Phone,109982,6.88,1.9,Medium,High,220,Young,1,1,1,0,1,Female,Salaried,Metro,26-35,1,0,0,1,0
+USR_OXWJGCHJVX,979,45,54,Apple,4G,Feature Phone,36248,2.53,1.23,Very High,High,210,Adult,0,0,1,1,1,Male,Homemaker,Metro,60+,1,0,0,0,0
+USR_T6KSKV4OAV,349,21,34,Oppo,4G,Smartphone,8102,6.52,1.24,High,Low,224,Adult,0,1,1,0,1,Male,Salaried,Urban,26-35,0,1,0,0,0
+USR_V8H0WD9CA2,979,27,54,OnePlus,5G,Smartphone,50764,5.84,2.61,Medium,High,102,Young,0,1,0,1,1,Female,Homemaker,Metro,46-60,1,0,0,1,0
+USR_AYV8D6RQT6,399,59,79,Vivo,5G,Feature Phone,21055,0.29,1.08,High,Medium,98,Senior,1,0,0,0,0,Female,Business,Urban,60+,0,1,0,0,0
+USR_QGZ8USWD3Y,349,24,60,Realme,4G,Feature Phone,8478,2.06,2.14,Very High,Low,244,Adult,1,1,1,1,0,Female,Student,Rural,18-25,1,0,1,0,0
+USR_VBMRWRDQRC,979,58,45,Samsung,5G,Feature Phone,46575,2.67,0.8,Medium,Low,119,Senior,0,0,1,1,0,Female,Homemaker,Metro,18-25,0,1,1,0,0
+USR_AILE2INOE5,349,58,99,Realme,5G,Feature Phone,8693,8.7,0.46,Low,High,199,Adult,1,1,1,0,0,Female,Business,Urban,36-45,1,0,1,0,0
+USR_QCCM7KTJCG,3999,37,41,Apple,4G,Feature Phone,138921,4.21,3.97,Low,Low,7,Young,0,0,0,1,0,Male,Student,Metro,36-45,0,1,0,1,1
+USR_3MK7IF6UDC,349,52,74,Vivo,5G,Feature Phone,13095,9.23,1.56,Medium,High,41,Senior,1,0,0,0,0,Male,Student,Rural,60+,0,1,1,0,0
+USR_B5N8RK0L66,349,34,12,Realme,5G,Smartphone,13492,1.47,4.13,High,High,70,Young,1,0,0,1,0,Male,Homemaker,Rural,26-35,1,0,0,1,0
+USR_8FLLIM7Z0X,399,45,62,OnePlus,5G,Smartphone,30107,0.85,3.39,Very High,High,99,Young,0,0,1,0,0,Male,Salaried,Metro,18-25,1,1,1,0,1
+USR_PYP555UKU1,349,17,84,Oppo,4G,Feature Phone,21737,8.56,4.77,Very High,High,290,Young,0,1,1,1,0,Male,Homemaker,Urban,60+,0,1,1,1,0
+USR_XZVXM5O93E,979,14,74,Apple,5G,Smartphone,49302,5.6,4.43,Very High,Medium,440,Adult,1,0,0,1,1,Male,Business,Urban,26-35,1,0,0,0,0
+USR_7PNWFAQQL3,349,23,102,Xiaomi,5G,Feature Phone,19048,2.17,1.73,Low,Low,255,Senior,0,0,1,0,0,Male,Homemaker,Rural,46-60,0,0,0,0,1
+USR_ZP7OZV9437,349,54,9,Realme,5G,Feature Phone,20936,0.05,0.04,Low,Low,245,Senior,0,0,0,1,0,Female,Salaried,Rural,46-60,1,1,0,0,1
