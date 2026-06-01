@@ -388,11 +388,27 @@ def build_plotly_chart(df: pd.DataFrame, spec: VisualSpec, stat_results: Optiona
                 fig.update_xaxes(title_text=x_label)
             if y_label:
                 fig.update_yaxes(title_text=y_label)
-                
-            # show_values support (bar charts)
+
+            # Percentage formatting: when the value axis represents a percentage
+            # (agent labels it "% ..." or the column is named pct_*/percent*), add a
+            # "%" suffix to the axis ticks and the value annotations.
+            y_name = str(y).lower() if y else ""
+            is_pct = (bool(y_label) and "%" in str(y_label)) or "pct" in y_name or "percent" in y_name
+
             show_values = getattr(spec, 'show_values', False) if hasattr(spec, 'show_values') else (spec.get('show_values', False) if isinstance(spec, dict) else False)
-            if show_values and chart_type == "bar":
-                fig.update_traces(textposition='outside', texttemplate='%{y:.1f}')
+
+            if chart_type == "bar":
+                orientation = (getattr(spec, 'orientation', None) if hasattr(spec, 'orientation') else None) or "v"
+                val_axis = "x" if orientation == "h" else "y"
+                if is_pct:
+                    (fig.update_xaxes if val_axis == "x" else fig.update_yaxes)(ticksuffix="%")
+                if show_values:
+                    fig.update_traces(
+                        textposition='outside',
+                        texttemplate='%{' + val_axis + ':.1f}' + ('%' if is_pct else '')
+                    )
+            elif chart_type == "line" and is_pct:
+                fig.update_yaxes(ticksuffix="%")
                 
             # reference_line support
             ref_line = getattr(spec, 'reference_line', None) if hasattr(spec, 'reference_line') else (spec.get('reference_line') if isinstance(spec, dict) else None)
