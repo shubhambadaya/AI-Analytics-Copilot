@@ -1,4 +1,5 @@
 import os
+import io
 import json
 import streamlit as st
 
@@ -544,13 +545,13 @@ def main():
 
                     if message.get("rendered_charts"):
                         for i, rc in enumerate(message["rendered_charts"]):
-                            chart_df = pd.read_json(rc["chart_df"])
+                            chart_df = pd.read_json(io.StringIO(rc["chart_df"]))
                             fig = build_plotly_chart(chart_df, rc["chart_spec"])
                             if fig:
                                 st.plotly_chart(fig, use_container_width=True, key=f"chart_{active_dataset}_{msg_idx}_{i}")
                             
                     if message.get("has_table"):
-                        table_df = pd.read_json(message["table_df"])
+                        table_df = pd.read_json(io.StringIO(message["table_df"]))
                         with st.expander("📊 Aggregated Result Data Table"):
                             st.dataframe(table_df, use_container_width=True)
                             
