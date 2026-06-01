@@ -31,3 +31,18 @@ This project is built using a clean, scalable modular architecture. Business log
    ```bash
    streamlit run app.py
    ```
+
+## Deploying to Streamlit Community Cloud
+
+This app runs as-is on [Streamlit Community Cloud](https://share.streamlit.io) (free). It is **not** compatible with Vercel/serverless hosts, which can't run Streamlit's long-running websocket server.
+
+1. **Rotate your API key first.** `.env` was previously committed, so treat the old key as exposed — generate a new `GEMINI_API_KEY` in Google AI Studio.
+2. **Push to GitHub.** `.env` and `.streamlit/secrets.toml` are gitignored, so no secrets are published.
+3. **Create the app** at share.streamlit.io → "New app" → pick this repo, branch, and `app.py`.
+4. **Add secrets** (app → Settings → Secrets), using the format in `.streamlit/secrets.toml.example`:
+   ```toml
+   GEMINI_API_KEY = "your-new-key"
+   APP_PASSWORD   = "a-shared-password"   # testers must enter this to use the app
+   ```
+   If `APP_PASSWORD` is omitted the app is open to anyone with the link (and uses your key), so set it for a shared preview.
+5. **Share the link.** Note that uploaded files and learned rules are stored on the app's ephemeral disk — they reset on restart and are shared across testers (this is a single-process preview, not a multi-user backend).

@@ -68,9 +68,12 @@ class ContextBuilder:
         """
         logger.info("Constructing token-compressed context object...")
         
+        from src.llm.semantic_memory import semantic_store
+        
         context_profile = {
             "tables": {},
-            "relationships": self.infer_relationships(datasets)
+            "relationships": self.infer_relationships(datasets),
+            "learned_business_rules": semantic_store.get_all_rules()
         }
         
         for table_name, info in datasets.items():
@@ -153,6 +156,34 @@ class ContextBuilder:
             return yaml.dump(context_obj, default_flow_style=False, sort_keys=False)
         except ImportError:
             return json.dumps(context_obj, indent=2)
+
+def format_business_context(context_profile: Dict[str, Any]) -> str:
+    """
+    Pull the learned business rules and defined KPIs out of a context profile and
+    present them as an explicit, salient block (rather than leaving them buried in
+    the raw JSON), so downstream agents apply the business's own definitions
+    instead of inventing their own (e.g. when defining an ML target or a segment).
+    """
+    lines = []
+
+    rules = context_profile.get("learned_business_rules") or []
+    if rules:
+        lines.append("Learned business rules (MUST honor):")
+        lines += [f"- {r}" for r in rules]
+
+    kpis = []
+    for table in context_profile.get("tables", {}).values():
+        kpis.extend(table.get("kpis", []) or [])
+    if kpis:
+        lines.append("Defined KPIs / metric formulas (use these exact definitions):")
+        for k in kpis:
+            name = k.get("name", "")
+            formula = k.get("formula", "")
+            desc = k.get("description", "")
+            lines.append(f"- {name}: {formula}" + (f" — {desc}" if desc else ""))
+
+    return "\n".join(lines)
+
 
 # Instantiated builder instance
 context_builder = ContextBuilder()

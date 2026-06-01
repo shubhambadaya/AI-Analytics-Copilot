@@ -128,6 +128,43 @@ def detect_outliers(
     return result
 
 
+def value_counts(series: pd.Series, top_n: int = 20) -> Dict[str, Any]:
+    """
+    Frequency distribution of a (typically categorical) series — the categorical
+    analog of analyze_distribution. Works on any dtype.
+
+    Returns:
+        Dict with n, n_non_null, n_null, n_unique, mode, and a `frequencies` list
+        of the top_n values as {value, count, percentage}.
+    """
+    total = int(len(series))
+    non_null = series.dropna()
+    n_non_null = int(len(non_null))
+
+    counts = non_null.value_counts()
+    n_unique = int(counts.shape[0])
+
+    frequencies = [
+        {
+            "value": str(val),
+            "count": int(cnt),
+            "percentage": round(int(cnt) / n_non_null, 4) if n_non_null > 0 else 0.0,
+        }
+        for val, cnt in counts.head(top_n).items()
+    ]
+
+    logger.info(f"Value counts on series: {n_unique} distinct values across {n_non_null} non-null rows")
+
+    return {
+        "n": total,
+        "n_non_null": n_non_null,
+        "n_null": total - n_non_null,
+        "n_unique": n_unique,
+        "mode": str(counts.index[0]) if n_unique > 0 else None,
+        "frequencies": frequencies,
+    }
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # MODULE 2: Comparison Testing
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -687,6 +724,200 @@ def compute_analysis_confidence(
         },
         "sample_size": sample_size
     }
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORCHESTRATION: name-based test dispatch
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def run_requested_tests(df: pd.DataFrame, requested_tests: List[Any]) -> Dict[str, Any]:
+    """
+    Deterministically execute statistical tests chosen by the Stats Agent against a
+    DataFrame. The agent decides WHICH tests are relevant and names the target
+    columns; this resolves HOW to call them on the actual data.
+
+    Each request may be either a bare test name (str) or a mapping/object carrying
+    column hints (`test`, `metric_column`, `group_column`, `columns`, `time_column`).
+    Agent-named columns are honored when valid; otherwise they fall back to
+    inference from the column types, so the batch stays robust to omitted or
+    hallucinated names.
+
+    Each test is isolated so an inapplicable or failing test is recorded as a
+    skip/error rather than aborting the whole batch. The returned dict is coerced
+    to native Python types so it is safe to json.dumps downstream.
+    """
+    if df is None or df.empty or not requested_tests:
+        return {}
+
+    numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
+    cat_cols = [c for c in df.columns if c not in numeric_cols]
+
+    # Inference fallbacks (used when the agent omits or names an invalid column).
+    default_numeric = numeric_cols[0] if numeric_cols else None
+    default_group = None
+    if cat_cols:
+        candidate = min(cat_cols, key=lambda c: df[c].nunique())
+        if df[candidate].nunique() >= 2:
+            default_group = candidate
+    default_time = next(
+        (c for c in df.columns if pd.api.types.is_datetime64_any_dtype(df[c])),
+        None
+    )
+
+    def _resolve_metric(hint):
+        return hint if hint in numeric_cols else default_numeric
+
+    def _resolve_group(hint):
+        if hint in df.columns and df[hint].nunique() >= 2:
+            return hint
+        return default_group
+
+    def _resolve_time(hint):
+        return hint if hint in df.columns else default_time
+
+    def _resolve_any(hint):
+        # value_counts works on any dtype; prefer the hint, else a categorical column.
+        if hint in df.columns:
+            return hint
+        if cat_cols:
+            return default_group or cat_cols[0]
+        return df.columns[0] if len(df.columns) else None
+
+    def _resolve_corr_cols(hint):
+        if hint:
+            valid = [c for c in hint if c in numeric_cols]
+            if len(valid) >= 2:
+                return valid
+        return None  # compute_correlations defaults to all numeric columns
+
+    results: Dict[str, Any] = {}
+
+    def _put(key: str, value: Any):
+        # Keep colliding keys (e.g. the same test run on two columns) distinct so
+        # no result is silently dropped.
+        final = key
+        suffix = 2
+        while final in results:
+            final = f"{key}_{suffix}"
+            suffix += 1
+        results[final] = value
+
+    def _run(key: str, fn):
+        try:
+            _put(key, fn())
+        except Exception as e:
+            logger.warning(f"Stats test '{key}' failed: {e}")
+            _put(key, {"error": str(e)})
+
+    for item in requested_tests:
+        test, hints = _normalize_request(item)
+
+        if test == "analyze_distribution":
+            col = _resolve_metric(hints.get("metric_column"))
+            if col is None:
+                _put(test, {"skipped": "No numeric column available."})
+            else:
+                _run(test, lambda c=col: {"column": c, **analyze_distribution(df[c])})
+
+        elif test == "detect_outliers":
+            col = _resolve_metric(hints.get("metric_column"))
+            if col is None:
+                _put(test, {"skipped": "No numeric column available."})
+            else:
+                def _outliers(c=col):
+                    out_df = detect_outliers(df[c])
+                    flagged = out_df[out_df["is_outlier"]]
+                    return {
+                        "column": c,
+                        "method": "iqr",
+                        "n_values": int(out_df.shape[0]),
+                        "n_outliers": int(flagged.shape[0]),
+                        "outlier_values": [round(float(v), 4) for v in flagged["value"].tolist()[:20]],
+                    }
+                _run(test, _outliers)
+
+        elif test == "compare_groups":
+            metric = _resolve_metric(hints.get("metric_column"))
+            group = _resolve_group(hints.get("group_column"))
+            if metric is None or group is None:
+                _put(test, {"skipped": "Requires a numeric metric and a categorical group column."})
+            else:
+                _run(test, lambda m=metric, g=group: {
+                    "metric": m, "group": g,
+                    **compare_groups(df, metric_col=m, group_col=g)
+                })
+
+        elif test == "compute_correlations":
+            if len(numeric_cols) < 2:
+                _put(test, {"skipped": "Requires at least 2 numeric columns."})
+            else:
+                cols = _resolve_corr_cols(hints.get("columns"))
+                _run(test, lambda c=cols: compute_correlations(df, columns=c))
+
+        elif test == "analyze_trend":
+            col = _resolve_metric(hints.get("metric_column"))
+            if col is None:
+                _put(test, {"skipped": "No numeric column available."})
+            else:
+                tcol = _resolve_time(hints.get("time_column"))
+                _run(test, lambda c=col, t=tcol: {
+                    "metric": c,
+                    **analyze_trend(df[c], df[t] if t else None)
+                })
+
+        elif test == "detect_changepoints":
+            col = _resolve_metric(hints.get("metric_column"))
+            if col is None:
+                _put(test, {"skipped": "No numeric column available."})
+            else:
+                _run(test, lambda c=col: {"column": c, **detect_changepoints(df[c])})
+
+        elif test == "value_counts":
+            col = _resolve_any(hints.get("metric_column"))
+            if col is None:
+                _put(test, {"skipped": "No column available."})
+            else:
+                _run(test, lambda c=col: {"column": c, **value_counts(df[c])})
+
+        elif test == "compare_proportions":
+            # Needs explicit success/total counts that cannot be reliably inferred
+            # from an arbitrary aggregated frame.
+            _put(test, {"skipped": "compare_proportions requires explicit success/total counts."})
+
+        else:
+            _put(test, {"skipped": f"Unknown test '{test}'."})
+
+    return _to_serializable(results)
+
+
+def _normalize_request(item: Any) -> Tuple[Optional[str], Dict[str, Any]]:
+    """Normalize a test request (str, dict, or pydantic-like object) to (test_name, hints)."""
+    if isinstance(item, str):
+        return item, {}
+    if isinstance(item, dict):
+        return item.get("test"), item
+    # Pydantic model or any attribute-bearing object
+    return getattr(item, "test", None), {
+        "metric_column": getattr(item, "metric_column", None),
+        "group_column": getattr(item, "group_column", None),
+        "columns": getattr(item, "columns", None),
+        "time_column": getattr(item, "time_column", None),
+    }
+
+
+def _to_serializable(obj: Any) -> Any:
+    """Recursively coerce numpy scalar types to native Python so results are JSON-safe."""
+    if isinstance(obj, dict):
+        return {k: _to_serializable(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_to_serializable(v) for v in obj]
+    if isinstance(obj, np.bool_):
+        return bool(obj)
+    if isinstance(obj, np.integer):
+        return int(obj)
+    if isinstance(obj, np.floating):
+        return float(obj)
+    return obj
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

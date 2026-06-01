@@ -53,13 +53,25 @@ STATISTICAL ANALYSIS GUIDANCE:
 CRITICAL RULES FOR VISUAL SPECIFICATION:
 1. Decide if the user's question asks for or would benefit from a visual representation (set `is_visual_requested` accordingly).
 2. The columns specified in `x_column`, `y_column`, and `group_column` MUST MATCH columns that are present in the final DataFrame/output returned by your `analyze(df)` function.
-3. Choose the standard `chart_type` carefully:
-   - 'line': for trends over time.
-   - 'bar': for comparing counts, sums, or averages across categories.
-   - 'scatter': for comparing two continuous numeric variables.
-   - 'pie': for small percentage breakdowns of a whole (under 7 slices).
-   - 'histogram': for showing values distribution.
-   - 'box': for comparing distributions (min, max, median, IQR) across categories.
+3. CHART SELECTION DECISION TREE (follow in order, pick the FIRST match):
+   a) Does the query ask about a DISTRIBUTION of a single numeric column (e.g., "distribution of usage", "spread of revenue")?
+      → Use 'histogram'. Set nbins=20. Do NOT pre-bucket the data — return the raw column values and let Plotly handle binning.
+   b) Does the query ask about TRENDS OVER TIME (e.g., "monthly trend", "growth over quarters")?
+      → Use 'line'. X-axis must be a date/time column.
+   c) Does the query compare DISTRIBUTIONS across groups (e.g., "compare usage distribution by plan")?
+      → Use 'box'. X is the group column, Y is the numeric column.
+   d) Does the query involve a MATRIX or CROSS-TAB of two categorical variables (e.g., "segment by region")?
+      → Use 'heatmap'. Set color_scale='RdBu'.
+   e) Does the query compare two CONTINUOUS numeric variables (e.g., "data usage vs voice usage")?
+      → Use 'scatter'.
+   f) Does the query ask for a PERCENTAGE BREAKDOWN with ≤6 slices?
+      → Use 'pie'.
+   g) Does the query compare EXACTLY 2-6 categories by a numeric metric?
+      → Use 'bar'. Set show_values=True.
+   h) More than 6 categories?
+      → Use 'bar' with orientation='h', sort_by='value_desc', top_n=15.
+4. ALWAYS set meaningful `title`, `x_label`, and `y_label`.
+5. When using sort_by and top_n, sort and slice the DataFrame in your analyze() function BEFORE returning.
 """
 
 def generate_analysis_plan(
@@ -67,7 +79,8 @@ def generate_analysis_plan(
     context_profile: Dict[str, Any],
     strategic_blueprint: Optional[Dict[str, Any]] = None,
     history: Optional[List[Dict[str, str]]] = None,
-    preferred_provider: Optional[str] = None
+    preferred_provider: Optional[str] = None,
+    model_override: Optional[str] = None
 ) -> AnalysisPlan:
     """
     Formulates a detailed execution plan and secure Pandas script based on the query,
@@ -110,14 +123,29 @@ User Business Question:
             history_str += f"{role}: {content}\n"
         prompt = f"Conversation History:\n{history_str}\n\n" + prompt
 
-    prompt += "\nFormulate your execution AnalysisPlan now, containing thought process, secure Python pandas code (defining analyze(df)), and visual chart spec."
+    prompt += "\nFormulate your execution AnalysisPlan now.\nCRITICAL: Keep `thought_process` under 50 words. DO NOT copy the context profile. Write secure Python pandas code (defining analyze(df)), and visual chart spec."
+    
+    # Golden Queries Injection (Few-Shot Examples)
+    from src.llm.golden_queries import golden_store
+    examples = golden_store.get_relevant_examples(query, top_k=2)
+    
+    if examples:
+        examples_str = "\n\nPAST HIGH-CONFIDENCE SUCCESSFUL ANALYSES (USE AS INSPIRATION):\n"
+        for i, ex in enumerate(examples):
+            examples_str += f"\n--- Example {i+1} ---\n"
+            examples_str += f"User Question: {ex['user_query']}\n"
+            examples_str += f"Confidence Score: {ex['confidence_score']:.2f}\n"
+            examples_str += f"Pandas Code:\n```python\n{ex['pandas_code']}\n```\n"
+        
+        prompt = examples_str + "\n" + prompt
 
     # Call the unified LLM client
     plan: AnalysisPlan = llm_client.generate_structured_output(
         prompt=prompt,
         response_model=AnalysisPlan,
         system_prompt=PLANNER_SYSTEM_PROMPT,
-        provider=preferred_provider
+        provider=preferred_provider,
+        model_override=model_override
     )
     
     logger.info("Analysis code plan generated successfully by LLM.")

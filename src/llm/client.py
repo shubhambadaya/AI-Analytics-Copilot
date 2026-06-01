@@ -9,6 +9,10 @@ logger = get_logger(__name__)
 
 T = TypeVar("T", bound=BaseModel)
 
+# Model tier constants
+MODEL_FAST = "gemini-2.5-flash"
+MODEL_PRO = "gemini-2.5-pro"
+
 class LLMClient:
     """
     A unified client wrapper for OpenAI, Anthropic, and Gemini.
@@ -64,7 +68,8 @@ class LLMClient:
         prompt: str, 
         response_model: Type[T], 
         system_prompt: Optional[str] = None,
-        provider: Optional[str] = None
+        provider: Optional[str] = None,
+        model_override: Optional[str] = None
     ) -> T:
         """
         Queries the preferred LLM provider and parses the result into a Pydantic model.
@@ -74,6 +79,7 @@ class LLMClient:
             response_model: Pydantic model class to validate output against.
             system_prompt: Optional instruction for the system role.
             provider: Optional override for provider selection ("openai", "gemini", "anthropic").
+            model_override: Optional specific model name (e.g. 'gemini-2.5-flash').
             
         Returns:
             An instance of response_model containing parsed data.
@@ -98,7 +104,7 @@ class LLMClient:
         if provider == "openai":
             return self._call_openai(prompt, response_model, system_prompt)
         elif provider == "gemini":
-            return self._call_gemini(prompt, response_model, system_prompt)
+            return self._call_gemini(prompt, response_model, system_prompt, model_override=model_override)
         elif provider == "anthropic":
             return self._call_anthropic(prompt, response_model, system_prompt)
         else:
@@ -120,9 +126,9 @@ class LLMClient:
         )
         return response.choices[0].message.parsed
 
-    def _call_gemini(self, prompt: str, response_model: Type[T], system_prompt: Optional[str]) -> T:
+    def _call_gemini(self, prompt: str, response_model: Type[T], system_prompt: Optional[str], model_override: Optional[str] = None) -> T:
         import google.generativeai as genai
-        model_name = 'gemini-2.5-flash-lite'
+        model_name = model_override or MODEL_PRO
         
         logger.info(f"Calling Gemini generation using {model_name}...")
         
@@ -171,13 +177,30 @@ class LLMClient:
         if "$defs" in processed_schema:
             del processed_schema["$defs"]
             
+        # IMPORTANT: We deliberately do NOT pass `response_schema` to Gemini.
+        # Native constrained decoding on a complex nested schema (e.g. AnalysisPlan
+        # with VisualSpec's many free-text label fields) drives gemini-2.5 models
+        # into runaway repetition loops — they echo instructions into a string field
+        # until they hit max_output_tokens, producing truncated/invalid JSON.
+        # Instead we embed the schema in the prompt and validate the result with
+        # Pydantic below; this completes reliably in a few seconds with no loops.
+        schema_instruction = (
+            "Respond with ONLY a single JSON object that strictly conforms to this "
+            "JSON Schema. Include every required field, and use null for unused "
+            "optional fields. Do not wrap it in markdown or add any prose.\n"
+            f"JSON Schema:\n{json.dumps(processed_schema)}"
+        )
+        prompt = f"{schema_instruction}\n\n{prompt}"
+
+        # Gemini 2.5 are "thinking" models: reasoning tokens are deducted from
+        # max_output_tokens, so keep a generous ceiling for thinking + output.
+        max_output_tokens = 32768
         generation_config = genai.types.GenerationConfig(
             response_mime_type="application/json",
-            response_schema=processed_schema,
             temperature=0.0,
-            max_output_tokens=4096
+            max_output_tokens=max_output_tokens
         )
-        
+
         model = genai.GenerativeModel(
             model_name=model_name,
             system_instruction=system_prompt
@@ -193,16 +216,41 @@ class LLMClient:
                 generation_config=generation_config
             )
         
+        # Gemini 2.5 thinking models can take well over a minute on large structured
+        # outputs; allow generous headroom so valid responses aren't cut off.
+        request_timeout = 180
         with ThreadPoolExecutor(max_workers=1) as executor:
             future = executor.submit(_generate)
             try:
-                response = future.result(timeout=60)
+                response = future.result(timeout=request_timeout)
             except FuturesTimeoutError:
                 future.cancel()
-                raise TimeoutError("Gemini API call timed out after 60 seconds")
+                raise TimeoutError(f"Gemini API call timed out after {request_timeout} seconds")
         
-        result_text = response.text
-        
+        # Detect truncation before parsing: if the model hit the token ceiling the
+        # JSON is incomplete, so raise a clear error rather than a cryptic
+        # "EOF while parsing a string" from Pydantic downstream.
+        try:
+            finish_reason = response.candidates[0].finish_reason
+            finish_name = getattr(finish_reason, "name", str(finish_reason))
+        except (AttributeError, IndexError):
+            finish_name = None
+
+        if finish_name == "MAX_TOKENS":
+            raise ValueError(
+                f"Gemini response was truncated (finish_reason=MAX_TOKENS) before completing "
+                f"valid JSON for {response_model.__name__}; output exceeded "
+                f"max_output_tokens={max_output_tokens}. Try a more specific question."
+            )
+
+        try:
+            result_text = response.text
+        except Exception as e:
+            raise ValueError(
+                f"Gemini returned no parseable text for {response_model.__name__} "
+                f"(finish_reason={finish_name}): {e}"
+            )
+
         # Cleanup markdown and preamble text that Gemini sometimes returns
         result_text = result_text.strip()
         if result_text.startswith("```json"):

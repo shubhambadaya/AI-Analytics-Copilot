@@ -48,7 +48,7 @@ def execute_analysis(
     # 3. Build sandboxed namespace with permitted builtins
     # Provide a restricted __import__ so LLM-generated code can use
     # `import pandas as pd` etc. Only modules approved by the AST validator pass.
-    SAFE_MODULES = {"pandas", "numpy", "datetime", "math", "scipy", "statsmodels", "stats_engine"}
+    SAFE_MODULES = {"pandas", "numpy", "datetime", "math", "scipy", "statsmodels", "stats_engine", "sklearn", "ml_engine"}
     
     def _safe_import(name, *args, **kwargs):
         base = name.split(".")[0]
@@ -58,6 +58,7 @@ def execute_analysis(
     
     import datetime
     import math
+    import src.analysis.ml_engine as ml_engine
     
     # IMPORTANT: Use a single unified namespace (exec_globals only).
     # Python's exec() binds function closures to the globals dict.
@@ -81,7 +82,8 @@ def execute_analysis(
         "np": np,
         "datetime": datetime,
         "math": math,
-        "stats_engine": stats_engine
+        "stats_engine": stats_engine,
+        "ml_engine": ml_engine
     }
     
     # Scalability & Multi-table: Inject all active datasets as global variables

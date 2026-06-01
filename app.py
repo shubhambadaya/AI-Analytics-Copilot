@@ -1,6 +1,17 @@
 import os
 import json
 import streamlit as st
+
+# Bridge Streamlit Community Cloud secrets into environment variables BEFORE any
+# project module (which reads keys via os.getenv at import time) is imported.
+# Locally this is a no-op when no secrets file exists.
+try:
+    for _k, _v in st.secrets.items():
+        if isinstance(_v, str):
+            os.environ.setdefault(_k, _v)
+except Exception:
+    pass
+
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -25,24 +36,37 @@ CUSTOM_CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 /* Main font declarations */
-html, body, [class*="css"], .stApp {
-    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, [class*="css"], .stApp {
+    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif !important;
+}
+
+p, span, div, li, td, th {
+    line-height: 1.6;
+    color: #1F2937;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Outfit', sans-serif !important;
     font-weight: 700 !important;
     letter-spacing: -0.02em;
+    color: #0F172A;
+    line-height: 1.2;
 }
 
 /* Custom premium card design */
 .premium-card {
     background: rgba(255, 255, 255, 1);
     border: 1px solid rgba(229, 231, 235, 1);
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 24px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.025);
     margin-bottom: 24px;
+    transition: all 0.2s ease-in-out;
+}
+
+.premium-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
 }
 
 /* Stat badge styling */
@@ -87,8 +111,123 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 800;
     margin-bottom: 0.5rem;
 }
+
+/* ---------- Landing / onboarding ---------- */
+.hero-sub {
+    font-size: 1.15rem;
+    color: #475569;
+    margin-top: -6px;
+    margin-bottom: 28px;
+    max-width: 720px;
+    line-height: 1.6;
+}
+
+.onboard-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.12);
+    margin-bottom: 24px;
+}
+
+.onboard-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #4F46E5;
+    background: #EEF2FF;
+    border: 1px solid #C7D2FE;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+}
+
+.step-grid {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 4px 0;
+}
+
+.step-card {
+    flex: 1;
+    min-width: 200px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 18px 20px;
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4F46E5, #06B6D4);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.step-card h4 { margin: 0 0 4px 0; font-size: 1rem; }
+.step-card p { margin: 0; color: #64748B; font-size: 0.9rem; }
+
+.example-chip {
+    display: inline-block;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 999px;
+    padding: 8px 16px;
+    margin: 6px 8px 0 0;
+    color: #334155;
+    font-size: 0.92rem;
+}
+
+.trust-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+.trust-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ECFDF5;
+    border: 1px solid #A7F3D0;
+    color: #065F46;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
 </style>
 """
+
+def require_password():
+    """
+    Lightweight access gate for shared deployments. Active only when APP_PASSWORD
+    is configured (Streamlit secret or env var); a no-op locally when it isn't, so
+    local development isn't blocked. Halts rendering until the correct password.
+    """
+    expected = os.getenv("APP_PASSWORD")
+    if not expected:
+        return  # no gate configured (local / dev)
+    if st.session_state.get("_authenticated"):
+        return
+
+    st.markdown("<div class='glow-title'>AI Analytics Copilot</div>", unsafe_allow_html=True)
+    st.markdown("<p class='hero-sub'>🔒 Private preview — please enter the access password to continue.</p>", unsafe_allow_html=True)
+    pw = st.text_input("Access password", type="password")
+    if pw:
+        if pw == expected:
+            st.session_state["_authenticated"] = True
+            st.rerun()
+        else:
+            st.error("Incorrect password. Please try again.")
+    st.stop()
+
 
 def init_session_state():
     """Initializes Streamlit session state variables."""
@@ -98,8 +237,12 @@ def init_session_state():
         st.session_state.datasets = {}
     if "active_dataset" not in st.session_state:
         st.session_state.active_dataset = None
+    if "draft_dictionary" not in st.session_state:
+        st.session_state.draft_dictionary = None
     if "selected_provider" not in st.session_state:
         st.session_state.selected_provider = None
+    if "pending_clarification" not in st.session_state:
+        st.session_state.pending_clarification = {}
 
 def main():
     st.set_page_config(
@@ -111,45 +254,47 @@ def main():
     
     st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
     init_session_state()
-    
+    require_password()
+
     # ------------------ SIDEBAR CONFIGURATION ------------------
-    st.sidebar.markdown("<h2 style='margin-top:0;'>⚙️ Settings & Ingestion</h2>", unsafe_allow_html=True)
-    
+    st.sidebar.markdown("<h2 style='margin-top:0;'>⚙️ Setup</h2>", unsafe_allow_html=True)
+
     # Detect LLM APIs configured
     providers = llm_client.get_available_providers()
-    
-    st.sidebar.subheader("LLM Provider Configuration")
+
+    st.sidebar.subheader("AI engine")
     if not providers:
-        st.sidebar.error("⚠️ No API keys found! Please set OPENAI_API_KEY, ANTHROPIC_API_KEY, or GEMINI_API_KEY inside your `.env` file to activate the Copilot.")
+        st.sidebar.error("⚠️ No AI model is connected yet. Add an API key (OPENAI_API_KEY, ANTHROPIC_API_KEY, or GEMINI_API_KEY) to the `.env` file to get started.")
     else:
         cols = st.sidebar.columns(len(providers))
         for idx, provider in enumerate(providers):
             cols[idx].markdown(f"<span class='stat-badge' style='background-color:#D1FAE5; border-color:#34D399; color:#065F46; padding: 4px 8px; font-size:0.75rem; text-align:center;'>● {provider.upper()}</span>", unsafe_allow_html=True)
-            
+
         selected_provider = st.sidebar.selectbox(
-            "Active LLM Reasoner",
+            "AI model",
             options=providers,
-            index=0 if st.session_state.selected_provider is None else providers.index(st.session_state.selected_provider)
+            index=0 if st.session_state.selected_provider is None else providers.index(st.session_state.selected_provider),
+            help="The AI model that powers your answers. Any option works — pick one if unsure."
         )
         st.session_state.selected_provider = selected_provider
 
     st.sidebar.markdown("---")
-    
+
     # Multiple Data Ingestion
-    st.sidebar.subheader("1. Ingest Datasets (CSV)")
+    st.sidebar.subheader("1. Upload your data")
     uploaded_files = st.sidebar.file_uploader(
-        "Upload CSV files",
+        "Add CSV files",
         type=["csv"],
         accept_multiple_files=True,
-        help="Upload multiple CSV datasets to explore and analyze."
+        help="Drag and drop one or more spreadsheets (CSV format) to analyze."
     )
-    
+
     # Ingest Data Dictionary
-    st.sidebar.subheader("2. Ingest Business Dictionary")
+    st.sidebar.subheader("2. Add business context (optional)")
     uploaded_dict = st.sidebar.file_uploader(
-        "Upload dictionary (JSON/YAML)",
+        "Add a data dictionary",
         type=["json", "yaml", "yml"],
-        help="Provide column definitions, grains, KPIs, join keys, and business rules."
+        help="Optional: a file describing what your columns mean and how key metrics (like ARPU) are calculated, so answers match your business definitions."
     )
     
     # Process uploaded files
@@ -183,11 +328,12 @@ def main():
     # Select Active Dataset dropdown
     if st.session_state.datasets:
         st.sidebar.markdown("---")
-        st.sidebar.subheader("Active Workspace")
+        st.sidebar.subheader("Your data")
         active_dataset = st.sidebar.selectbox(
-            "Active Dataset",
+            "Dataset to analyze",
             options=list(st.session_state.datasets.keys()),
-            index=list(st.session_state.datasets.keys()).index(st.session_state.active_dataset) if st.session_state.active_dataset in st.session_state.datasets else 0
+            index=list(st.session_state.datasets.keys()).index(st.session_state.active_dataset) if st.session_state.active_dataset in st.session_state.datasets else 0,
+            help="Choose which uploaded file your questions apply to."
         )
         st.session_state.active_dataset = active_dataset
         
@@ -210,8 +356,23 @@ def main():
                     except Exception as e:
                         st.sidebar.error(f"❌ Dictionary Validation Error:\n{str(e)}")
 
+        # Auto-Generate Dictionary Button
+        if st.session_state.datasets[active_dataset]["dictionary_path"] is None:
+            if st.sidebar.button("✨ Auto-describe my data", use_container_width=True, help="Let the AI suggest what each column means and which metrics matter — you can review and edit before applying."):
+                with st.spinner("LLM is inferring business semantics and KPIs..."):
+                    from src.llm.dictionary_generator import auto_generate_dictionary
+                    try:
+                        draft_json = auto_generate_dictionary(
+                            st.session_state.datasets[active_dataset]["metadata"],
+                            st.session_state.selected_provider
+                        )
+                        st.session_state.draft_dictionary = draft_json
+                        st.rerun()
+                    except Exception as e:
+                        st.sidebar.error(f"Generation failed: {e}")
+
     # Clear uploads
-    if st.sidebar.button("🧹 Clear Context uploads", use_container_width=True):
+    if st.sidebar.button("🧹 Clear all data", use_container_width=True, help="Remove all uploaded files and start over."):
         context_manager.delete_all_data()
         st.session_state.datasets = {}
         st.session_state.history = {}
@@ -219,27 +380,81 @@ def main():
         st.rerun()
 
     # ------------------ MAIN SCREEN RENDER ------------------
-    st.markdown("<div class='glow-title'>Enterprise AI Analytics Copilot</div>", unsafe_allow_html=True)
-    st.markdown("<p style='font-size:1.15rem; color:#4B5563; margin-top:-10px; margin-bottom:24px;'>Decoupling deterministic calculations from cognitive reasoning to deliver 100% accurate enterprise business intelligence.</p>", unsafe_allow_html=True)
+    st.markdown("<div class='glow-title'>AI Analytics Copilot</div>", unsafe_allow_html=True)
+    st.markdown("<p class='hero-sub'>Ask questions about your data in plain English and get clear answers, charts, and recommendations in seconds — no formulas or code required.</p>", unsafe_allow_html=True)
+
+    if st.session_state.draft_dictionary:
+        st.markdown("### ✨ Review Auto-Generated Dictionary")
+        st.info("The AI has inferred the following business rules and KPIs from the raw dataset. You can edit this JSON directly before applying.")
+        edited_json = st.text_area("Draft Dictionary JSON", value=st.session_state.draft_dictionary, height=400)
+        
+        col1, col2 = st.columns(2)
+        if col1.button("✅ Save & Apply Dictionary", use_container_width=True):
+            try:
+                active_dataset = st.session_state.active_dataset
+                dict_path = context_manager.save_uploaded_file(f"auto_dict.json", edited_json.encode('utf-8'))
+                dictionary_obj = parse_and_validate_dictionary(dict_path)
+                enriched_meta = merge_metadata_and_dictionary(
+                    st.session_state.datasets[active_dataset]["metadata"], 
+                    dictionary_obj
+                )
+                st.session_state.datasets[active_dataset]["dictionary_path"] = dict_path
+                st.session_state.datasets[active_dataset]["metadata"] = enriched_meta
+                st.session_state.draft_dictionary = None # Clear draft
+                st.toast("Dictionary successfully generated and applied!", icon="✅")
+                st.rerun()
+            except Exception as e:
+                st.error(f"❌ Failed to parse or validate dictionary edits: {e}")
+                
+        if col2.button("🗑️ Discard Draft", use_container_width=True):
+            st.session_state.draft_dictionary = None
+            st.rerun()
+            
+        st.stop() # Suspend dashboard rendering until dictionary draft is handled
 
     if not st.session_state.datasets:
         st.markdown(
             """
-            <div class="premium-card" style="text-align: center; padding: 48px; border: 2px dashed #CBD5E1; background-color: #F8FAFC;">
-                <div style="font-size: 4rem; margin-bottom: 16px;">📊</div>
-                <h3>Welcome to your Analytics Copilot</h3>
-                <p style="color: #64748B; max-width: 600px; margin: 0 auto 24px auto;">
-                    To get started, upload one or more CSV datasets in the sidebar. Once ingested, the Copilot will automatically profile column types and launch the analytics interface.
+            <div class="onboard-card">
+                <span class="onboard-eyebrow">Getting started</span>
+                <h2 style="margin: 0 0 8px 0;">👋 Let's explore your data</h2>
+                <p style="color: #64748B; max-width: 680px; margin: 0 0 24px 0; font-size: 1.05rem;">
+                    Upload a spreadsheet and ask questions in everyday language — like having your own
+                    data analyst on call. You'll get the answer, a chart, and what to do next.
                 </p>
-                <div style="display: flex; justify-content: center; gap: 16px;">
-                    <span class="stat-badge">⚡ Safe Code Execution</span>
-                    <span class="stat-badge">📈 Premium Plotly Visuals</span>
-                    <span class="stat-badge">🔒 100% Local Math Checks</span>
+                <div class="step-grid">
+                    <div class="step-card">
+                        <div class="step-num">1</div>
+                        <h4>Upload your data</h4>
+                        <p>Use the panel on the left to add one or more CSV files.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">2</div>
+                        <h4>Ask a question</h4>
+                        <p>Type what you want to know — no special syntax needed.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-num">3</div>
+                        <h4>Get instant insights</h4>
+                        <p>Read the answer, explore the chart, and act on the advice.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 28px;">
+                    <p style="font-weight: 600; color: #0F172A; margin: 0 0 6px 0;">Try asking…</p>
+                    <span class="example-chip">Which customer segments spend the most?</span>
+                    <span class="example-chip">What drives higher revenue?</span>
+                    <span class="example-chip">Who should we target for an upgrade?</span>
+                    <span class="example-chip">Show average spend by age group</span>
+                </div>
+                <div class="trust-row">
+                    <span class="trust-pill">✅ Every number is calculated from your data, not guessed</span>
+                    <span class="trust-pill">⚡ Answers in seconds — no formulas or code</span>
                 </div>
             </div>
             """,
             unsafe_allow_html=True
         )
+        st.info("👈 Start by uploading a CSV file in the sidebar on the left.")
         return
 
     # Active Dataset details
@@ -252,52 +467,87 @@ def main():
     badge_str = ""
     for name in st.session_state.datasets.keys():
         is_active = (name == active_dataset)
-        style = "background-color:#E0F2FE; border-color:#7DD3FC; color:#0369A1; border: 1.5px solid #0284C7;" if is_active else "opacity: 0.6;"
-        badge_str += f"<span class='stat-badge' style='{style}'>{'📂 Active: ' if is_active else '📄 '} {name}</span>"
+        style = "background-color:#F8FAFC; border-color:#CBD5E1; color:#334155; font-weight: 500;" if is_active else "background-color:#F1F5F9; border-color:#E2E8F0; color:#64748B; opacity: 0.7;"
+        active_dot = "<span style='color:#10B981;'>•</span> " if is_active else ""
+        badge_str += f"<span class='stat-badge' style='{style}'>{active_dot}{name}</span>"
         
     st.markdown(f"<div style='margin-bottom:20px;'>{badge_str}</div>", unsafe_allow_html=True)
     
     st.markdown(
         f"""
-        <div style='margin-bottom:20px;'>
-            <span class='stat-badge'>📊 Selected: {active_dataset}</span>
-            <span class='stat-badge'>📋 Rows: {metadata['dimensions']['rows']:,}</span>
-            <span class='stat-badge'>📐 Columns: {metadata['dimensions']['columns']}</span>
-            <span class='stat-badge'>💾 Size: {metadata['dimensions']['memory_bytes'] / 1024 / 1024:.2f} MB</span>
-            {"<span class='stat-badge' style='background-color:#D1FAE5; border-color:#34D399; color:#065F46;'>📝 Dictionary Active</span>" if dict_path else ""}
+        <div style='margin-bottom:24px; padding: 12px 16px; background-color: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; display: inline-flex; gap: 16px; align-items: center;'>
+            <span style='color: #475569; font-weight: 500; font-size: 0.9rem;'>Dataset: <span style='color:#0F172A;'>{active_dataset}</span></span>
+            <span style='color: #CBD5E1;'>|</span>
+            <span style='color: #475569; font-size: 0.9rem;'>Rows: <span style='color:#0F172A;'>{metadata['dimensions']['rows']:,}</span></span>
+            <span style='color: #CBD5E1;'>|</span>
+            <span style='color: #475569; font-size: 0.9rem;'>Cols: <span style='color:#0F172A;'>{metadata['dimensions']['columns']}</span></span>
+            <span style='color: #CBD5E1;'>|</span>
+            <span style='color: #475569; font-size: 0.9rem;'>Size: <span style='color:#0F172A;'>{metadata['dimensions']['memory_bytes'] / 1024 / 1024:.2f} MB</span></span>
+            {"<span style='color: #CBD5E1;'>|</span><span style='color: #10B981; font-weight: 500; font-size: 0.9rem;'>• Dictionary Active</span>" if dict_path else ""}
         </div>
         """,
         unsafe_allow_html=True
     )
 
     # Core tabs
-    tab_chat, tab_explore, tab_json, tab_dictionary = st.tabs([
-        "💬 Analytics Copilot Chat", 
-        "🔍 Profile Explorer", 
-        "⚙️ Structured JSON Metadata",
-        "📖 Data Dictionary"
+    tab_chat, tab_explore, tab_json, tab_dictionary, tab_architecture, tab_kb = st.tabs([
+        "💬 Ask",
+        "📋 Data Overview",
+        "🧩 Technical Details",
+        "📖 Data Dictionary",
+        "⚙️ How It Works",
+        "🧠 Learned Rules"
     ])
 
     # ==================== TAB 1: COGNITIVE ANALYTICS CHAT ====================
     with tab_chat:
-        st.markdown(f"### Ask Business Questions on: `{active_dataset}`")
-        st.caption("Ask questions like: 'Why are users downgrading?', 'Show total recharge amounts by gender', or 'What is our tenure trend?'")
+        st.markdown(f"### 💬 Ask anything about `{active_dataset}`")
+        st.caption("For example:  “Which customer segments spend the most?”  ·  “What drives higher revenue?”  ·  “Who should we target for an upgrade?”")
         
         # Display history
         active_history = st.session_state.history.get(active_dataset, [])
-        for message in active_history:
+        for msg_idx, message in enumerate(active_history):
             if message["role"] == "user":
                 st.markdown(f"<div class='chat-bubble-user'>🧑‍💻 <b>You:</b><br>{message['content']}</div>", unsafe_allow_html=True)
             elif message["role"] == "assistant":
-                st.markdown("<div class='chat-bubble-assistant'>🤖 <b>Copilot:</b></div>", unsafe_allow_html=True)
+                # Agent type badge
+                agent_type = message.get("agent_type", "")
+                if agent_type == "simple":
+                    badge = "<span class='stat-badge' style='background-color:#ECFDF5; border-color:#10B981; color:#065F46;'>⚡ Fast Agent (Flash)</span>"
+                elif agent_type == "complex":
+                    badge = "<span class='stat-badge' style='background-color:#EEF2FF; border-color:#6366F1; color:#3730A3;'>🧠 Pro Agent (Deep Reasoning)</span>"
+                elif agent_type == "predictive":
+                    badge = "<span class='stat-badge' style='background-color:#FCE7F3; border-color:#DB2777; color:#9D174D;'>🔮 Predictive ML Agent (Scikit-Learn)</span>"
+                elif agent_type == "learn":
+                    badge = "<span class='stat-badge' style='background-color:#FEF3C7; border-color:#F59E0B; color:#92400E;'>📝 Knowledge Capture</span>"
+                elif agent_type == "clarify":
+                    badge = "<span class='stat-badge' style='background-color:#FEF9C3; border-color:#EAB308; color:#854D0E;'>🔎 Needs your input</span>"
+                else:
+                    badge = ""
+                st.markdown(f"<div class='chat-bubble-assistant'>🤖 <b>Copilot:</b> {badge}</div>", unsafe_allow_html=True)
+
+                # Single Query Render
                 with st.container():
-                    st.markdown(message["direct_answer"])
-                    
-                    if message.get("has_chart") and message.get("chart_spec"):
-                        chart_df = pd.read_json(message["chart_df"])
-                        fig = build_plotly_chart(chart_df, message["chart_spec"])
-                        if fig:
-                            st.plotly_chart(fig, use_container_width=True)
+                    st.markdown(message.get("direct_answer", ""))
+
+                    # Analyst plan: how the Copilot approached the question (complex path)
+                    if message.get("approach") or message.get("planned_steps") or message.get("assumptions"):
+                        with st.expander("🧭 How I approached this", expanded=False):
+                            if message.get("approach"):
+                                st.markdown(message["approach"])
+                            if message.get("planned_steps"):
+                                st.markdown("**Plan:** " + " → ".join(message["planned_steps"]))
+                            if message.get("assumptions"):
+                                st.markdown("**Assumptions:**")
+                                for a in message["assumptions"]:
+                                    st.markdown(f"- {a}")
+
+                    if message.get("rendered_charts"):
+                        for i, rc in enumerate(message["rendered_charts"]):
+                            chart_df = pd.read_json(rc["chart_df"])
+                            fig = build_plotly_chart(chart_df, rc["chart_spec"])
+                            if fig:
+                                st.plotly_chart(fig, use_container_width=True, key=f"chart_{active_dataset}_{msg_idx}_{i}")
                             
                     if message.get("has_table"):
                         table_df = pd.read_json(message["table_df"])
@@ -314,7 +564,7 @@ def main():
                         for rec in message["recommendations"]:
                             st.markdown(f"- {rec}")
                             
-                    if "confidence_score" in message:
+                    if message.get("confidence_score"):
                         conf = message["confidence_score"]
                         color = "#059669" if conf >= 0.75 else "#D97706" if conf >= 0.5 else "#DC2626"
                         label = "High Confidence" if conf >= 0.75 else "Medium Confidence" if conf >= 0.5 else "Low Confidence"
@@ -324,191 +574,110 @@ def main():
                         with st.expander("🔬 Statistical Evidence"):
                             for evidence in message["statistical_backing"]:
                                 st.markdown(f"- {evidence}")
-                                
                 st.markdown("<hr style='margin:16px 0; border:0; border-top:1px solid #E5E7EB;'>", unsafe_allow_html=True)
 
         # Input Form
         query_form = st.form(key="business_query_form")
-        user_query = query_form.text_input("Ask a business question:", placeholder=f"Ask a question about {active_dataset}...", key="query_input")
-        submit_query = query_form.form_submit_button("Run Analysis", use_container_width=True)
+        user_query = query_form.text_input("Your question", placeholder=f"e.g. Which segments drive the most revenue in {active_dataset}?", key="query_input")
+        submit_query = query_form.form_submit_button("Get answer", use_container_width=True)
 
         if submit_query and user_query:
+            # If the Copilot previously asked for clarification, treat this reply as
+            # the answer and fold it back into the original question.
+            pending = st.session_state.pending_clarification.pop(active_dataset, None)
+            if pending:
+                effective_query = f"{pending['original_query']}\n\n[Stakeholder clarification: {user_query}]"
+            else:
+                effective_query = user_query
+
             st.session_state.history[active_dataset].append({"role": "user", "content": user_query})
             st.markdown(f"<div class='chat-bubble-user'>🧑‍💻 <b>You:</b><br>{user_query}</div>", unsafe_allow_html=True)
-            
+
             # Synthesize consolidated multi-table LLM context profile
             context_profile = context_builder.build_llm_context(st.session_state.datasets)
-            
-            # Stage 1: High-Level Strategic Blueprint
-            with st.spinner("Formulating Strategic Analysis Blueprint..."):
-                try:
-                    strategic_blueprint = generate_strategic_analysis_plan(
-                        query=user_query,
-                        context_profile=context_profile,
-                        preferred_provider=st.session_state.selected_provider
-                    )
-                except Exception as e:
-                    st.error(f"❌ Failed to construct strategic plan: {str(e)}")
-                    return
-            
-            # Render Strategic blueprint immediately to provide visibility
-            with st.expander("🧠 Cognitive Strategic Analysis Blueprint", expanded=True):
-                st.markdown(f"**Logical Reasoning:**\n{strategic_blueprint.thought_process}")
-                
-                col1, col2 = st.columns(2)
-                with col1:
-                    st.markdown("**Analyses Selected to Run:**")
-                    for step in strategic_blueprint.analysis_plan:
-                        st.markdown(f"- `{step.replace('_', ' ').capitalize()}`")
-                        
-                    st.markdown("**Suggested Chart Layouts:**")
-                    for vis in strategic_blueprint.suggested_visualizations:
-                        st.markdown(f"- {vis}")
-                with col2:
-                    st.markdown("**Essential KPI Metrics:**")
-                    for metric in strategic_blueprint.required_metrics:
-                        st.markdown(f"- `{metric}`")
-                        
-                    st.markdown("**Segmentation Dimensions:**")
-                    for dim in strategic_blueprint.required_dimensions:
-                        st.markdown(f"- `{dim}`")
-            
-            # Stage 2: Low-Level Pandas Execution Planning
-            with st.spinner("Formulating secure Pandas code plan..."):
-                try:
-                    plan = generate_analysis_plan(
-                        query=user_query,
-                        context_profile=context_profile,
-                        strategic_blueprint=strategic_blueprint.model_dump(),
-                        history=st.session_state.history[active_dataset][:-1],
-                        preferred_provider=st.session_state.selected_provider
-                    )
-                except Exception as e:
-                    st.error(f"❌ Failed to construct code plan: {str(e)}")
-                    return
-                
-            with st.expander("💭 Generated Pandas Code & Sandboxing Details", expanded=False):
-                st.markdown(f"**Thought Process:**\n{plan.thought_process}")
-                st.code(plan.pandas_code, language="python")
-                if plan.visual_spec.is_visual_requested:
-                    st.markdown("**Requested Chart Specification:**")
-                    st.json(plan.visual_spec.model_dump())
-                    
-            # Safe local execution with self-correction
-            with st.spinner("Executing Pandas calculations securely..."):
-                all_datasets = {name: info["df"] for name, info in st.session_state.datasets.items()}
-                exec_result = execute_analysis(df, plan.pandas_code, all_datasets=all_datasets)
-                
-                # Auto-correction loop
-                if not exec_result["success"]:
-                    st.warning("⚠️ Initial analysis execution failed. Activating self-correction engine...")
-                    
-                    correction_prompt = f"""
-Your previous Pandas code generated for the user question failed with a runtime exception.
 
-User Question: "{user_query}"
-Previous Code:
-```python
-{plan.pandas_code}
-```
-Runtime Error Exception:
-{exec_result["error"]}
+            from src.llm.pipeline import run_headless_pipeline
+            all_datasets = {name: info["df"] for name, info in st.session_state.datasets.items()}
 
-Please write the fixed Pandas script. Make sure you define `analyze(df)` function correctly.
-"""
-                    try:
-                        plan = generate_analysis_plan(
-                            query=correction_prompt,
-                            context_profile=context_profile,
-                            strategic_blueprint=strategic_blueprint.model_dump(),
-                            history=st.session_state.history[active_dataset][:-1],
-                            preferred_provider=st.session_state.selected_provider
+            # Iterative ReAct Execution Mode
+            status_container = st.empty()
+            with status_container.container():
+                st.markdown("#### 🧠 Agentic Reasoning Engine Started...")
+
+            final_result = None
+            pipeline_gen = run_headless_pipeline(
+                query=effective_query,
+                context_profile=context_profile,
+                provider=st.session_state.selected_provider,
+                df=df,
+                all_datasets=all_datasets,
+                metadata=metadata,
+                history=st.session_state.history[active_dataset][:-1]
+            )
+            
+            for state in pipeline_gen:
+                if state["status"] == "complete":
+                    final_result = state["result"]
+                    break
+                elif state["status"] == "error":
+                    final_result = {"success": False, "error": state.get("content")}
+                    break
+                elif state["status"] == "clarify":
+                    # The Copilot needs input before assuming — present questions and pause.
+                    qs = state.get("questions", [])
+                    assumptions = state.get("assumptions", [])
+                    approach = state.get("approach", "")
+                    parts = []
+                    if approach:
+                        parts.append(approach)
+                    parts.append(
+                        "**Before I dig in, a quick check so I don't assume:**\n"
+                        + "\n".join(f"- {q}" for q in qs)
+                    )
+                    if assumptions:
+                        parts.append(
+                            "_Otherwise I'll proceed with these assumptions — just reply to confirm or correct:_\n"
+                            + "\n".join(f"- {a}" for a in assumptions)
                         )
-                        exec_result = execute_analysis(df, plan.pandas_code, all_datasets=all_datasets)
-                    except Exception as e:
-                        logger.error(f"Self-correction planning failed: {str(e)}")
-            
-            if not exec_result["success"]:
-                st.error("❌ Calculations failed validation or execution.")
-                st.markdown(f"**Debug Error Logs:**\n```\n{exec_result['stderr'] or exec_result['error']}\n```")
-                return
+                    clar_msg = "\n\n".join(parts)
+                    final_result = {
+                        "success": True, "role": "assistant", "agent_type": "clarify",
+                        "query": user_query, "content": clar_msg, "direct_answer": clar_msg,
+                        "has_chart": False, "has_table": False,
+                    }
+                    st.session_state.pending_clarification[active_dataset] = {"original_query": effective_query}
+                    break
+                else:
+                    # Intermediate Status Update
+                    with status_container.container():
+                        if state["status"] == "thought":
+                            decision = state.get('decision', '')
+                            if "SIMPLE" in decision:
+                                st.success(f"⚡ **Routed to Fast Agent (Flash)**: {state.get('reasoning')}")
+                            elif "COMPLEX" in decision:
+                                st.info(f"🧠 **Routed to Pro Agent (Deep Reasoning)**: {state.get('reasoning')}")
+                            elif "ANALYST PLAN" in decision:
+                                st.info(f"🧭 **Here's my plan**: {state.get('reasoning')}")
+                            else:
+                                st.info(f"🤔 **Agent Decision**: {decision} — {state.get('reasoning')}")
+                        elif state["status"] == "code":
+                            with st.expander(f"⚙️ Executing Code (Loop {state.get('step')})"):
+                                st.code(state.get("code"), language="python")
+                        else:
+                            st.markdown(f"*{state.get('content')}*")
+                            
+            if final_result and final_result.get("success"):
+                st.session_state.history[active_dataset].append(final_result)
+                status_container.empty()
+                st.rerun() # Force re-render of chat history to show the new messages properly
+            elif final_result:
+                status_container.empty()
+                st.error(f"❌ Analysis failed: {final_result.get('error')}")
+                # Don't rerun, just show the error in place so the user can read it.
+            else:
+                status_container.empty()
+                st.error("❌ Analysis failed: Pipeline yielded no final result.")
                 
-            result_df = exec_result["result"]
-            # Extract statistical results from sandbox if generated
-            stat_results = exec_result.get("sandbox_globals", {}).get("stat_results", None)
-            
-            if exec_result["stdout"].strip():
-                with st.expander("🖥️ Execution standard output prints", expanded=False):
-                    st.text(exec_result["stdout"])
-                    
-            if stat_results:
-                with st.expander("🔬 Statistical Engine Output", expanded=True):
-                    st.json(stat_results)
-                    
-            # Plotly Visuals rendering
-            fig = None
-            if plan.visual_spec.is_visual_requested:
-                with st.spinner("Generating visuals..."):
-                    fig = build_plotly_chart(result_df, plan.visual_spec, stat_results=stat_results)
-                    
-            # Insights Generation
-            with st.spinner("Summarizing data and extracting insights..."):
-                try:
-                    interpretation = generate_insights_and_recommendations(
-                        query=user_query,
-                        result_data=result_df,
-                        original_metadata=metadata,
-                        history=st.session_state.history[active_dataset][:-1],
-                        preferred_provider=st.session_state.selected_provider
-                    )
-                except Exception as e:
-                    st.error(f"❌ Synthesis failed: {str(e)}")
-                    return
-                    
-            # Render assistant chat response
-            st.markdown("<div class='chat-bubble-assistant'>🤖 <b>Copilot:</b></div>", unsafe_allow_html=True)
-            st.markdown(interpretation.direct_answer)
-            
-            if fig:
-                st.plotly_chart(fig, use_container_width=True)
-                
-            with st.expander("📊 Aggregated Result Data Table"):
-                st.dataframe(result_df, use_container_width=True)
-                
-            st.markdown("##### 💡 Key Business Insights:")
-            for ins in interpretation.insights:
-                st.markdown(f"- {ins}")
-                
-            st.markdown("##### 🚀 Strategic Recommendations:")
-            for rec in interpretation.recommendations:
-                st.markdown(f"- {rec}")
-                
-            conf = interpretation.confidence_score
-            color = "#059669" if conf >= 0.75 else "#D97706" if conf >= 0.5 else "#DC2626"
-            label = "High Confidence" if conf >= 0.75 else "Medium Confidence" if conf >= 0.5 else "Low Confidence"
-            st.markdown(f"<div style='margin-top: 12px;'><span class='stat-badge' style='color:{color}; border-color:{color};'>🎯 {label} (Score: {conf:.2f})</span></div>", unsafe_allow_html=True)
-            
-            if interpretation.statistical_backing:
-                with st.expander("🔬 Statistical Evidence"):
-                    for evidence in interpretation.statistical_backing:
-                        st.markdown(f"- {evidence}")
-                
-            # Store history
-            msg_data = {
-                "role": "assistant",
-                "content": interpretation.direct_answer,
-                "direct_answer": interpretation.direct_answer,
-                "has_chart": fig is not None,
-                "chart_spec": plan.visual_spec if fig else None,
-                "chart_df": result_df.to_json(orient="records") if fig else None,
-                "has_table": result_df is not None,
-                "table_df": result_df.to_json(orient="records") if result_df is not None else None,
-                "insights": interpretation.insights,
-                "recommendations": interpretation.recommendations,
-                "confidence_score": interpretation.confidence_score,
-                "statistical_backing": interpretation.statistical_backing
-            }
-            st.session_state.history[active_dataset].append(msg_data)
             st.markdown("<hr style='margin:24px 0; border:0; border-top:1px solid #E5E7EB;'>", unsafe_allow_html=True)
 
     # ==================== TAB 2: DETAILED PROFILE EXPLORER ====================
@@ -611,6 +780,31 @@ Please write the fixed Pandas script. Make sure you define `analyze(df)` functio
         if dict_path:
             st.success(f"✅ Contextual Business Dictionary Active from: `{os.path.basename(dict_path)}`")
             
+            with st.expander("✏️ Edit Raw Dictionary JSON", expanded=False):
+                st.info("You can make live updates to the data dictionary logic here.")
+                try:
+                    with open(dict_path, "r", encoding="utf-8") as f:
+                        current_dict_json = f.read()
+                    
+                    edited_live_json = st.text_area("Dictionary Configuration", value=current_dict_json, height=300)
+                    if st.button("💾 Save Changes to Dictionary", use_container_width=True):
+                        try:
+                            with open(dict_path, "w", encoding="utf-8") as f:
+                                f.write(edited_live_json)
+                            # Re-parse and merge
+                            dictionary_obj = parse_and_validate_dictionary(dict_path)
+                            enriched_meta = merge_metadata_and_dictionary(
+                                st.session_state.datasets[active_dataset]["metadata"], 
+                                dictionary_obj
+                            )
+                            st.session_state.datasets[active_dataset]["metadata"] = enriched_meta
+                            st.toast("Dictionary updated successfully!", icon="✅")
+                            st.rerun()
+                        except Exception as e:
+                            st.error(f"❌ Failed to validate JSON edits: {e}")
+                except Exception as e:
+                    st.error(f"Could not load dictionary file: {e}")
+                    
             st.markdown("#### Logical Grain Granularity")
             st.markdown(
                 f"""
@@ -680,6 +874,116 @@ Please write the fixed Pandas script. Make sure you define `analyze(df)` functio
                 ```
                 """
             )
+
+    # ==================== TAB 5: SYSTEM ARCHITECTURE ====================
+    with tab_architecture:
+        st.markdown("### ⚙️ How It Works")
+        st.caption("How the Copilot turns your question into a trustworthy answer.")
+
+        st.markdown(
+            """
+            <div class="step-grid">
+                <div class="step-card"><div class="step-num">1</div><h4>You ask</h4>
+                    <p>Type a business question in plain English.</p></div>
+                <div class="step-card"><div class="step-num">2</div><h4>It checks what it needs</h4>
+                    <p>If a key term (like “ARPU”) isn’t defined in your data or dictionary, it asks you first instead of guessing.</p></div>
+                <div class="step-card"><div class="step-num">3</div><h4>It shares a plan</h4>
+                    <p>For deeper questions it lays out its approach and assumptions before starting.</p></div>
+            </div>
+            <div class="step-grid" style="margin-top:16px;">
+                <div class="step-card"><div class="step-num">4</div><h4>It calculates exactly</h4>
+                    <p>It writes and runs real code on your data, so every number is computed — never made up.</p></div>
+                <div class="step-card"><div class="step-num">5</div><h4>It digs deeper if needed</h4>
+                    <p>Open-ended goals are explored step by step; “who should we…” questions train a prediction model.</p></div>
+                <div class="step-card"><div class="step-num">6</div><h4>You get the answer</h4>
+                    <p>A clear answer, charts, key insights, and recommendations — all backed by the data.</p></div>
+            </div>
+            <div class="trust-row">
+                <span class="trust-pill">✅ Every number is computed from your data, not guessed</span>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+        with st.expander("🔧 Technical view: the execution pipeline", expanded=False):
+            mermaid_code = """graph TD
+    classDef llm fill:#E0F2FE,stroke:#0284C7,color:#0369A1;
+    classDef fast fill:#ECFDF5,stroke:#10B981,color:#065F46;
+    classDef pred fill:#FCE7F3,stroke:#DB2777,color:#9D174D;
+    classDef engine fill:#FEF3C7,stroke:#D97706,color:#92400E;
+    classDef ui fill:#F3E8FF,stroke:#7E22CE,color:#6B21A8;
+
+    User["You ask a question"]:::ui
+    Ctx["Context Builder<br>data profile, KPIs, learned rules"]:::engine
+    Router{"Router classifies the question"}:::llm
+    User --> Ctx --> Router
+
+    Router -->|teaching a rule| Learn["Save to Knowledge Base"]:::engine
+    Router -->|simple| Fast["Fast Agent writes code<br>(reuses cache if seen before)"]:::fast
+    Router -->|deep / why-how| Scope["Scope and Clarify<br>ask only if a term is undefined"]:::llm
+    Router -->|predict / who| ML["ML Agent defines target and features"]:::pred
+
+    Scope -->|needs input| Ask["Pause and ask you"]:::ui
+    Scope -->|clear| Plan["Strategic plan and assumptions shared"]:::llm
+    Plan --> Loop["Investigation loop:<br>step, run, reflect"]:::llm
+
+    Fast --> Sandbox
+    Loop --> Sandbox
+    ML --> MLE["Train model<br>Random Forest"]:::engine
+
+    Sandbox["Sandboxed math<br>exact, never guessed"]:::engine --> SV["Stats and charts"]:::llm
+    SV --> Insight["Insight Agent<br>plain-English findings"]:::llm
+    MLE --> Insight
+    Insight --> Rec["Recommendations<br>grounded in the numbers"]:::llm
+    Rec --> UI["Answer, charts and advice"]:::ui
+    Learn --> UI"""
+            try:
+                import base64
+                encoded = base64.urlsafe_b64encode(mermaid_code.encode("utf-8")).decode("utf-8")
+                st.image(f"https://mermaid.ink/img/{encoded}", use_container_width=True)
+                st.caption("Rendered via mermaid.ink — needs an internet connection.")
+            except Exception as e:
+                st.warning(f"Could not render the diagram: {e}")
+
+    # ==================== TAB 6: SEMANTIC KB ====================
+    with tab_kb:
+        st.markdown("### 🧠 Learned Rules")
+        st.caption("Teach the Copilot your business definitions once — it remembers them and applies them to every future answer.")
+
+        st.markdown(
+            "**What this is.** The Copilot keeps a memory of your business rules and definitions. "
+            "Once you teach it something, it uses that meaning in every answer from now on — even in future sessions.\n\n"
+            "**How to teach it.** Just type the rule as a normal message in the **💬 Ask** tab — no special format needed. For example:"
+        )
+        st.markdown(
+            """
+            <div style="margin: 4px 0 8px 0;">
+                <span class="example-chip">Active users have more than 5GB of data usage</span>
+                <span class="example-chip">ARPU means total recharge divided by subscriber count</span>
+                <span class="example-chip">Treat customers on Plan 349+ as high-value</span>
+                <span class="example-chip">Always show distributions as histograms</span>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        st.markdown(
+            "The Copilot recognises these as definitions (not questions), confirms it has saved them, and lists them below.\n\n"
+            "**It will also ask you.** If you ask about a term it can't find in your data, KPIs, or saved rules "
+            "(e.g. *“how do we improve ARPU?”* when no revenue measure is defined), it pauses and asks what you mean — "
+            "and your answer becomes part of how it works.\n\n"
+            "**Tip:** for exact formulas, defining them in your uploaded **data dictionary** "
+            "(the *“2. Add business context”* step) is the most precise option."
+        )
+
+        st.markdown("---")
+        st.markdown("#### 📂 Currently Active Rules")
+        from src.llm.semantic_memory import semantic_store
+        rules = semantic_store.get_all_rules()
+        if rules:
+            for i, rule in enumerate(rules):
+                st.info(f"**{i+1}.** {rule}")
+        else:
+            st.info("No business rules have been learned yet. Try teaching the Copilot something!")
 
 if __name__ == "__main__":
     main()

@@ -18,10 +18,11 @@ CRITICAL INTERPRETATION RULES:
 
 def generate_insights_and_recommendations(
     query: str,
-    result_data: Any, # Can be pd.DataFrame, pd.Series, dict, etc.
+    result_data: Any, # Can be pd.DataFrame, pd.Series, dict, or memory buffer list
     original_metadata: Dict[str, Any],
     history: Optional[List[Dict[str, str]]] = None,
-    preferred_provider: Optional[str] = None
+    preferred_provider: Optional[str] = None,
+    model_override: Optional[str] = None
 ) -> InsightInterpretation:
     """
     Takes the query, executed result data, and metadata, and generates an InsightInterpretation.
@@ -41,11 +42,32 @@ def generate_insights_and_recommendations(
     # Format the result data for LLM ingestion
     data_summary = ""
     import pandas as pd
-    if isinstance(result_data, pd.DataFrame):
+    
+    if isinstance(result_data, list):
+        # Result data is an Agent Memory Buffer
+        for step in result_data:
+            step_idx = step.get("step")
+            focus = step.get("focus")
+            status = step.get("status")
+            code = step.get("code")
+            data_summary += f"\n--- STEP {step_idx}: {focus} ({status}) ---\n"
+            data_summary += f"Code Executed:\n{code}\n"
+            
+            if status == "success" and "raw_df" in step:
+                df = step["raw_df"]
+                if df is not None and not df.empty:
+                    data_summary += "Result Data:\n"
+                    data_summary += df.to_markdown(index=True) + "\n"
+                else:
+                    data_summary += "Result Data: (Empty DataFrame)\n"
+                    
+            if "stat_results" in step and step["stat_results"]:
+                data_summary += f"Stats: {step['stat_results']}\n"
+                
+    elif isinstance(result_data, pd.DataFrame):
         if result_data.empty:
             data_summary = "No records matching query found (Empty Table)."
         else:
-            # Output small result tables as Markdown for optimal token comprehension
             data_summary = result_data.to_markdown(index=True)
     elif isinstance(result_data, pd.Series):
         data_summary = result_data.to_frame().to_markdown(index=True)
@@ -83,7 +105,8 @@ Deterministic Pandas Aggregated Output Table:
         prompt=prompt,
         response_model=InsightInterpretation,
         system_prompt=INTERPRETER_SYSTEM_PROMPT,
-        provider=preferred_provider
+        provider=preferred_provider,
+        model_override=model_override
     )
     
     logger.info("Analytical interpretation successfully formulated by LLM.")

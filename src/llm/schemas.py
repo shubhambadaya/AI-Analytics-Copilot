@@ -1,5 +1,48 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 from typing import List, Optional, Literal
+
+
+class ComplexityClassification(BaseModel):
+    """Classifies a user query to route it to the right agent (or capture a taught rule)."""
+    complexity: Literal["SIMPLE", "COMPLEX", "PREDICTIVE", "LEARN_RULE"] = Field(
+        ...,
+        description="SIMPLE: single-step queries. COMPLEX: multi-step queries. PREDICTIVE: machine learning and user scoring. LEARN_RULE: the user is teaching a business rule/definition/preference to remember rather than asking a question."
+    )
+    reasoning: str = Field(
+        ...,
+        description="1 sentence explaining the classification."
+    )
+    learned_rule: Optional[str] = Field(
+        None,
+        description="If complexity is LEARN_RULE, the exact concise rule/definition/preference to memorize; otherwise null."
+    )
+
+class ClarificationCheck(BaseModel):
+    """Scopes a complex query before analysis: decides if a clarifying question is genuinely needed, and states the analyst's plan and assumptions."""
+    needs_clarification: bool = Field(
+        ...,
+        description="True ONLY if the question hinges on a metric/term/segment that is NOT a column, NOT a defined KPI, and NOT a learned rule — such that guessing its meaning would materially change the answer. Otherwise False."
+    )
+    clarifying_questions: List[str] = Field(
+        default_factory=list,
+        description="1-2 concise, specific questions for the stakeholder. Only populated when needs_clarification is True."
+    )
+    assumptions: List[str] = Field(
+        default_factory=list,
+        description="Key assumptions being made to answer the question (e.g. 'Using `Price` as the revenue measure'). Always provide these."
+    )
+    approach: str = Field(
+        ...,
+        description="One or two sentences, in plain analyst language, describing how you will approach the question."
+    )
+
+    @field_validator("clarifying_questions", "assumptions", mode="before")
+    @classmethod
+    def _coerce_none_to_list(cls, v):
+        # The Gemini path is unconstrained JSON, so optional list fields can come
+        # back as null instead of []; normalize so validation doesn't fail.
+        return v or []
+
 
 class VisualSpec(BaseModel):
     """
@@ -46,6 +89,30 @@ class VisualSpec(BaseModel):
         "v", 
         description="Orientation of bars if chart_type is bar ('v' for vertical, 'h' for horizontal)."
     )
+    nbins: Optional[int] = Field(
+        None,
+        description="Number of bins for histogram charts. Use 15-30 for good granularity."
+    )
+    color_scale: Optional[str] = Field(
+        None,
+        description="Color scale for heatmaps. Options: 'RdBu', 'Viridis', 'Plasma', 'YlOrRd', 'Blues'."
+    )
+    show_values: Optional[bool] = Field(
+        False,
+        description="If True, annotate bars/points with their numeric values."
+    )
+    reference_line: Optional[float] = Field(
+        None,
+        description="Draw a horizontal reference line at this value (e.g. the average)."
+    )
+    sort_by: Optional[Literal["value_asc", "value_desc", "label"]] = Field(
+        None,
+        description="Sort the chart data. 'value_desc' shows highest first."
+    )
+    top_n: Optional[int] = Field(
+        None,
+        description="Only show the top N items in the chart. Use with sort_by='value_desc'."
+    )
 
 class StatisticalResult(BaseModel):
     test_name: str
@@ -64,7 +131,7 @@ class AnalysisPlan(BaseModel):
     """
     thought_process: str = Field(
         ..., 
-        description="Detailed step-by-step reasoning behind the chosen analysis approach."
+        description="Concise logical reasoning (Max 2 sentences). DO NOT ramble."
     )
     pandas_code: str = Field(
         ..., 
@@ -99,5 +166,77 @@ class InsightInterpretation(BaseModel):
         ..., 
         description="Bullet-point list of actionable strategic recommendations based on the findings."
     )
-    confidence_score: float
+    requested_charts: Optional[List[VisualSpec]] = Field(
+        None,
+        description="If the insights or answer describe specific data distributions or trends, define them here so the UI can render them alongside your answer."
+    )
+    confidence_score: float = Field(
+        ...,
+        description="Confidence score between 0.0 and 1.0."
+    )
     statistical_backing: Optional[List[str]] = None
+
+# ==============================================================================
+# 5-AGENT DAG SCHEMAS (Decoupled Specialization)
+# ==============================================================================
+
+class SchemaAgentPlan(BaseModel):
+    """Output for the specialized Schema/Pandas Agent."""
+    thought_process: str = Field(..., description="Logical reasoning for data transformations (Max 2 sentences).")
+    pandas_code: str = Field(
+        ..., 
+        description="Valid Python script to transform df into result_df. Keep result_df small and aggregated."
+    )
+
+class StatTestRequest(BaseModel):
+    """A single statistical test paired with the exact columns it should run against."""
+    test: Literal[
+        "analyze_distribution", "detect_outliers", "compare_groups",
+        "compare_proportions", "compute_correlations", "analyze_trend",
+        "detect_changepoints", "value_counts"
+    ] = Field(..., description="The deterministic stats_engine function to run.")
+    metric_column: Optional[str] = Field(
+        None,
+        description="Numeric column to analyze. Required for analyze_distribution, detect_outliers, analyze_trend, detect_changepoints, and used as the metric for compare_groups. For value_counts it is the target column to count (categorical or numeric). Must be an exact column name from the data."
+    )
+    group_column: Optional[str] = Field(
+        None,
+        description="Categorical column whose values define the groups to compare. Required for compare_groups. Must be an exact column name from the data."
+    )
+    columns: Optional[List[str]] = Field(
+        None,
+        description="Two or more numeric columns to correlate. Used only by compute_correlations; if omitted, all numeric columns are used."
+    )
+    time_column: Optional[str] = Field(
+        None,
+        description="Optional datetime or ordinal column to use as the time axis for analyze_trend."
+    )
+
+class StatsAgentPlan(BaseModel):
+    """Output for the specialized Statistical Agent."""
+    thought_process: str = Field(..., description="Reasoning for which statistical tests to run based on the data preview.")
+    requested_tests: List[StatTestRequest] = Field(
+        default_factory=list,
+        description="List of statistical tests to execute deterministically, each naming the exact target columns it should run against."
+    )
+
+class VizAgentPlan(BaseModel):
+    """Output for the specialized Visualization Agent."""
+    thought_process: str = Field(..., description="Reasoning for the optimal chart selection based on data dimensions.")
+    chart_specs: List[VisualSpec] = Field(default_factory=list, description="List of VisualSpecs to render.")
+
+class InsightAgentPlan(BaseModel):
+    """Output for the specialized Insight Agent."""
+    direct_answer: str = Field(..., description="Clear, mathematically accurate answer to the user's question.")
+    insights: List[str] = Field(..., description="Bullet points of deep insights, trends, and anomalies.")
+    confidence_score: float = Field(..., description="Confidence in the findings.")
+    statistical_backing: Optional[List[str]] = None
+
+class RecommenderAgentPlan(BaseModel):
+    """Output for the specialized Recommendation Agent."""
+    recommendations: List[str] = Field(..., description="Actionable, forward-looking business recommendations based on the insights.")
+
+class MLAgentPlan(BaseModel):
+    """Output for the specialized ML Predictive Agent."""
+    thought_process: str = Field(..., description="Reasoning for ML model selection (Max 2 sentences).")
+    pandas_code: str = Field(..., description="Valid Python code using ml_engine.train_and_predict to generate scored results.")

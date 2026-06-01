@@ -8,8 +8,18 @@ from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-# Premium, executive-grade corporate color palette (Sleek slate, royal blue, emerald, amber, soft grey)
-EXECUTIVE_PALETTE = ["#1E3A8A", "#10B981", "#F59E0B", "#EF4444", "#6366F1", "#06B6D4", "#EC4899", "#8B5CF6"]
+EXECUTIVE_PALETTE = [
+    "#6366F1",  # Indigo
+    "#06B6D4",  # Cyan  
+    "#10B981",  # Emerald
+    "#F59E0B",  # Amber
+    "#EF4444",  # Red
+    "#EC4899",  # Pink
+    "#8B5CF6",  # Violet
+    "#14B8A6",  # Teal
+    "#F97316",  # Orange
+    "#3B82F6",  # Blue
+]
 
 # Standardized layout guidelines for modern executive dashboards
 EXECUTIVE_LAYOUT_CONFIG = {
@@ -169,15 +179,28 @@ def plot_heatmap_chart(
     return apply_executive_styling(fig, title)
 
 def plot_histogram_chart(
-    df: pd.DataFrame, x: str, y: Optional[str] = None, group: Optional[str] = None, title: str = ""
+    df: pd.DataFrame, x: str, y: Optional[str] = None, group: Optional[str] = None, title: str = "", nbins: Optional[int] = None
 ) -> go.Figure:
     """Builds an executive-grade distribution histogram."""
     fig = px.histogram(
         df, x=x, y=y, color=group,
         color_discrete_sequence=EXECUTIVE_PALETTE,
-        opacity=0.85
+        opacity=0.85,
+        nbins=nbins or 20
     )
     fig.update_layout(bargap=0.05)
+    return apply_executive_styling(fig, title)
+
+def plot_box_chart(
+    df: pd.DataFrame, x: str, y: Optional[str] = None, group: Optional[str] = None, title: str = ""
+) -> go.Figure:
+    """Builds a box plot for distribution comparisons across groups."""
+    fig = px.box(
+        df, x=x, y=y,
+        color=group if group and group in df.columns else None,
+        color_discrete_sequence=EXECUTIVE_PALETTE,
+        title=title or "Distribution Comparison"
+    )
     return apply_executive_styling(fig, title)
 
 def plot_pie_chart(
@@ -202,32 +225,38 @@ def apply_statistical_overlays(fig: go.Figure, stat_results: Dict[str, Any]) -> 
     """
     if not stat_results:
         return fig
-        
+
     annotations = []
-    
-    # 1. Overlay Correlation & Trend Analysis
-    if "correlation_results" in stat_results:
-        corr_data = stat_results["correlation_results"]
-        if isinstance(corr_data, list):
-            for corr in corr_data:
-                # Add text annotation
-                text = f"<b>{corr.get('method', 'Correlation').title()}</b>: {corr.get('coefficient', 0):.2f}<br><b>p-value</b>: {corr.get('p_value', 1.0):.4f}"
-                annotations.append(
-                    dict(
-                        x=0.02, y=0.98, xref='paper', yref='paper',
-                        text=text, showarrow=False,
-                        align='left', bgcolor="rgba(255,255,255,0.9)",
-                        bordercolor="#10B981", borderwidth=1, borderpad=4,
-                        font=dict(size=11, color="#065F46")
-                    )
+
+    # stat_results is keyed by test name (e.g. "compute_correlations", possibly
+    # suffixed like "analyze_distribution_2" when a test runs on several columns),
+    # so match each result by its structure rather than by an exact key. We render
+    # at most one badge of each kind to avoid clutter.
+    corr_done = trend_done = comp_done = False
+    for res in stat_results.values():
+        if not isinstance(res, dict) or "error" in res or "skipped" in res:
+            continue
+
+        # 1. Correlation: strongest significant pair from compute_correlations
+        if not corr_done and res.get("significant_pairs"):
+            top = res["significant_pairs"][0]
+            text = (f"<b>{res.get('method', 'Correlation').title()}</b>: "
+                    f"{top.get('correlation', 0):.2f}<br><b>p-value</b>: {top.get('p_value', 1.0):.4f}")
+            annotations.append(
+                dict(
+                    x=0.02, y=0.98, xref='paper', yref='paper',
+                    text=text, showarrow=False,
+                    align='left', bgcolor="rgba(255,255,255,0.9)",
+                    bordercolor="#10B981", borderwidth=1, borderpad=4,
+                    font=dict(size=11, color="#065F46")
                 )
-    
-    if "trend_results" in stat_results:
-        trend = stat_results["trend_results"]
-        if "slope" in trend and "intercept" in trend:
-            # Note: drawing a true trendline requires the x-domain.
-            # For simplicity, we just add the regression equation as a badge.
-            eq = f"<b>Trend (OLS)</b>: y = {trend['slope']:.3f}x + {trend['intercept']:.3f}<br><b>R²</b>: {trend.get('r_squared', 0):.3f}"
+            )
+            corr_done = True
+
+        # 2. Trend: regression equation badge from analyze_trend
+        if not trend_done and "slope" in res and "intercept" in res:
+            eq = (f"<b>Trend (OLS)</b>: y = {res['slope']:.3f}x + {res['intercept']:.3f}"
+                  f"<br><b>R²</b>: {res.get('r_squared', 0):.3f}")
             annotations.append(
                 dict(
                     x=0.02, y=0.88, xref='paper', yref='paper',
@@ -237,26 +266,24 @@ def apply_statistical_overlays(fig: go.Figure, stat_results: Dict[str, Any]) -> 
                     font=dict(size=11, color="#1E40AF")
                 )
             )
-            
-    # 2. Overlay Comparison Testing (ANOVA / T-Test)
-    if "comparison_results" in stat_results:
-        comp = stat_results["comparison_results"]
-        test_name = comp.get("test_name", "Test")
-        p_val = comp.get("p_value", 1.0)
-        is_sig = comp.get("is_significant", False)
-        
-        color = "#10B981" if is_sig else "#94A3B8"
-        text = f"<b>{test_name}</b><br>p-value: {p_val:.4g}"
-        annotations.append(
-            dict(
-                x=0.98, y=0.98, xref='paper', yref='paper',
-                text=text, showarrow=False,
-                align='right', bgcolor="rgba(255,255,255,0.9)",
-                bordercolor=color, borderwidth=1, borderpad=4,
-                font=dict(size=11, color="#1F2937")
+            trend_done = True
+
+        # 3. Comparison testing (t-test / ANOVA / Chi-Square) from compare_groups
+        if not comp_done and "test_name" in res and "p_value" in res:
+            p_val = res.get("p_value", 1.0)
+            color = "#10B981" if res.get("is_significant", False) else "#94A3B8"
+            text = f"<b>{res['test_name']}</b><br>p-value: {p_val:.4g}"
+            annotations.append(
+                dict(
+                    x=0.98, y=0.98, xref='paper', yref='paper',
+                    text=text, showarrow=False,
+                    align='right', bgcolor="rgba(255,255,255,0.9)",
+                    bordercolor=color, borderwidth=1, borderpad=4,
+                    font=dict(size=11, color="#1F2937")
+                )
             )
-        )
-        
+            comp_done = True
+
     if annotations:
         fig.update_layout(annotations=annotations)
         
@@ -342,12 +369,35 @@ def build_plotly_chart(df: pd.DataFrame, spec: VisualSpec, stat_results: Optiona
             else:
                 fig = plot_heatmap_chart(df, x, y, z_val, title)
         elif chart_type == "histogram":
-            fig = plot_histogram_chart(df, x, y, group, title)
+            nbins_val = getattr(spec, 'nbins', None) if hasattr(spec, 'nbins') else (spec.get('nbins') if isinstance(spec, dict) else None)
+            fig = plot_histogram_chart(df, x, y, group, title, nbins=nbins_val)
+        elif chart_type == "box":
+            fig = plot_box_chart(df, x, y, group, title)
         elif chart_type == "pie":
             fig = plot_pie_chart(df, x, y, title)
         else:
             fig = px.scatter(df, x=x, y=y, color=group, color_discrete_sequence=EXECUTIVE_PALETTE)
             fig = apply_executive_styling(fig, title)
+            
+        # Apply enhanced spec features
+        if fig:
+            # x_label / y_label support
+            x_label = getattr(spec, 'x_label', None) if hasattr(spec, 'x_label') else (spec.get('x_label') if isinstance(spec, dict) else None)
+            y_label = getattr(spec, 'y_label', None) if hasattr(spec, 'y_label') else (spec.get('y_label') if isinstance(spec, dict) else None)
+            if x_label:
+                fig.update_xaxes(title_text=x_label)
+            if y_label:
+                fig.update_yaxes(title_text=y_label)
+                
+            # show_values support (bar charts)
+            show_values = getattr(spec, 'show_values', False) if hasattr(spec, 'show_values') else (spec.get('show_values', False) if isinstance(spec, dict) else False)
+            if show_values and chart_type == "bar":
+                fig.update_traces(textposition='outside', texttemplate='%{y:.1f}')
+                
+            # reference_line support
+            ref_line = getattr(spec, 'reference_line', None) if hasattr(spec, 'reference_line') else (spec.get('reference_line') if isinstance(spec, dict) else None)
+            if ref_line is not None:
+                fig.add_hline(y=ref_line, line_dash='dash', line_color='#EF4444', annotation_text='Reference', annotation_position='top left')
             
         if fig and stat_results:
             fig = apply_statistical_overlays(fig, stat_results)
