@@ -25,6 +25,7 @@ CRITICAL RULES:
 1. Columns in x_column, y_column, group_column MUST MATCH the provided Data Columns exactly.
 2. Always provide meaningful title, x_label, y_label.
 3. You can request multiple charts (e.g., a line chart and a bar chart) if it helps answer the query better.
+4. PREFER PERCENTAGES OVER RAW COUNTS: Raw user counts mislead when groups differ in size. For composition, share, distribution, or comparison-across-segments questions, plot the proportion/percentage column as the primary value — set y_column to that column (e.g. `pct_of_users`), y_label to "% of Users" (or the rate's name), and show_values=True. If the data contains BOTH a count and a percentage column, plot the percentage. Use the raw count only when the question is specifically "how many".
 """
 
 def run_viz_agent(

@@ -19,6 +19,10 @@ CRITICAL RULES:
 5. All datasets in the Context Profile are pre-loaded in the global namespace as variables (e.g., `subscriber_profile`). Use `pd.merge()` to join them.
 6. Return raw, unbinned numeric columns if a distribution/histogram is requested.
 7. HONOR THE BUSINESS CONTEXT: When the query depends on a business concept (e.g. "higher plan", "active user", "high value", or a KPI like ARPU), compute it using the EXACT definition/formula from the Business Definitions & Rules and the column descriptions — do NOT invent thresholds or formulas of your own.
+8. PREFER PROPORTIONS, NOT JUST COUNTS: Raw user counts mislead when segments differ in size, so whenever you aggregate counts/frequencies by a dimension, ALSO compute the proportion that best answers the question and add it to result_df as a clearly named column (e.g. `pct_of_users`). Pick the correct denominator:
+   - Composition / breakdown / "split by" questions → share of the TOTAL: count / total_count * 100.
+   - Propensity / likelihood / rate questions (e.g. churn, upgrade) → segment rate: segment_event_count / segment_size * 100 (the within-group rate).
+   Express percentages as 0-100 rounded to 1 decimal, and KEEP the raw count column too. Only skip the proportion if the user explicitly asks for just a headcount.
 """
 
 def run_schema_agent(

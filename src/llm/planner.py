@@ -32,6 +32,7 @@ CRITICAL RULES FOR PANDAS CODE GENERATION:
    ```
 5. The function `analyze(df)` will be executed deterministically. It must return a pandas DataFrame (preferred), a pandas Series, or a dictionary.
 6. Keep the returned result small and aggregated (e.g., grouped by month/category) so it can be summarized and plotted cleanly. Avoid returning thousands of rows.
+6b. PREFER PROPORTIONS, NOT JUST COUNTS: Raw user counts mislead when segments differ in size. Whenever you aggregate counts/frequencies by a dimension, ALSO compute the proportion that best answers the question and add it to the result as a clearly named column (e.g. `pct_of_users`) — share of the TOTAL for composition/breakdown questions, or a within-group rate (segment_event / segment_size * 100) for propensity/likelihood questions (e.g. churn rate, upgrade rate). Express percentages 0-100 rounded to 1 decimal, and keep the raw count column too. Skip the proportion only if the user explicitly asks for just a headcount.
 
 STATISTICAL ANALYSIS GUIDANCE:
 1. When comparing groups: call stats_engine.compare_groups(df, metric_col, group_col)
@@ -72,6 +73,7 @@ CRITICAL RULES FOR VISUAL SPECIFICATION:
       → Use 'bar' with orientation='h', sort_by='value_desc', top_n=15.
 4. ALWAYS set meaningful `title`, `x_label`, and `y_label`.
 5. When using sort_by and top_n, sort and slice the DataFrame in your analyze() function BEFORE returning.
+6. PREFER PERCENTAGES OVER RAW COUNTS: For composition/share/comparison questions, plot the proportion column (e.g. `pct_of_users`) rather than the raw count — set `y_column` to it, `y_label` to "% of Users", and `show_values=True`. Use raw counts only when the question is specifically "how many".
 """
 
 def generate_analysis_plan(
