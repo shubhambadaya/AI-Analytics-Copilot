@@ -124,21 +124,44 @@ def apply_executive_styling(fig: go.Figure, title: str) -> go.Figure:
     )
     return fig
 
+def _finalize_facets(fig: go.Figure, facet_col: Optional[str], category_axis: str) -> go.Figure:
+    """
+    Clean up a faceted (small-multiples) figure: strip the "col=" prefix Plotly
+    prepends to each panel title, and give every panel its own independent
+    category axis so heterogeneous dimensions don't bleed empty categories into
+    each other's panels.
+
+    category_axis is "x" or "y" — whichever axis holds the categorical labels.
+    """
+    if not facet_col:
+        return fig
+    # "segment_category=HS_BRAND" -> "HS_BRAND"
+    fig.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
+    if category_axis == "y":
+        fig.update_yaxes(matches=None, showticklabels=True)
+    else:
+        fig.update_xaxes(matches=None, showticklabels=True)
+    return fig
+
 def plot_line_chart(
-    df: pd.DataFrame, x: str, y: str, group: Optional[str] = None, title: str = ""
+    df: pd.DataFrame, x: str, y: str, group: Optional[str] = None, title: str = "",
+    facet_col: Optional[str] = None
 ) -> go.Figure:
     """Builds a premium, executive-grade trend line chart."""
     fig = px.line(
         df, x=x, y=y, color=group,
+        facet_col=facet_col if facet_col and facet_col in df.columns else None,
         color_discrete_sequence=EXECUTIVE_PALETTE,
         markers=True
     )
     fig.update_traces(line=dict(width=3))
-    return apply_executive_styling(fig, title)
+    fig = apply_executive_styling(fig, title)
+    return _finalize_facets(fig, facet_col if facet_col and facet_col in df.columns else None, "x")
 
 def plot_bar_chart(
-    df: pd.DataFrame, x: str, y: str, group: Optional[str] = None, 
-    barmode: str = "group", orientation: str = "v", title: str = ""
+    df: pd.DataFrame, x: str, y: str, group: Optional[str] = None,
+    barmode: str = "group", orientation: str = "v", title: str = "",
+    facet_col: Optional[str] = None
 ) -> go.Figure:
     """Builds a premium, executive-grade comparative bar chart."""
     # Force categorical x-axis: cast to string so Plotly doesn't treat
@@ -147,11 +170,13 @@ def plot_bar_chart(
     cat_col = x if orientation == "v" else y
     if cat_col and cat_col in plot_df.columns:
         plot_df[cat_col] = plot_df[cat_col].astype(str)
-    
+
+    use_facet = facet_col if facet_col and facet_col in plot_df.columns else None
     fig = px.bar(
         plot_df, x=x, y=y, color=group,
         barmode=barmode,
         orientation=orientation,
+        facet_col=use_facet,
         color_discrete_sequence=EXECUTIVE_PALETTE
     )
     # Explicitly set the category axis type
@@ -159,7 +184,8 @@ def plot_bar_chart(
         fig.update_xaxes(type="category")
     else:
         fig.update_yaxes(type="category")
-    return apply_executive_styling(fig, title)
+    fig = apply_executive_styling(fig, title)
+    return _finalize_facets(fig, use_facet, "x" if orientation == "v" else "y")
 
 def plot_heatmap_chart(
     df: pd.DataFrame, x: str, y: str, z_val: str, title: str = ""
@@ -179,29 +205,37 @@ def plot_heatmap_chart(
     return apply_executive_styling(fig, title)
 
 def plot_histogram_chart(
-    df: pd.DataFrame, x: str, y: Optional[str] = None, group: Optional[str] = None, title: str = "", nbins: Optional[int] = None
+    df: pd.DataFrame, x: str, y: Optional[str] = None, group: Optional[str] = None, title: str = "", nbins: Optional[int] = None,
+    facet_col: Optional[str] = None
 ) -> go.Figure:
     """Builds an executive-grade distribution histogram."""
+    use_facet = facet_col if facet_col and facet_col in df.columns else None
     fig = px.histogram(
         df, x=x, y=y, color=group,
+        facet_col=use_facet,
         color_discrete_sequence=EXECUTIVE_PALETTE,
         opacity=0.85,
         nbins=nbins or 20
     )
     fig.update_layout(bargap=0.05)
-    return apply_executive_styling(fig, title)
+    fig = apply_executive_styling(fig, title)
+    return _finalize_facets(fig, use_facet, "x")
 
 def plot_box_chart(
-    df: pd.DataFrame, x: str, y: Optional[str] = None, group: Optional[str] = None, title: str = ""
+    df: pd.DataFrame, x: str, y: Optional[str] = None, group: Optional[str] = None, title: str = "",
+    facet_col: Optional[str] = None
 ) -> go.Figure:
     """Builds a box plot for distribution comparisons across groups."""
+    use_facet = facet_col if facet_col and facet_col in df.columns else None
     fig = px.box(
         df, x=x, y=y,
         color=group if group and group in df.columns else None,
+        facet_col=use_facet,
         color_discrete_sequence=EXECUTIVE_PALETTE,
         title=title or "Distribution Comparison"
     )
-    return apply_executive_styling(fig, title)
+    fig = apply_executive_styling(fig, title)
+    return _finalize_facets(fig, use_facet, "x")
 
 def plot_pie_chart(
     df: pd.DataFrame, names: str, values: str, title: str = ""
@@ -320,7 +354,8 @@ def build_plotly_chart(df: pd.DataFrame, spec: VisualSpec, stat_results: Optiona
     x = spec.x_column
     y = spec.y_column
     group = spec.group_column
-    
+    facet = getattr(spec, "facet_column", None)
+
     # 1. Fallback mapping validations
     if x and x not in df.columns:
         for c in df.columns:
@@ -339,6 +374,17 @@ def build_plotly_chart(df: pd.DataFrame, spec: VisualSpec, stat_results: Optiona
                 break
         else:
             group = None
+    if facet and facet not in df.columns:
+        for c in df.columns:
+            if str(c).lower() == facet.lower():
+                facet = c
+                break
+        else:
+            facet = None
+    # Don't color and facet by the same column — faceting already separates it,
+    # so coloring by it too is redundant. Keep the facet, drop the duplicate group.
+    if facet and group == facet:
+        group = None
             
     # 2. Select logical column targets if completely missing
     if (x is None or x not in df.columns) and len(df.columns) > 0:
@@ -356,11 +402,11 @@ def build_plotly_chart(df: pd.DataFrame, spec: VisualSpec, stat_results: Optiona
     try:
         fig = None
         if chart_type == "line":
-            fig = plot_line_chart(df, x, y, group, title)
+            fig = plot_line_chart(df, x, y, group, title, facet_col=facet)
         elif chart_type == "bar":
             barmode = spec.barmode or "group"
             orientation = spec.orientation or "v"
-            fig = plot_bar_chart(df, x, y, group, barmode, orientation, title)
+            fig = plot_bar_chart(df, x, y, group, barmode, orientation, title, facet_col=facet)
         elif chart_type == "heatmap":
             z_val = y
             y_col = group if group else (df.columns[2] if len(df.columns) >= 3 else "")
@@ -370,14 +416,19 @@ def build_plotly_chart(df: pd.DataFrame, spec: VisualSpec, stat_results: Optiona
                 fig = plot_heatmap_chart(df, x, y, z_val, title)
         elif chart_type == "histogram":
             nbins_val = getattr(spec, 'nbins', None) if hasattr(spec, 'nbins') else (spec.get('nbins') if isinstance(spec, dict) else None)
-            fig = plot_histogram_chart(df, x, y, group, title, nbins=nbins_val)
+            fig = plot_histogram_chart(df, x, y, group, title, nbins=nbins_val, facet_col=facet)
         elif chart_type == "box":
-            fig = plot_box_chart(df, x, y, group, title)
+            fig = plot_box_chart(df, x, y, group, title, facet_col=facet)
         elif chart_type == "pie":
             fig = plot_pie_chart(df, x, y, title)
         else:
-            fig = px.scatter(df, x=x, y=y, color=group, color_discrete_sequence=EXECUTIVE_PALETTE)
+            fig = px.scatter(
+                df, x=x, y=y, color=group,
+                facet_col=facet if facet and facet in df.columns else None,
+                color_discrete_sequence=EXECUTIVE_PALETTE
+            )
             fig = apply_executive_styling(fig, title)
+            fig = _finalize_facets(fig, facet if facet and facet in df.columns else None, "x")
             
         # Apply enhanced spec features
         if fig:

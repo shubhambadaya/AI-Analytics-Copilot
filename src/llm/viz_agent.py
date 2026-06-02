@@ -25,6 +25,14 @@ CRITICAL RULES:
 1. Columns in x_column, y_column, group_column MUST MATCH the provided Data Columns exactly.
 2. Always provide meaningful title, x_label, y_label.
 3. You can request multiple charts (e.g., a line chart and a bar chart) if it helps answer the query better.
+4. GROUP vs FACET — do not overlay non-comparable dimensions on one axis. The data is often in
+   tidy/long form with a "category" column (e.g. segment_category) whose values are HETEROGENEOUS
+   breakdowns (e.g. handset brand vs geography vs plan tier) and a separate value-label column
+   (e.g. segment_value). In that case set facet_column to the category column and put the value-label
+   column on the category axis — this renders small multiples, one panel per dimension, each on its
+   own axis. Reserve group_column (color overlay) ONLY for series that are directly comparable on a
+   shared axis (e.g. two metrics over the same x, or sub-segments within ONE dimension). Never set
+   both group_column and facet_column to the same column.
 4. PREFER PERCENTAGES OVER RAW COUNTS: Raw user counts mislead when groups differ in size. For composition, share, distribution, or comparison-across-segments questions, plot the proportion/percentage column as the primary value — set y_column to that column (e.g. `pct_of_users`), y_label to "% of Users" (or the rate's name), and show_values=True. If the data contains BOTH a count and a percentage column, plot the percentage. Use the raw count only when the question is specifically "how many".
 """
 

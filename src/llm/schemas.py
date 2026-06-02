@@ -89,8 +89,19 @@ class VisualSpec(BaseModel):
         description="The name of the column to plot on the Y-axis."
     )
     group_column: Optional[str] = Field(
-        None, 
-        description="Optional column to group or color by (for multiple series)."
+        None,
+        description="Optional column to group or color by (for multiple comparable series on the SAME axis)."
+    )
+    facet_column: Optional[str] = Field(
+        None,
+        description=(
+            "Optional column to split the chart into separate side-by-side sub-plots "
+            "(small multiples), one panel per distinct value, each with its own category axis. "
+            "Use this INSTEAD of group_column when the rows belong to DIFFERENT, non-comparable "
+            "dimensions — e.g. a tidy column like 'segment_category' whose values mix unrelated "
+            "breakdowns (handset brand vs geography vs plan tier). Faceting keeps each dimension on "
+            "its own axis instead of crowding heterogeneous categories onto one shared axis."
+        )
     )
     title: Optional[str] = Field(
         None, 
