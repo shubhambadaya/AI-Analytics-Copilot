@@ -275,6 +275,24 @@ def _build_predictive_evidence(result_df, max_rows: int = 15) -> str:
     return "\n\n".join(parts)
 
 
+def _prior_results_hint(step_results: Dict[str, pd.DataFrame]) -> str:
+    """Tell the next step which earlier results are pre-loaded as variables to reuse."""
+    if not step_results:
+        return ""
+    lines = []
+    for name, rdf in step_results.items():
+        try:
+            cols = list(rdf.columns)
+        except Exception:
+            cols = []
+        lines.append(f"- `{name}` (columns: {cols})")
+    return (
+        "\n\nResults from earlier steps are PRE-LOADED as DataFrame variables you can "
+        "reuse directly (merge or reference them instead of recomputing from scratch):\n"
+        + "\n".join(lines)
+    )
+
+
 def _run_complex_path(
     query: str, context_profile: Dict[str, Any], provider: str,
     df: pd.DataFrame, all_datasets: Dict[str, pd.DataFrame],
@@ -351,6 +369,7 @@ def _run_complex_path(
 
     # ---------- 2. ReAct investigation loop ----------
     memory_buffer: List[Dict[str, Any]] = []
+    step_results: Dict[str, pd.DataFrame] = {}   # named results carried across steps
     last_result_df = None
 
     for step_idx in range(1, MAX_INVESTIGATION_STEPS + 1):
@@ -358,9 +377,12 @@ def _run_complex_path(
         yield {"status": "running", "step": f"Investigate {step_idx}",
                "content": f"🔬 Step {step_idx}: {focus_label}"}
 
+        # Let this step build on earlier results rather than recomputing from scratch.
+        focus_with_state = next_focus + _prior_results_hint(step_results)
+
         # 2a. Generate code for the current focus
         try:
-            schema_plan = run_schema_agent(next_focus, context_profile, history, provider, MODEL_PRO)
+            schema_plan = run_schema_agent(focus_with_state, context_profile, history, provider, MODEL_PRO)
         except Exception as e:
             yield {"status": "error", "content": f"Schema Agent failed at step {step_idx}: {e}"}
             return
@@ -369,17 +391,19 @@ def _run_complex_path(
                "reasoning": schema_plan.thought_process}
         yield {"status": "code", "step": step_idx, "code": schema_plan.pandas_code}
 
-        # 2b. Execute, with one self-correction retry
-        exec_result = execute_analysis(df, schema_plan.pandas_code, all_datasets=all_datasets)
+        # 2b. Execute, with one self-correction retry. Earlier step results are
+        # injected as variables (result_step_1, ...) so this code can reuse them.
+        exec_result = execute_analysis(df, schema_plan.pandas_code, all_datasets=all_datasets, extra_vars=step_results)
         if not exec_result["success"]:
-            correction = (f"Original focus: {next_focus}\n\nYour previous code failed with:\n"
+            correction = (f"Original focus: {focus_with_state}\n\nYour previous code failed with:\n"
                           f"{exec_result['error']}\nRewrite it.")
             schema_plan = run_schema_agent(correction, context_profile, history, provider, MODEL_PRO)
-            exec_result = execute_analysis(df, schema_plan.pandas_code, all_datasets=all_datasets)
+            exec_result = execute_analysis(df, schema_plan.pandas_code, all_datasets=all_datasets, extra_vars=step_results)
 
         if exec_result["success"]:
             result_df = exec_result["result"]
             last_result_df = result_df
+            step_results[f"result_step_{step_idx}"] = result_df
             memory_buffer.append({
                 "step": step_idx, "focus": focus_label, "code": schema_plan.pandas_code,
                 "status": "success", "raw_df": result_df, "data_preview": _safe_preview(result_df)

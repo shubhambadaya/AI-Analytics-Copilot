@@ -11,19 +11,23 @@ import src.analysis.stats_engine as stats_engine
 logger = get_logger(__name__)
 
 def execute_analysis(
-    df: pd.DataFrame, 
-    code_str: str, 
-    all_datasets: Optional[Dict[str, pd.DataFrame]] = None
+    df: pd.DataFrame,
+    code_str: str,
+    all_datasets: Optional[Dict[str, pd.DataFrame]] = None,
+    extra_vars: Optional[Dict[str, Any]] = None
 ) -> Dict[str, Any]:
     """
     Executes AST-validated Pandas Python code on a DataFrame (or multiple DataFrames).
     Injects all loaded tables into the namespace to support multi-table joins.
-    
+
     Args:
         df: The active pandas DataFrame.
         code_str: The Python code containing the pandas operations.
         all_datasets: Dict mapping dataset filenames/names to loaded DataFrames.
-        
+        extra_vars: Optional extra variables to inject into the namespace (e.g.
+            results computed by earlier investigation steps, so a step can build on
+            prior work). Keys must be valid identifiers.
+
     Returns:
         A dictionary containing success indicators, output dataframe, stdout, and stderr.
     """
@@ -95,7 +99,14 @@ def execute_analysis(
             clean_var = tbl_name.split(".")[0].replace(" ", "_").replace("-", "_")
             exec_globals[clean_var] = tbl_df.copy()
             logger.info(f"Preloaded table variable: '{clean_var}'")
-            
+
+    # Inject results from earlier investigation steps so later steps can build on them.
+    if extra_vars:
+        for var_name, value in extra_vars.items():
+            if var_name.isidentifier():
+                exec_globals[var_name] = value.copy() if hasattr(value, "copy") else value
+                logger.info(f"Injected prior-step variable: '{var_name}'")
+
     original_stdout = sys.stdout
     original_stderr = sys.stderr
     

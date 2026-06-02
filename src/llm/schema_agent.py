@@ -23,6 +23,7 @@ CRITICAL RULES:
    - Composition / breakdown / "split by" questions → share of the TOTAL: count / total_count * 100.
    - Propensity / likelihood / rate questions (e.g. churn, upgrade) → segment rate: segment_event_count / segment_size * 100 (the within-group rate).
    Express percentages as 0-100 rounded to 1 decimal, and KEEP the raw count column too. Only skip the proportion if the user explicitly asks for just a headcount.
+9. BUILD ON PRIOR WORK: If results from earlier steps are listed as pre-loaded variables (e.g. `result_step_1`), reuse them directly (reference them or pd.merge) instead of recomputing the same aggregation from the raw data.
 """
 
 def run_schema_agent(
