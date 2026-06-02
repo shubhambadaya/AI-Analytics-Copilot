@@ -29,6 +29,12 @@ definition, or preference to remember for the future:
 - "ARPU means total recharge divided by subscriber count"
 - "Always use histograms for distributions"
 When you choose LEARN_RULE, put the exact, concise rule to memorize in `learned_rule`.
+
+Also set `wants_recommendations`: True ONLY if the user explicitly asks for recommendations,
+actions, advice, strategy, or how to improve/fix/increase/reduce/grow something
+(e.g. "what should we do", "how can we improve ARPU", "recommend who to upgrade").
+Set it False for purely descriptive or analytical questions ("show", "how many",
+"compare", "which", "why is X") — for those, the user wants the finding, not advice.
 """
 
 def classify_query_complexity(query: str, provider: str = None) -> ComplexityClassification:

@@ -16,6 +16,15 @@ class ComplexityClassification(BaseModel):
         None,
         description="If complexity is LEARN_RULE, the exact concise rule/definition/preference to memorize; otherwise null."
     )
+    wants_recommendations: bool = Field(
+        False,
+        description="True ONLY if the user explicitly asks for recommendations, actions, advice, strategy, or how to improve/fix/increase/reduce/grow something. False for purely descriptive or analytical questions (what / how many / show / list / compare / which / why)."
+    )
+
+    @field_validator("wants_recommendations", mode="before")
+    @classmethod
+    def _coerce_recs_flag(cls, v):
+        return bool(v) if v is not None else False
 
 class ClarificationCheck(BaseModel):
     """Scopes a complex query before analysis: decides if a clarifying question is genuinely needed, and states the analyst's plan and assumptions."""

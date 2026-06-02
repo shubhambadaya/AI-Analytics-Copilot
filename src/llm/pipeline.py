@@ -77,18 +77,20 @@ def run_headless_pipeline(
         }
         return
 
+    wants_recs = classification.wants_recommendations
     if complexity == "SIMPLE":
-        yield from _run_simple_path(query, context_profile, provider, df, all_datasets, metadata, history)
+        yield from _run_simple_path(query, context_profile, provider, df, all_datasets, metadata, history, wants_recs)
     elif complexity == "PREDICTIVE":
-        yield from _run_predictive_path(query, context_profile, provider, df, all_datasets, metadata, history)
+        yield from _run_predictive_path(query, context_profile, provider, df, all_datasets, metadata, history, wants_recs)
     else:
-        yield from _run_complex_path(query, context_profile, provider, df, all_datasets, metadata, history)
+        yield from _run_complex_path(query, context_profile, provider, df, all_datasets, metadata, history, wants_recs)
 
 
 def _run_simple_path(
     query: str, context_profile: Dict[str, Any], provider: str,
     df: pd.DataFrame, all_datasets: Dict[str, pd.DataFrame],
-    metadata: Dict[str, Any], history: List[Dict[str, Any]]
+    metadata: Dict[str, Any], history: List[Dict[str, Any]],
+    wants_recommendations: bool = False
 ):
     """
     SIMPLE Path: Single-shot code generation + execution using Gemini Flash.
@@ -182,7 +184,11 @@ def _run_simple_path(
     except Exception as e:
         yield {"status": "error", "content": f"Interpretation failed: {e}"}
         return
-    
+
+    # Only surface recommendations if the user actually asked for them.
+    if not wants_recommendations:
+        interpretation.recommendations = []
+
     # 5. Build charts
     rendered_charts = _build_charts(plan, interpretation, result_df, stat_results)
     
@@ -297,7 +303,8 @@ def _prior_results_hint(step_results: Dict[str, pd.DataFrame]) -> str:
 def _run_complex_path(
     query: str, context_profile: Dict[str, Any], provider: str,
     df: pd.DataFrame, all_datasets: Dict[str, pd.DataFrame],
-    metadata: Dict[str, Any], history: List[Dict[str, Any]]
+    metadata: Dict[str, Any], history: List[Dict[str, Any]],
+    wants_recommendations: bool = False
 ):
     """
     COMPLEX Path: Strategic, iterative ReAct investigation.
@@ -517,20 +524,21 @@ def _run_complex_path(
     if caveats:
         final_answer = final_answer + "\n\n**⚠️ Caveats:** " + "; ".join(caveats)
 
-    # 3d. Strategic recommendations — grounded in the actual numbers, not just the
-    # insight text, so the agent can quantify each recommendation.
-    recommender_evidence = _build_recommender_evidence(primary_df, stat_results, successful)
-    yield {"status": "running", "step": "Strategy",
-           "content": "🚀 Recommendation Agent: Formulating business strategy..."}
-    try:
-        rec_plan = run_recommender_agent(
-            query, final_answer, insight_plan.insights,
-            evidence=recommender_evidence, provider=provider, model_override=MODEL_PRO
-        )
-        recommendations = rec_plan.recommendations
-    except Exception as e:
-        logger.warning(f"Recommender step failed: {e}")
-        recommendations = []
+    # 3d. Strategic recommendations — ONLY when the user asked for them; otherwise
+    # we return the analysis without unsolicited advice (and save an LLM call).
+    recommendations = []
+    if wants_recommendations:
+        recommender_evidence = _build_recommender_evidence(primary_df, stat_results, successful)
+        yield {"status": "running", "step": "Strategy",
+               "content": "🚀 Recommendation Agent: Formulating business strategy..."}
+        try:
+            rec_plan = run_recommender_agent(
+                query, final_answer, insight_plan.insights,
+                evidence=recommender_evidence, provider=provider, model_override=MODEL_PRO
+            )
+            recommendations = rec_plan.recommendations
+        except Exception as e:
+            logger.warning(f"Recommender step failed: {e}")
 
     # Golden Store: cache the final successful analysis if high-confidence
     if final_confidence >= 0.75:
@@ -561,7 +569,8 @@ def _run_complex_path(
 def _run_predictive_path(
     query: str, context_profile: Dict[str, Any], provider: str,
     df: pd.DataFrame, all_datasets: Dict[str, pd.DataFrame],
-    metadata: Dict[str, Any], history: List[Dict[str, Any]]
+    metadata: Dict[str, Any], history: List[Dict[str, Any]],
+    wants_recommendations: bool = False
 ):
     """
     PREDICTIVE Path: Specialized DAG for Machine Learning scoring.
@@ -607,23 +616,25 @@ def _run_predictive_path(
         yield {"status": "error", "content": f"Insight Agent failed: {e}"}
         return
         
-    # 3. Data-aware recommendations grounded in the scored cohort (replaces the
-    # previously hardcoded recommendation strings).
-    predictive_evidence = _build_predictive_evidence(result_df)
-    yield {"status": "running", "step": "Strategy",
-           "content": "🚀 Recommendation Agent: Formulating an activation strategy for the scored users..."}
-    try:
-        rec_plan = run_recommender_agent(
-            query, insight_plan.direct_answer, insight_plan.insights,
-            evidence=predictive_evidence, provider=provider, model_override=MODEL_PRO
-        )
-        recommendations = rec_plan.recommendations
-    except Exception as e:
-        logger.warning(f"Recommender step failed: {e}")
-        recommendations = [
-            "Operationalize this model by deploying the scored user list to the CRM.",
-            "Design targeted campaigns for users in the highest-probability decile.",
-        ]
+    # 3. Data-aware recommendations grounded in the scored cohort — ONLY when the
+    # user asked for them; otherwise return the scored results without advice.
+    recommendations = []
+    if wants_recommendations:
+        predictive_evidence = _build_predictive_evidence(result_df)
+        yield {"status": "running", "step": "Strategy",
+               "content": "🚀 Recommendation Agent: Formulating an activation strategy for the scored users..."}
+        try:
+            rec_plan = run_recommender_agent(
+                query, insight_plan.direct_answer, insight_plan.insights,
+                evidence=predictive_evidence, provider=provider, model_override=MODEL_PRO
+            )
+            recommendations = rec_plan.recommendations
+        except Exception as e:
+            logger.warning(f"Recommender step failed: {e}")
+            recommendations = [
+                "Operationalize this model by deploying the scored user list to the CRM.",
+                "Design targeted campaigns for users in the highest-probability decile.",
+            ]
 
     statistical_backing = ["Predictions powered by Random Forest feature importances."]
     if "key_factors" in result_df.columns and len(result_df):
