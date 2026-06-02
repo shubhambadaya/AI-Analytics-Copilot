@@ -47,10 +47,11 @@ def run_viz_agent(
     if result_df is None or result_df.empty:
         return VizAgentPlan(thought_process="No data to visualize.", chart_specs=[])
         
-    data_preview = result_df.head(5).to_dict(orient="records")
+    data_preview = result_df.head(25).to_dict(orient="records")
     dtypes = {k: str(v) for k, v in result_df.dtypes.items()}
-    
-    prompt = f"User Question: {query}\n\nData Columns/Types: {dtypes}\n\nData Preview:\n{json.dumps(data_preview)}"
+
+    prompt = (f"User Question: {query}\n\nData Columns/Types: {dtypes}\n\n"
+              f"Data Preview (up to 25 of {len(result_df)} rows):\n{json.dumps(data_preview, default=str)}")
         
     return llm_client.generate_structured_output(
         prompt=prompt,

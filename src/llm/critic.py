@@ -13,6 +13,10 @@ You are given the business question, the proposed answer + insights, and the sup
 Your job:
 1. Check that EVERY claim is actually supported by the provided numbers/statistics. Flag anything asserted
    but not evidenced, any internal contradiction, and any part of the question that was not answered.
+   STATISTICAL DISCIPLINE: cross-check claims against the supplied statistical tests. If the answer calls a
+   difference/relationship "significant" but no test shows p < 0.05 (or no test was run), demote it to a
+   descriptive observation in the refined_answer and note it. If a test shows non-significance, ensure the
+   answer reflects that rather than overstating the effect.
 2. Produce a `refined_answer` that keeps ONLY what the evidence supports — qualify or remove overreaching
    claims, and never invent new numbers. If the original answer is sound, return it essentially unchanged.
 3. List honest `caveats` a decision-maker should know (small sample, proxy metric, correlation is not

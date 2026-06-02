@@ -274,3 +274,23 @@ class MLAgentPlan(BaseModel):
     """Output for the specialized ML Predictive Agent."""
     thought_process: str = Field(..., description="Reasoning for ML model selection (Max 2 sentences).")
     pandas_code: str = Field(..., description="Valid Python code using ml_engine.train_and_predict to generate scored results.")
+
+class RelevanceCheckResult(BaseModel):
+    """Verdict on whether a computed result actually answers the user's question.
+
+    Guards against the silent failure where code runs cleanly but computes the
+    WRONG thing (wrong column, wrong aggregation/grain, missing filter, or
+    answers a subtly different question)."""
+    answers_question: bool = Field(
+        ...,
+        description="True ONLY if the computed result table genuinely and directly answers the user's question."
+    )
+    reasoning: str = Field(..., description="Brief justification for the verdict (max 2 sentences).")
+    issue: Optional[str] = Field(
+        None,
+        description="If it does NOT answer: the specific defect (e.g. wrong column, wrong aggregation/grain, missing filter, computed a different metric)."
+    )
+    fix_instruction: Optional[str] = Field(
+        None,
+        description="If it does NOT answer: a concrete, actionable instruction telling the code generator exactly how to fix the analysis."
+    )

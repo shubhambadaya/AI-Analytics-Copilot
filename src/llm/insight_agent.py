@@ -16,6 +16,14 @@ CRITICAL RULES:
 2. DIRECTNESS: Start with a clear direct answer. No fluff.
 3. SYNTHESIS: Explain what the trends and statistics MEAN. Do not just restate the table in prose.
 4. DO NOT write recommendations. That is another agent's job.
+5. STATISTICAL GROUNDING: You are given deterministic statistical test results. Tie your claims to them:
+   - Whenever you assert a difference between groups, a correlation/relationship, or a trend, cite the
+     supporting statistic — test name, p-value, and effect size where present — in `statistical_backing`.
+   - If a test shows a difference is NOT statistically significant (e.g. p >= 0.05), do NOT present it as a
+     real effect; explicitly say it is not statistically significant. Never claim significance the tests
+     don't support.
+   - If no test backs a claim, keep it descriptive (avoid causal or "significantly" language).
+   Populate `statistical_backing` with the specific test → finding evidence behind your insights.
 """
 
 def run_insight_agent(

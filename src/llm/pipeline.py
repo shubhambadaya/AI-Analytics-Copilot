@@ -7,6 +7,7 @@ from src.llm.analysis_planner import generate_strategic_analysis_plan
 from src.llm.agent import evaluate_agent_state
 from src.llm.clarifier import run_clarification_check
 from src.llm.critic import run_critique
+from src.llm.relevance import run_relevance_check
 from src.llm.planner import generate_analysis_plan
 from src.analysis.engine import execute_analysis
 from src.visuals.generator import build_plotly_chart
@@ -159,8 +160,30 @@ def _run_simple_path(
         return
 
     result_df = exec_result["result"]
+
+    # 3b. Correctness gate: verify the result actually ANSWERS the question — not just
+    # that the code ran. Catches silent wrong-aggregation/wrong-column failures. If the
+    # reviewer finds a concrete defect, regenerate the code once with its fix instruction.
+    # A failure of the check itself never blocks the pipeline.
+    try:
+        relevance = run_relevance_check(query, plan.pandas_code, result_df,
+                                        provider=provider, model_override=MODEL_FAST)
+        if not relevance.answers_question and relevance.fix_instruction:
+            yield {"status": "thought", "step": 2, "decision": "RELEVANCE CHECK",
+                   "reasoning": f"Result didn't fully answer the question ({relevance.issue}). Refining the analysis."}
+            fix_query = (f"{query}\n\n[Your previous analysis was off-target: {relevance.issue}. "
+                         f"Fix it as follows: {relevance.fix_instruction}]")
+            refined = generate_analysis_plan(query=fix_query, context_profile=context_profile,
+                                             history=history, preferred_provider=provider, model_override=MODEL_FAST)
+            refined_exec = execute_analysis(df, refined.pandas_code, all_datasets=all_datasets)
+            if refined_exec["success"] and refined_exec["result"] is not None and not refined_exec["result"].empty:
+                yield {"status": "code", "step": 2, "code": refined.pandas_code}
+                plan, exec_result, result_df = refined, refined_exec, refined_exec["result"]
+    except Exception as e:
+        logger.warning(f"Relevance check skipped: {e}")
+
     stat_results = exec_result.get("sandbox_globals", {}).get("stat_results", None)
-    
+
     # 4. Single-shot interpretation (using Flash)
     yield {"status": "running", "step": "Interpretation", "content": "⚡ Fast Agent: Summarizing results..."}
     memory_buffer = [{
@@ -209,8 +232,13 @@ def _run_simple_path(
 MAX_INVESTIGATION_STEPS = 5
 
 
-def _safe_preview(result_df: pd.DataFrame, n: int = 5) -> Any:
-    """Small, JSON-native preview of a result frame (pandas handles dates/numpy via to_json)."""
+def _safe_preview(result_df: pd.DataFrame, n: int = 25) -> Any:
+    """JSON-native preview of a result frame (pandas handles dates/numpy via to_json).
+
+    Defaults to 25 rows so cross-step synthesis sees the bulk of an aggregated result
+    rather than a 5-row sliver — aggregated results are typically small, and richer
+    previews materially improve insight quality on multi-step investigations.
+    """
     if result_df is None or result_df.empty:
         return []
     try:
@@ -238,7 +266,7 @@ def _build_recommender_evidence(primary_df, stat_results, successful_steps, max_
     # Highlight earlier investigation steps so cross-step findings are available too.
     if len(successful_steps) > 1:
         lines = [
-            f"- Step {m['step']} ({m['focus']}): {json.dumps(m.get('data_preview'))[:400]}"
+            f"- Step {m['step']} ({m['focus']}): {json.dumps(m.get('data_preview'))[:1500]}"
             for m in successful_steps[:-1]
         ]
         parts.append("Earlier investigation findings:\n" + "\n".join(lines))
@@ -475,9 +503,14 @@ def _run_complex_path(
     rendered_charts = []
     try:
         viz_plan = run_viz_agent(query, primary_df, provider, MODEL_PRO)
+        seen_signatures = set()
         for spec in viz_plan.chart_specs:
+            sig = _chart_signature(spec)
+            if sig in seen_signatures:
+                continue
             fig = build_plotly_chart(primary_df, spec, stat_results)
             if fig:
+                seen_signatures.add(sig)
                 rendered_charts.append({
                     "spec": spec, "df_json": primary_df.to_json(orient="records"), "fig": fig
                 })
@@ -656,31 +689,47 @@ def _run_predictive_path(
 
 
 
+def _chart_signature(spec):
+    """Identity of a chart for de-duplication: type + axes + grouping/faceting."""
+    def g(attr):
+        v = getattr(spec, attr, None) if not isinstance(spec, dict) else spec.get(attr)
+        return str(v).strip().lower() if v is not None else None
+    return (g("chart_type"), g("x_column"), g("y_column"),
+            g("group_column"), g("facet_column"), g("orientation"))
+
+
 def _build_charts(plan, interpretation, result_df, stat_results):
-    """Build charts from the plan's visual spec and the interpreter's requested charts."""
+    """Build charts from the plan's visual spec and the interpreter's requested charts.
+
+    The code-gen planner and the interpreter each propose charts independently, so
+    for many questions they request the same one. De-duplicate by chart signature so
+    an identical chart isn't rendered twice.
+    """
     rendered_charts = []
-    
-    # Chart from the planner's visual spec
-    if plan.visual_spec and plan.visual_spec.is_visual_requested:
-        fig = build_plotly_chart(result_df, plan.visual_spec, stat_results=stat_results)
+    seen_signatures = set()
+
+    def _add(spec, stats):
+        sig = _chart_signature(spec)
+        if sig in seen_signatures:
+            return
+        fig = build_plotly_chart(result_df, spec, stat_results=stats)
         if fig:
+            seen_signatures.add(sig)
             rendered_charts.append({
-                "spec": plan.visual_spec,
+                "spec": spec,
                 "df_json": result_df.to_json(orient="records"),
                 "fig": fig
             })
-    
-    # Additional charts from the interpreter
+
+    # Chart from the planner's visual spec
+    if plan.visual_spec and plan.visual_spec.is_visual_requested:
+        _add(plan.visual_spec, stat_results)
+
+    # Additional charts from the interpreter (skipped if they duplicate the above)
     if hasattr(interpretation, "requested_charts") and interpretation.requested_charts:
         for chart_spec in interpretation.requested_charts:
-            fig = build_plotly_chart(result_df, chart_spec, stat_results=None)
-            if fig:
-                rendered_charts.append({
-                    "spec": chart_spec,
-                    "df_json": result_df.to_json(orient="records"),
-                    "fig": fig
-                })
-    
+            _add(chart_spec, None)
+
     return rendered_charts
 
 
