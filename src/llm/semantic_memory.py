@@ -66,5 +66,23 @@ class SemanticMemoryStore:
         rules = self._load_rules()
         return [r["rule"] for r in rules]
 
+    def delete_rule(self, index: int) -> bool:
+        """Deletes the rule at the given 0-based index (same order as get_all_rules)."""
+        rules = self._load_rules()
+        if 0 <= index < len(rules):
+            removed = rules.pop(index)
+            self._save_rules(rules)
+            logger.info(f"Deleted business rule: '{removed.get('rule', '')}'")
+            return True
+        logger.warning(f"delete_rule: index {index} out of range (have {len(rules)} rules).")
+        return False
+
+    def clear_all_rules(self) -> int:
+        """Removes every learned rule. Returns the number of rules deleted."""
+        count = len(self._load_rules())
+        self._save_rules([])
+        logger.info(f"Cleared all {count} business rule(s).")
+        return count
+
 # Global singleton instance
 semantic_store = SemanticMemoryStore()

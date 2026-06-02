@@ -982,7 +982,20 @@ def main():
         rules = semantic_store.get_all_rules()
         if rules:
             for i, rule in enumerate(rules):
-                st.info(f"**{i+1}.** {rule}")
+                rule_col, del_col = st.columns([0.92, 0.08])
+                with rule_col:
+                    st.info(f"**{i+1}.** {rule}")
+                with del_col:
+                    if st.button("🗑️", key=f"del_rule_{i}", help="Delete this rule"):
+                        semantic_store.delete_rule(i)
+                        st.toast("Rule deleted.", icon="🗑️")
+                        st.rerun()
+
+            st.markdown("")
+            if st.button("🧹 Clear all rules", use_container_width=True, help="Remove every learned rule."):
+                n = semantic_store.clear_all_rules()
+                st.toast(f"Cleared {n} rule(s).", icon="🧹")
+                st.rerun()
         else:
             st.info("No business rules have been learned yet. Try teaching the Copilot something!")
 
