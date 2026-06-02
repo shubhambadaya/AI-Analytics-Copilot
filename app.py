@@ -36,9 +36,11 @@ CUSTOM_CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
-/* Main font declarations */
+/* Main font declarations — Apple system font stack (SF Pro) */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, [class*="css"], .stApp {
-    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 p, span, div, li, td, th {
@@ -47,11 +49,29 @@ p, span, div, li, td, th {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif !important;
     font-weight: 700 !important;
     letter-spacing: -0.02em;
     color: #0F172A;
     line-height: 1.2;
+}
+
+/* AI answer output — Apple-inspired reading typography for the Copilot's
+   response text (answer, insights, recommendations rendered as markdown). */
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li {
+    font-size: 1.05rem;
+    line-height: 1.72;
+    letter-spacing: -0.011em;
+    color: #1D1D1F;            /* Apple near-black text */
+    font-weight: 400;
+}
+[data-testid="stMarkdownContainer"] li {
+    margin-bottom: 6px;
+}
+[data-testid="stMarkdownContainer"] strong {
+    font-weight: 600;
+    color: #1D1D1F;
 }
 
 /* Custom premium card design */

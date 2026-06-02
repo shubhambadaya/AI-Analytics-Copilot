@@ -8,17 +8,20 @@ from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
+# Light, airy palette (Tailwind 300-level) — softer pastel tones that read as
+# bright/modern rather than the heavier saturated 500-level set used previously.
+# Dark axis/label colors are kept for contrast against these lighter fills.
 EXECUTIVE_PALETTE = [
-    "#6366F1",  # Indigo
-    "#06B6D4",  # Cyan  
-    "#10B981",  # Emerald
-    "#F59E0B",  # Amber
-    "#EF4444",  # Red
-    "#EC4899",  # Pink
-    "#8B5CF6",  # Violet
-    "#14B8A6",  # Teal
-    "#F97316",  # Orange
-    "#3B82F6",  # Blue
+    "#A5B4FC",  # Indigo-300
+    "#67E8F9",  # Cyan-300
+    "#6EE7B7",  # Emerald-300
+    "#FCD34D",  # Amber-300
+    "#FCA5A5",  # Red-300
+    "#F9A8D4",  # Pink-300
+    "#C4B5FD",  # Violet-300
+    "#5EEAD4",  # Teal-300
+    "#FDBA74",  # Orange-300
+    "#93C5FD",  # Blue-300
 ]
 
 # Standardized layout guidelines for modern executive dashboards
