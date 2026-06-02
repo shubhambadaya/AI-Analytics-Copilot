@@ -11,7 +11,10 @@ T = TypeVar("T", bound=BaseModel)
 
 # Model tier constants
 MODEL_FAST = "gemini-2.5-flash"
-MODEL_PRO = "gemini-2.5-pro"
+# Auto-tracking alias: always resolves to Google's current "latest" pro model
+# (a Gemini 3.x thinking model at time of writing). Trades reproducibility for
+# never going stale. Pin to an explicit version if you need deterministic runs.
+MODEL_PRO = "gemini-pro-latest"
 
 class LLMClient:
     """
