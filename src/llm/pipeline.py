@@ -6,6 +6,7 @@ import src.analysis.stats_engine as stats_engine
 from src.llm.analysis_planner import generate_strategic_analysis_plan
 from src.llm.agent import evaluate_agent_state
 from src.llm.clarifier import run_clarification_check
+from src.llm.critic import run_critique
 from src.llm.planner import generate_analysis_plan
 from src.analysis.engine import execute_analysis
 from src.visuals.generator import build_plotly_chart
@@ -494,6 +495,28 @@ def _run_complex_path(
         yield {"status": "error", "content": f"Insight Agent failed: {e}"}
         return
 
+    # 3c.5 Self-critique: review the synthesis against the evidence, tighten any
+    # unsupported claims, surface caveats, and set a grounded confidence.
+    final_answer = insight_plan.direct_answer
+    final_confidence = insight_plan.confidence_score
+    caveats: List[str] = []
+    yield {"status": "running", "step": "Review",
+           "content": "🧐 Reviewing the answer against the evidence..."}
+    try:
+        critique = run_critique(query, insight_plan.direct_answer, insight_plan.insights,
+                                combined_evidence, provider, MODEL_PRO)
+        final_answer = critique.refined_answer or insight_plan.direct_answer
+        final_confidence = critique.confidence
+        caveats = critique.caveats
+        if not critique.passes and critique.issues:
+            yield {"status": "thought", "step": 0, "decision": "REVIEW",
+                   "reasoning": "Tightened the answer: " + "; ".join(critique.issues[:3])}
+    except Exception as e:
+        logger.warning(f"Critique step failed, using unreviewed answer: {e}")
+
+    if caveats:
+        final_answer = final_answer + "\n\n**⚠️ Caveats:** " + "; ".join(caveats)
+
     # 3d. Strategic recommendations — grounded in the actual numbers, not just the
     # insight text, so the agent can quantify each recommendation.
     recommender_evidence = _build_recommender_evidence(primary_df, stat_results, successful)
@@ -501,7 +524,7 @@ def _run_complex_path(
            "content": "🚀 Recommendation Agent: Formulating business strategy..."}
     try:
         rec_plan = run_recommender_agent(
-            query, insight_plan.direct_answer, insight_plan.insights,
+            query, final_answer, insight_plan.insights,
             evidence=recommender_evidence, provider=provider, model_override=MODEL_PRO
         )
         recommendations = rec_plan.recommendations
@@ -510,20 +533,20 @@ def _run_complex_path(
         recommendations = []
 
     # Golden Store: cache the final successful analysis if high-confidence
-    if insight_plan.confidence_score >= 0.75:
+    if final_confidence >= 0.75:
         golden_store.save_golden_query(
             user_query=query,
             pandas_code=successful[-1]["code"],
-            confidence_score=insight_plan.confidence_score
+            confidence_score=final_confidence
         )
 
     class MockInterpretation:
         pass
     mock_interp = MockInterpretation()
-    mock_interp.direct_answer = insight_plan.direct_answer
+    mock_interp.direct_answer = final_answer
     mock_interp.insights = insight_plan.insights
     mock_interp.recommendations = recommendations
-    mock_interp.confidence_score = insight_plan.confidence_score
+    mock_interp.confidence_score = final_confidence
     mock_interp.statistical_backing = insight_plan.statistical_backing
 
     package = _build_final_package(

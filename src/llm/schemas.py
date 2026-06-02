@@ -44,6 +44,20 @@ class ClarificationCheck(BaseModel):
         return v or []
 
 
+class CritiqueResult(BaseModel):
+    """Reviews a synthesized answer against the evidence before it is finalized."""
+    passes: bool = Field(..., description="True if the answer fully addresses the question and every claim is supported by the provided data/statistics.")
+    issues: List[str] = Field(default_factory=list, description="Specific problems found: unsupported claims, parts of the question left unanswered, or contradictions. Empty if it passes.")
+    caveats: List[str] = Field(default_factory=list, description="Honest limitations a stakeholder should know (e.g. small sample, proxy metric, correlation is not causation, missing segments).")
+    refined_answer: str = Field(..., description="The corrected/tightened direct answer — keep ONLY what the evidence supports; qualify or remove overreaching claims; do not invent new numbers. If the original was sound, return it unchanged.")
+    confidence: float = Field(..., description="Grounded confidence 0.0-1.0 in the refined answer given the evidence (high only when claims rest on significant, sufficient data).")
+
+    @field_validator("issues", "caveats", mode="before")
+    @classmethod
+    def _coerce_none_to_list(cls, v):
+        return v or []
+
+
 class VisualSpec(BaseModel):
     """
     Structured specification for rendering Plotly charts.
