@@ -435,6 +435,96 @@ def compute_cramers_v(
     }
 
 
+def rank_drivers(
+    df: pd.DataFrame,
+    target_col: str,
+    candidate_cols: Optional[List[str]] = None,
+    top_n: int = 10,
+    max_cardinality: int = 50
+) -> Dict[str, Any]:
+    """
+    Rank which columns most strongly explain `target_col` — the analytical backbone
+    for "why" / "what drives X" questions. Automatically picks the right test per
+    data-type pairing and reports effect size + significance for each factor:
+
+      - numeric target  vs categorical factor → group comparison (ANOVA/Kruskal, eta²)
+      - numeric target  vs numeric factor     → Spearman correlation (|r|)
+      - categorical target vs numeric factor   → group comparison on the factor
+      - categorical target vs categorical      → Chi-square / Cramér's V
+
+    Returns a dict with a `drivers` list sorted by significance then effect size.
+    """
+    if target_col not in df.columns:
+        return {"error": f"Target column '{target_col}' not found."}
+
+    from scipy import stats as sp_stats
+
+    numeric_target = pd.api.types.is_numeric_dtype(df[target_col])
+    if candidate_cols is None:
+        candidate_cols = [c for c in df.columns if c != target_col]
+
+    drivers = []
+    for col in candidate_cols:
+        if col == target_col or col not in df.columns:
+            continue
+        col_numeric = pd.api.types.is_numeric_dtype(df[col])
+        try:
+            if numeric_target and not col_numeric:
+                if not (2 <= df[col].nunique() <= max_cardinality):
+                    continue
+                res = compare_groups(df, metric_col=target_col, group_col=col)
+                if "effect_size" not in res:
+                    continue
+                drivers.append({
+                    "factor": col, "relationship": "categorical -> numeric", "test": res.get("test_name"),
+                    "effect_size": res["effect_size"], "effect_label": res["effect_size_label"],
+                    "p_value": res["p_value"], "significant": res["is_significant"],
+                })
+            elif numeric_target and col_numeric:
+                sub = df[[target_col, col]].dropna()
+                if len(sub) < 8:
+                    continue
+                r, p = sp_stats.spearmanr(sub[col], sub[target_col])
+                drivers.append({
+                    "factor": col, "relationship": "numeric <-> numeric", "test": "Spearman correlation",
+                    "effect_size": round(abs(float(r)), 4), "effect_label": _correlation_strength(abs(r)),
+                    "p_value": round(float(p), 6), "significant": bool(p < 0.05),
+                    "direction": "positive" if r > 0 else "negative",
+                })
+            elif (not numeric_target) and col_numeric:
+                if not (2 <= df[target_col].nunique() <= max_cardinality):
+                    continue
+                res = compare_groups(df, metric_col=col, group_col=target_col)
+                if "effect_size" not in res:
+                    continue
+                drivers.append({
+                    "factor": col, "relationship": "numeric -> categorical", "test": res.get("test_name"),
+                    "effect_size": res["effect_size"], "effect_label": res["effect_size_label"],
+                    "p_value": res["p_value"], "significant": res["is_significant"],
+                })
+            else:  # both categorical
+                if not (2 <= df[col].nunique() <= max_cardinality) or df[target_col].nunique() > max_cardinality:
+                    continue
+                res = compute_cramers_v(df, target_col, col)
+                drivers.append({
+                    "factor": col, "relationship": "categorical <-> categorical", "test": res.get("test_name"),
+                    "effect_size": res["cramers_v"], "effect_label": res["association_strength"],
+                    "p_value": res["p_value"], "significant": res["is_significant"],
+                })
+        except Exception as e:
+            logger.warning(f"rank_drivers: skipping '{col}': {e}")
+            continue
+
+    # Significant factors first, then by effect size descending.
+    drivers.sort(key=lambda d: (bool(d.get("significant")), d.get("effect_size", 0) or 0), reverse=True)
+    logger.info(f"rank_drivers for '{target_col}': {len(drivers)} factors ranked")
+    return _to_serializable({
+        "target": target_col,
+        "n_factors_tested": len(drivers),
+        "drivers": drivers[:top_n],
+    })
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # MODULE 4: Trend Analysis
 # ═══════════════════════════════════════════════════════════════════════════════

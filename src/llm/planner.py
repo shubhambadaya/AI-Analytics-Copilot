@@ -42,6 +42,7 @@ STATISTICAL ANALYSIS GUIDANCE:
 5. When profiling segments: call stats_engine.profile_segment(df, segment_col, metric_cols)
 6. ALWAYS include stats_engine.detect_outliers() when aggregating numeric columns
 7. Store statistical results in a variable named 'stat_results' (e.g. list of dicts, or just a dict) so they can be captured.
+8. For "why" / "what drives X" questions: call stats_engine.rank_drivers(df, target_col='<the metric or outcome>') to rank which factors most explain the target (effect size + significance), and return its ['drivers'] list as the result instead of eyeballing a single breakdown.
 
 7. SECURITY CONSTRAINTS: You are forbidden from:
    - Importing any modules except: pandas (as pd), numpy (as np), datetime, math.

@@ -24,6 +24,7 @@ CRITICAL RULES:
    - Propensity / likelihood / rate questions (e.g. churn, upgrade) → segment rate: segment_event_count / segment_size * 100 (the within-group rate).
    Express percentages as 0-100 rounded to 1 decimal, and KEEP the raw count column too. Only skip the proportion if the user explicitly asks for just a headcount.
 9. BUILD ON PRIOR WORK: If results from earlier steps are listed as pre-loaded variables (e.g. `result_step_1`), reuse them directly (reference them or pd.merge) instead of recomputing the same aggregation from the raw data.
+10. FOR "WHY" / "WHAT DRIVES X" QUESTIONS: don't just eyeball one breakdown. Call `stats_engine.rank_drivers(df, target_col='<the metric or outcome>')` to get a ranked table of which factors most explain the target (each with effect size and statistical significance), then build result_df from its `['drivers']` list (e.g. `result_df = pd.DataFrame(stats_engine.rank_drivers(df, target_col='data_usage_level')['drivers'])`).
 """
 
 def run_schema_agent(
