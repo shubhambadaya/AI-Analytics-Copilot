@@ -136,7 +136,14 @@ def generate_strategic_analysis_plan(
     
     context_json = json.dumps(context_profile, indent=2)
     prompt = PLANNER_PROMPT_TEMPLATE.format(context_json=context_json, query=query)
-    
+
+    # If this goal matches a known strategy playbook, give the planner a proven
+    # sequence to adapt (it still validates every step against the actual schema).
+    from src.llm.playbooks import match_playbook, format_playbook
+    playbook = match_playbook(query)
+    if playbook:
+        prompt += "\n\n" + format_playbook(playbook)
+
     attempt = 0
     feedback = ""
     
