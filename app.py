@@ -535,13 +535,14 @@ def main():
     )
 
     # Core tabs
-    tab_chat, tab_explore, tab_json, tab_dictionary, tab_architecture, tab_kb = st.tabs([
+    tab_chat, tab_explore, tab_json, tab_dictionary, tab_architecture, tab_kb, tab_log = st.tabs([
         "💬 Ask",
         "📋 Data Overview",
         "🧩 Technical Details",
         "📖 Data Dictionary",
         "⚙️ How It Works",
-        "🧠 Learned Rules"
+        "🧠 Learned Rules",
+        "📜 Question Log"
     ])
 
     # ==================== TAB 1: COGNITIVE ANALYTICS CHAT ====================
@@ -1049,6 +1050,37 @@ def main():
                 st.rerun()
         else:
             st.info("No business rules have been learned yet. Try teaching the Copilot something!")
+
+    # ==================== TAB 7: QUESTION LOG ====================
+    with tab_log:
+        st.markdown("### 📜 Question Log")
+        st.caption("Every question asked in this app, across all sessions and datasets.")
+
+        backend = "🟢 Durable (database)" if query_log_store.is_durable else "🟡 Local only (resets on redeploy — set DATABASE_URL to persist)"
+        st.markdown(f"**Storage:** {backend}")
+
+        log_records = query_log_store.get_all()
+        if log_records:
+            log_df = pd.DataFrame(log_records)
+            if "timestamp" in log_df.columns:
+                log_df.insert(0, "asked_at", pd.to_datetime(log_df["timestamp"], unit="s"))
+                log_df = log_df.drop(columns=["timestamp"])
+            # Most recent first for display.
+            display_df = log_df.iloc[::-1].reset_index(drop=True)
+
+            st.markdown(f"**{len(log_records)}** question(s) logged.")
+            st.dataframe(display_df, use_container_width=True, hide_index=True)
+            st.download_button(
+                label="📥 Download as CSV",
+                data=log_df.to_csv(index=False).encode("utf-8"),
+                file_name="question_log.csv",
+                mime="text/csv",
+                use_container_width=True,
+            )
+        else:
+            st.info(
+                "No questions have been logged yet. Ask a question in the **💬 Ask** tab and it will appear here."
+            )
 
 if __name__ == "__main__":
     main()
