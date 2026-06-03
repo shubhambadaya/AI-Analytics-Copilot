@@ -27,6 +27,11 @@ class QueryLogStore:
         self.store_path = store_path
         self._blob = JSONBlobStore(key="query_log", local_path=store_path)
 
+    @property
+    def is_durable(self) -> bool:
+        """True when backed by a database (durable across redeploys)."""
+        return self._blob.is_durable
+
     def log_question(self, question: str, dataset: str = "", provider: str = "") -> None:
         if not question or not question.strip():
             return

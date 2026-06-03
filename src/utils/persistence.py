@@ -59,6 +59,12 @@ class JSONBlobStore:
         if self._engine is None:
             os.makedirs(os.path.dirname(self.local_path), exist_ok=True)
 
+    @property
+    def is_durable(self) -> bool:
+        """True when a database backend is attached (survives redeploys);
+        False when falling back to the ephemeral local JSON file."""
+        return self._engine is not None
+
     def load(self, default: Any) -> Any:
         """Return the stored blob, or ``default`` if absent/unreadable."""
         if self._engine is not None:

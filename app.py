@@ -418,6 +418,12 @@ def main():
             help="Export every question asked in the app as a CSV.",
         )
 
+    # Storage backend status — durable (database) vs ephemeral (local file).
+    if query_log_store.is_durable:
+        st.sidebar.caption("🟢 Durable storage on (database)")
+    else:
+        st.sidebar.caption("🟡 Local only — set DATABASE_URL for durable storage")
+
     # ------------------ MAIN SCREEN RENDER ------------------
     st.markdown("<div class='glow-title'>AI Analytics Copilot</div>", unsafe_allow_html=True)
     st.markdown("<p class='hero-sub'>Ask questions about your data in plain English and get clear answers, charts, and recommendations in seconds — no formulas or code required.</p>", unsafe_allow_html=True)
