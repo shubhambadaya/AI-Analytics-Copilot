@@ -939,20 +939,22 @@ def main():
                 <div class="step-card"><div class="step-num">1</div><h4>You ask</h4>
                     <p>Type a business question in plain English.</p></div>
                 <div class="step-card"><div class="step-num">2</div><h4>It checks what it needs</h4>
-                    <p>If a key term (like “ARPU”) isn’t defined in your data or dictionary, it asks you first instead of guessing.</p></div>
-                <div class="step-card"><div class="step-num">3</div><h4>It shares a plan</h4>
-                    <p>For deeper questions it lays out its approach and assumptions before starting.</p></div>
+                    <p>If a key term (like “ARPU”) isn’t defined in your data or dictionary, it asks you first — and only asks things your data can actually answer.</p></div>
+                <div class="step-card"><div class="step-num">3</div><h4>It plans the approach</h4>
+                    <p>For deeper questions it shares its plan and assumptions, then investigates step by step. “Who should we…” questions train a prediction model.</p></div>
             </div>
             <div class="step-grid" style="margin-top:16px;">
                 <div class="step-card"><div class="step-num">4</div><h4>It calculates exactly</h4>
-                    <p>It writes and runs real code on your data, so every number is computed — never made up.</p></div>
-                <div class="step-card"><div class="step-num">5</div><h4>It digs deeper if needed</h4>
-                    <p>Open-ended goals are explored step by step; “who should we…” questions train a prediction model.</p></div>
+                    <p>It writes and runs real code on your data in a secure sandbox, so every number is computed — never made up.</p></div>
+                <div class="step-card"><div class="step-num">5</div><h4>It checks its own work</h4>
+                    <p>It verifies the result actually answers your question, then reviews every claim against the evidence and flags what isn’t statistically significant.</p></div>
                 <div class="step-card"><div class="step-num">6</div><h4>You get the answer</h4>
-                    <p>A clear answer, charts, key insights, and recommendations — all backed by the data.</p></div>
+                    <p>A clear answer, charts, and key insights — with recommendations when you ask for them, and an honest confidence level.</p></div>
             </div>
             <div class="trust-row">
                 <span class="trust-pill">✅ Every number is computed from your data, not guessed</span>
+                <span class="trust-pill">🧐 It checks its own answers before you see them</span>
+                <span class="trust-pill">🧠 It remembers the rules you teach it</span>
             </div>
             """,
             unsafe_allow_html=True,
@@ -971,24 +973,27 @@ def main():
     Router{"Router classifies the question"}:::llm
     User --> Ctx --> Router
 
-    Router -->|teaching a rule| Learn["Save to Knowledge Base"]:::engine
+    Router -->|teaching a rule| Learn["Save to memory<br>(durable store)"]:::engine
     Router -->|simple| Fast["Fast Agent writes code<br>(reuses cache if seen before)"]:::fast
     Router -->|deep / why-how| Scope["Scope and Clarify<br>ask only if a term is undefined"]:::llm
     Router -->|predict / who| ML["ML Agent defines target and features"]:::pred
 
     Scope -->|needs input| Ask["Pause and ask you"]:::ui
     Scope -->|clear| Plan["Strategic plan and assumptions shared"]:::llm
-    Plan --> Loop["Investigation loop:<br>step, run, reflect"]:::llm
+    Plan --> Loop["Investigation loop:<br>step, run, reflect (capped)"]:::llm
 
     Fast --> Sandbox
     Loop --> Sandbox
     ML --> MLE["Train model<br>Random Forest"]:::engine
 
-    Sandbox["Sandboxed math<br>exact, never guessed"]:::engine --> SV["Stats and charts"]:::llm
-    SV --> Insight["Insight Agent<br>plain-English findings"]:::llm
+    Sandbox["Sandboxed math<br>exact, never guessed"]:::engine --> Verify{"Correctness check<br>does it answer the question?"}:::llm
+    Verify -->|off-target| Fast
+    Verify -->|good| SV["Stats and charts"]:::llm
+    SV --> Insight["Insight Agent<br>findings tied to statistics"]:::llm
     MLE --> Insight
-    Insight --> Rec["Recommendations<br>grounded in the numbers"]:::llm
-    Rec --> UI["Answer, charts and advice"]:::ui
+    Insight --> Critic["Self-review<br>claims vs evidence, flag significance"]:::llm
+    Critic --> Rec["Recommendations<br>only when you ask"]:::llm
+    Rec --> UI["Answer, charts, honest confidence"]:::ui
     Learn --> UI"""
             try:
                 import base64
