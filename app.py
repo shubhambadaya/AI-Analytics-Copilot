@@ -18,6 +18,7 @@ import plotly.graph_objects as go
 
 from src.utils.logger import get_logger
 from src.utils.config import config
+from src.utils.query_log import query_log_store
 from src.context.manager import context_manager
 from src.context.builder import context_builder
 from src.metadata.extractor import profile_dataframe
@@ -400,6 +401,23 @@ def main():
         st.session_state.active_dataset = None
         st.rerun()
 
+    # Global question log — export every question asked in the app. Persists across
+    # sessions/redeploys when DATABASE_URL is configured; local JSON otherwise.
+    _log_records = query_log_store.get_all()
+    if _log_records:
+        _log_df = pd.DataFrame(_log_records)
+        if "timestamp" in _log_df.columns:
+            _log_df.insert(0, "asked_at", pd.to_datetime(_log_df["timestamp"], unit="s"))
+            _log_df = _log_df.drop(columns=["timestamp"])
+        st.sidebar.download_button(
+            label=f"📜 Download question log ({len(_log_records)})",
+            data=_log_df.to_csv(index=False).encode("utf-8"),
+            file_name="question_log.csv",
+            mime="text/csv",
+            use_container_width=True,
+            help="Export every question asked in the app as a CSV.",
+        )
+
     # ------------------ MAIN SCREEN RENDER ------------------
     st.markdown("<div class='glow-title'>AI Analytics Copilot</div>", unsafe_allow_html=True)
     st.markdown("<p class='hero-sub'>Ask questions about your data in plain English and get clear answers, charts, and recommendations in seconds — no formulas or code required.</p>", unsafe_allow_html=True)
@@ -612,6 +630,13 @@ def main():
                 effective_query = user_query
 
             st.session_state.history[active_dataset].append({"role": "user", "content": user_query})
+            # Persist the asked question to the global (cross-session) query log.
+            try:
+                query_log_store.log_question(
+                    user_query, dataset=active_dataset, provider=st.session_state.selected_provider or ""
+                )
+            except Exception as _e:
+                logger.warning(f"Failed to log question: {_e}")
             st.markdown(f"<div class='chat-bubble-user'>🧑‍💻 <b>You:</b><br>{user_query}</div>", unsafe_allow_html=True)
 
             # Synthesize consolidated multi-table LLM context profile
