@@ -261,6 +261,56 @@ def init_session_state():
         st.session_state.selected_provider = None
     if "pending_clarification" not in st.session_state:
         st.session_state.pending_clarification = {}
+    if "clarification_reply" not in st.session_state:
+        st.session_state.clarification_reply = {}
+
+
+@st.dialog("🔎 Quick check before I run the analysis")
+def clarification_dialog(dataset_name: str):
+    """Modal window for answering the Copilot's clarifying questions, kept
+    separate from the main chat input so a clarification reply can't be
+    confused with a brand-new question. The reply is queued in session state
+    and picked up by the submit handler on the next run."""
+    pending = st.session_state.pending_clarification.get(dataset_name)
+    if not pending:
+        return
+
+    if pending.get("approach"):
+        st.markdown(pending["approach"])
+    st.markdown("**Before I dig in, a quick check so I don't assume:**")
+    for q in pending.get("questions", []):
+        st.markdown(f"- {q}")
+    if pending.get("assumptions"):
+        st.markdown("_If you'd rather not answer, I can proceed with these assumptions:_")
+        for a in pending["assumptions"]:
+            st.markdown(f"- {a}")
+
+    answer = st.text_area(
+        "Your answer",
+        key=f"clarification_answer_{dataset_name}",
+        placeholder="e.g. By 'active' I mean users with at least one session in the last 30 days",
+    )
+
+    def _queue_reply(display_text: str, clarification: str):
+        st.session_state.clarification_reply[dataset_name] = {
+            "display_text": display_text,
+            "effective_query": f"{pending['original_query']}\n\n[Stakeholder clarification: {clarification}]",
+        }
+        st.session_state.pending_clarification.pop(dataset_name, None)
+        st.rerun()
+
+    col_submit, col_assume = st.columns(2)
+    if col_submit.button("Submit answer", type="primary", use_container_width=True):
+        if answer.strip():
+            _queue_reply(answer.strip(), answer.strip())
+        else:
+            st.warning("Please type an answer first, or proceed with the assumptions.")
+    if pending.get("assumptions") and col_assume.button("Proceed with assumptions", use_container_width=True):
+        _queue_reply("Proceed with your stated assumptions.", "proceed with your stated assumptions.")
+    if st.button("Cancel — I'll ask a different question", use_container_width=True):
+        st.session_state.pending_clarification.pop(dataset_name, None)
+        st.rerun()
+
 
 def main():
     st.set_page_config(
@@ -618,28 +668,37 @@ def main():
                                 st.markdown(f"- {evidence}")
                 st.markdown("<hr style='margin:16px 0; border:0; border-top:1px solid #E5E7EB;'>", unsafe_allow_html=True)
 
+        # If the Copilot is waiting on clarification, collect the answer in a
+        # separate modal window rather than through the main question input.
+        if st.session_state.pending_clarification.get(active_dataset):
+            clarification_dialog(active_dataset)
+
         # Input Form
         query_form = st.form(key="business_query_form")
         user_query = query_form.text_input("Your question", placeholder=f"e.g. Which segments drive the most revenue in {active_dataset}?", key="query_input")
         submit_query = query_form.form_submit_button("Get answer", use_container_width=True)
 
-        if submit_query and user_query:
-            # If the Copilot previously asked for clarification, treat this reply as
-            # the answer and fold it back into the original question.
-            pending = st.session_state.pending_clarification.pop(active_dataset, None)
-            if pending:
-                effective_query = f"{pending['original_query']}\n\n[Stakeholder clarification: {user_query}]"
+        # A clarification answered in the modal arrives as a queued reply rather
+        # than through the input form.
+        clar_reply = st.session_state.clarification_reply.pop(active_dataset, None)
+
+        if (submit_query and user_query) or clar_reply:
+            if clar_reply:
+                user_query = clar_reply["display_text"]
+                effective_query = clar_reply["effective_query"]
             else:
                 effective_query = user_query
 
             st.session_state.history[active_dataset].append({"role": "user", "content": user_query})
-            # Persist the asked question to the global (cross-session) query log.
-            try:
-                query_log_store.log_question(
-                    user_query, dataset=active_dataset, provider=st.session_state.selected_provider or ""
-                )
-            except Exception as _e:
-                logger.warning(f"Failed to log question: {_e}")
+            # Persist freshly asked questions (not clarification replies) to the
+            # global (cross-session) query log.
+            if not clar_reply:
+                try:
+                    query_log_store.log_question(
+                        user_query, dataset=active_dataset, provider=st.session_state.selected_provider or ""
+                    )
+                except Exception as _e:
+                    logger.warning(f"Failed to log question: {_e}")
             st.markdown(f"<div class='chat-bubble-user'>🧑‍💻 <b>You:</b><br>{user_query}</div>", unsafe_allow_html=True)
 
             # Synthesize consolidated multi-table LLM context profile
@@ -672,7 +731,9 @@ def main():
                     final_result = {"success": False, "error": state.get("content")}
                     break
                 elif state["status"] == "clarify":
-                    # The Copilot needs input before assuming — present questions and pause.
+                    # The Copilot needs input before assuming — record the questions
+                    # and pause; a separate clarification window opens on the next
+                    # render to collect the answer.
                     qs = state.get("questions", [])
                     assumptions = state.get("assumptions", [])
                     approach = state.get("approach", "")
@@ -685,7 +746,7 @@ def main():
                     )
                     if assumptions:
                         parts.append(
-                            "_Otherwise I'll proceed with these assumptions — just reply to confirm or correct:_\n"
+                            "_Otherwise I'll proceed with these assumptions:_\n"
                             + "\n".join(f"- {a}" for a in assumptions)
                         )
                     clar_msg = "\n\n".join(parts)
@@ -694,7 +755,12 @@ def main():
                         "query": user_query, "content": clar_msg, "direct_answer": clar_msg,
                         "has_chart": False, "has_table": False,
                     }
-                    st.session_state.pending_clarification[active_dataset] = {"original_query": effective_query}
+                    st.session_state.pending_clarification[active_dataset] = {
+                        "original_query": effective_query,
+                        "questions": qs,
+                        "assumptions": assumptions,
+                        "approach": approach,
+                    }
                     break
                 else:
                     # Intermediate Status Update
