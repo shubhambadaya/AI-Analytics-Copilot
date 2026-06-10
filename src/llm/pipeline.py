@@ -581,17 +581,16 @@ def _run_complex_path(
             confidence_score=final_confidence
         )
 
-    class MockInterpretation:
-        pass
-    mock_interp = MockInterpretation()
-    mock_interp.direct_answer = final_answer
-    mock_interp.insights = insight_plan.insights
-    mock_interp.recommendations = recommendations
-    mock_interp.confidence_score = final_confidence
-    mock_interp.statistical_backing = insight_plan.statistical_backing
+    interp = SimpleNamespace(
+        direct_answer=final_answer,
+        insights=insight_plan.insights,
+        recommendations=recommendations,
+        confidence_score=final_confidence,
+        statistical_backing=insight_plan.statistical_backing,
+    )
 
     package = _build_final_package(
-        query, mock_interp, memory_buffer, rendered_charts, primary_df, agent_type="complex"
+        query, interp, memory_buffer, rendered_charts, primary_df, agent_type="complex"
     )
     # Persist the analyst plan so the stakeholder sees how it was approached.
     package["approach"] = analyst_approach
@@ -673,17 +672,16 @@ def _run_predictive_path(
     if "key_factors" in result_df.columns and len(result_df):
         statistical_backing.append(str(result_df["key_factors"].iloc[0]))
 
-    class MockInterpretation:
-        pass
-    mock_interp = MockInterpretation()
-    mock_interp.direct_answer = insight_plan.direct_answer
-    mock_interp.insights = insight_plan.insights
-    mock_interp.recommendations = recommendations
-    mock_interp.confidence_score = insight_plan.confidence_score
-    mock_interp.statistical_backing = statistical_backing
-    
+    interp = SimpleNamespace(
+        direct_answer=insight_plan.direct_answer,
+        insights=insight_plan.insights,
+        recommendations=recommendations,
+        confidence_score=insight_plan.confidence_score,
+        statistical_backing=statistical_backing,
+    )
+
     yield {"status": "complete", "result": _build_final_package(
-        query, mock_interp, memory_buffer, [], result_df, agent_type="predictive"
+        query, interp, memory_buffer, [], result_df, agent_type="predictive"
     )}
 
 

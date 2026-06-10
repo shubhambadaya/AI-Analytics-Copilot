@@ -4,11 +4,23 @@ import traceback
 import pandas as pd
 import numpy as np
 from typing import Dict, Any, Tuple, Optional
-from src.analysis.validator import validate_pandas_code
+from src.analysis.validator import validate_pandas_code, ALLOWED_MODULES
 from src.utils.logger import get_logger
 import src.analysis.stats_engine as stats_engine
 
 logger = get_logger(__name__)
+
+
+def _coerce_to_df(res: Any) -> pd.DataFrame:
+    """Coerce an analysis result (DataFrame/Series/dict/scalar) into a DataFrame."""
+    if isinstance(res, pd.DataFrame):
+        return res
+    if isinstance(res, pd.Series):
+        return res.to_frame()
+    if isinstance(res, dict):
+        return pd.DataFrame([res])
+    return pd.DataFrame({"result_value": [res]})
+
 
 def execute_analysis(
     df: pd.DataFrame,
@@ -51,12 +63,13 @@ def execute_analysis(
     
     # 3. Build sandboxed namespace with permitted builtins
     # Provide a restricted __import__ so LLM-generated code can use
-    # `import pandas as pd` etc. Only modules approved by the AST validator pass.
-    SAFE_MODULES = {"pandas", "numpy", "datetime", "math", "scipy", "statsmodels", "stats_engine", "sklearn", "ml_engine"}
-    
+    # `import pandas as pd` etc. The validator's ALLOWED_MODULES is the single
+    # source of truth: the AST gate already blocked anything outside it, so this
+    # runtime gate enforces the same list. sklearn is intentionally NOT importable;
+    # ML code must use the pre-injected `ml_engine` module instead.
     def _safe_import(name, *args, **kwargs):
         base = name.split(".")[0]
-        if base not in SAFE_MODULES:
+        if base not in ALLOWED_MODULES:
             raise ImportError(f"Import of '{name}' is not permitted in the sandbox.")
         return __builtins__["__import__"](name, *args, **kwargs) if isinstance(__builtins__, dict) else __import__(name, *args, **kwargs)
     
@@ -124,31 +137,11 @@ def execute_analysis(
         # Extract resulting dataframe or metrics
         if "analyze" in exec_globals and callable(exec_globals["analyze"]):
             logger.info("Found analyze() function in code. Calling it...")
-            res = exec_globals["analyze"](df.copy())
-            if isinstance(res, (pd.DataFrame, pd.Series)):
-                if isinstance(res, pd.Series):
-                    result_df = res.to_frame()
-                else:
-                    result_df = res
-            else:
-                if isinstance(res, dict):
-                    result_df = pd.DataFrame([res])
-                else:
-                    result_df = pd.DataFrame({"result_value": [res]})
+            result_df = _coerce_to_df(exec_globals["analyze"](df.copy()))
         elif "result_df" in exec_globals:
             result_df = exec_globals["result_df"]
         elif "result" in exec_globals:
-            res = exec_globals["result"]
-            if isinstance(res, (pd.DataFrame, pd.Series)):
-                if isinstance(res, pd.Series):
-                    result_df = res.to_frame()
-                else:
-                    result_df = res
-            else:
-                if isinstance(res, dict):
-                    result_df = pd.DataFrame([res])
-                else:
-                    result_df = pd.DataFrame({"result_value": [res]})
+            result_df = _coerce_to_df(exec_globals["result"])
         else:
             logger.warning("No explicit 'analyze' function or 'result_df'/'result' variable found. Using the last state of 'df'")
             result_df = exec_globals["df"]
